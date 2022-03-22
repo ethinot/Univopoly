@@ -23,12 +23,18 @@ class Property {
 		unsigned int rent_2, unsigned int rent_3,
 		unsigned int rent_4, unsigned int rent_5);
 
-		unsigned int getRent() const;
+		// Getters and Setters with no logic involved
 		unsigned int getId() const;
+		unsigned int setId(unsigned int new_id);
 		unsigned int getPrice() const;
+		unsigned int setPrice(unsigned int new_price);
 		unsigned int getSellPrice() const;
+		unsigned int setSellPrice(unsigned int new_sell_price);
 		unsigned int getUpgradePrice() const;
+		unsigned int setUpgradePrice(unsigned int new_upgrade_price);
 		unsigned int getRentCount() const;
+
+		unsigned int getRent() const;
 
 		void rentUpgrade();
 		void emptyProperty();
