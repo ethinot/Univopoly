@@ -21,7 +21,6 @@ int Inventory::getNetWorth() const{
 	return total;
 }
 
-
 std::map<unsigned int, Property> Inventory::getProperties() const{return  collection;}
 bool Inventory::collectionEmpty() const{ return collection.empty();}
 
