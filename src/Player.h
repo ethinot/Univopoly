@@ -13,11 +13,9 @@ class Player{
 		unsigned int number_gare;
 
 	public:
-		Player(unsigned int id);
+		Player(unsigned int _id);
 		unsigned int getId() const;
-		void setId(unsigned int new_id);
 		unsigned int getPosition() const;
-		void setPosition(unsigned int new_position);
 		void changePostion(unsigned int how_much);
 		void transaction(unsigned int amout);
 		bool onJail() const;

@@ -2,13 +2,24 @@
 #include "Property.h"
 #include <map>
 
+
+Inventory::Inventory() : collection() {
+	wallet = 5000;
+	//collection = std::map<unsigned int, Property>();
+}
+
 Inventory::Inventory(unsigned int start_balance){
 	wallet = start_balance;
-	collection = new std::map<unsigned int, Property>;
+	collection = std::map<unsigned int, Property>();
 }
 
 
 unsigned int Inventory::getBalance() const{ return wallet;}
+
+std::ostream& operator<< (std::ostream& out, const Inventory& inventory){
+	out << inventory.getBalance() << std::endl;
+	return out;
+}
 
 void Inventory::changeBalance(unsigned int amount) {wallet += amount;}
 

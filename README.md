@@ -25,3 +25,21 @@ amphi_price = 70
 
 chier des charges: https://docs.google.com/document/d/1Tx04BSodnyN-9taTh-7YPLGrtZnKJUpzetv0hN_7pn8/edit?invite=CIGLhMAG
 
+
+
+collecition =   {
+	{3, <object property>}, {}
+
+
+
+
+id, name, price, sell_price, 
+1, braconnier, 180, 200, 4, 
+1, braconnier, 180, 200, 4, 
+1, braconnier, 180, 200, 4, 
+1, braconnier, 180, 200, 4, 
+1, braconnier, 180, 200, 4, 
+1, braconnier, 180, 200, 4, 
+1, braconnier, 180, 200, 4, 
+1, braconnier, 180, 200, 4, 
+1, braconnier, 180, 200, 4, 

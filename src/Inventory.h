@@ -1,9 +1,9 @@
 #ifndef _INVENTORY
 #define _INVENTORY
 
-
-#include "Property.h"
+#include <iostream>
 #include <map>
+#include "Property.h"
 class Inventory{
 
 	private:
@@ -11,8 +11,10 @@ class Inventory{
 		std::map<unsigned int, Property> collection;
 	
 	public:
+		Inventory();
 		Inventory(unsigned int start_balance);
 		unsigned int getBalance() const;
+		friend std::ostream& operator<< (std::ostream& out, const Inventory& inventory);
 		void changeBalance(unsigned int amount);
 		int getNetWorth() const;
 		std::map<unsigned int, Property> getProperties() const;
