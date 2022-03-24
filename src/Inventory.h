@@ -8,13 +8,11 @@ class Inventory{
 
 	private:
 		int wallet;
-		std::map<unsigned int, Property> collection;
+		std::map<unsigned int, Property&> collection;
 	
 	public:
 		// Constructer with a default balance.
 		Inventory();
-		// Constructer with a custom balance.
-		Inventory(unsigned int start_balance);
 		// returns the value in wallet (it represents the amount of money that the player have).
 		unsigned int getBalance() const;
 		friend std::ostream& operator<< (std::ostream& out, const Inventory& inventory);
@@ -23,11 +21,15 @@ class Inventory{
 		// returns wallet + the sell_price of each property (in collecition) owned by the player.
 		int getNetWorth() const;
 		// returns a map, containing respectively the id of a property and a pointer on the Property
-		std::map<unsigned int, Property> getProperties() const;
+		std::map<unsigned int, Property&> getProperties() const;
 		bool collectionEmpty() const;
+
+		Property& getProperty(unsigned int property_id);
 		void addProperty(unsigned int property_id, Property& new_property);
 		void removeProperty(unsigned int property_id);
 
 };
 
+
 #endif
+

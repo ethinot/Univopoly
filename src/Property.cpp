@@ -1,5 +1,5 @@
 #include "Property.h"
-#include <string>
+
 
 
 Property::Property(std::string new_name, unsigned int new_id, char new_price, unsigned int new_sell_price, 
@@ -17,18 +17,11 @@ Property::Property(std::string new_name, unsigned int new_id, char new_price, un
 	rent[2] = rent_2; rent[3] = rent_3;
 	rent[4] = rent_4; rent[5] = rent_5;
 	rent_count = 0;
-
+	owner = -1;
 }
 
-unsigned int Property::getId() const { return id;}
-unsigned int Property::getPrice() const { return price;}
-unsigned int Property::getSellPrice() const {return sell_price; }
-unsigned int Property::getBuildPrice() const { return build_price;}
-unsigned int Property::getRentCount() const { return rent_count;}
-
-
-unsigned int Property::getRent() const {
-    return rent[rent_count];}
+unsigned int Property::getRent() const{return rent[rent_count];}
+unsigned int Property::getBuildPrice() const{return build_price;}
 
 void Property::rentUpgrade(){
 	sell_price += 0.3 * build_price;
