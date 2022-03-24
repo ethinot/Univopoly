@@ -21,7 +21,7 @@ std::ostream& operator<< (std::ostream& out, const Inventory& inventory){
 	return out;
 }
 
-void Inventory::changeBalance(unsigned int amount) {wallet += amount;}
+void Inventory::changeBalance(int amount) {wallet += amount;}
 
 int Inventory::getNetWorth() const{
 	int total = wallet;
