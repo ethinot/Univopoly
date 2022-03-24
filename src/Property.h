@@ -1,9 +1,9 @@
 #ifndef _PROPERTY
 #define _PROPERY
 
-#include "Gare.h"
+#include "Tile.h"
 
-class Property : protected Gare{
+class Property :  public Tile{
 
 	private:
 		unsigned int build_price;
