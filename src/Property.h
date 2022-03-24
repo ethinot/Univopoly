@@ -15,6 +15,7 @@ class Property {
 		unsigned int build_price;
 		unsigned int * rent;
 		unsigned int rent_count;
+		int owner;
 
 	public:
 
@@ -28,10 +29,8 @@ class Property {
 		unsigned int getPrice() const; // reenvoie le prix de la Propriete
 		unsigned int getSellPrice() const; // reenvoie le prix de vente de la Propriete
 		unsigned int getBuildPrice() const;
-		unsigned int getRentCount() const;
-
 		unsigned int getRent() const;
-
+		
 		void rentUpgrade();
 		void emptyProperty();
 
