@@ -1,6 +1,7 @@
 bin/*
 obj/*
 misc/*
+doc/html/*
 .DS_Store
 .vscode/*
-./UML_Univopoly.drawio
+UML_Univopoly.drawio

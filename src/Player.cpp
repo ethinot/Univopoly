@@ -24,12 +24,16 @@ void Player::plusGare() {number_gare ++;}
 void Player::minusGare() {number_gare --;}
 unsigned int Player::getGareCount() const{return number_gare;}
 
-void Player::buyProperty(unsigned int property_id, Property &property){
-	transaction(- (property.getPrice()));
+Property* Player::getProperty(unsigned int property_id) { 
+	return goods.getProperty(property_id);
+}
+
+void Player::buyProperty(unsigned int property_id, Property *property){
+	transaction(- (property->getPrice()));
 	goods.addProperty(property_id, property);
 }
 
 void Player::sellProperty(unsigned int property_id){
-	transaction(goods.getProperty(property_id).getSellPrice());
+	transaction(goods.getProperty(property_id)->getSellPrice());
 	goods.removeProperty(property_id);
 }

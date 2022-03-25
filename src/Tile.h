@@ -16,6 +16,7 @@ class Tile {
 	public:
 
 		unsigned int getId() const;
+		std::string getName() const;
 		unsigned int getPrice() const;
 		unsigned int getSellPrice() const; 
 		int getOwner() const;

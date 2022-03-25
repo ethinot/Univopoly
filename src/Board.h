@@ -1,17 +1,13 @@
 #ifndef _BOARD
 #define _BOARD
 
-#include <map>
-#include "Property.h"
-#include "Gare.h"
+
+#include "Tile.h"
+#include <vector>
 
 
 class Board{
-
-	private:
-		std::map<unsigned int, Property> properties;
-		std::map<unsigned int, Gare> properties;
-		std::map<unsigned int, std::string> properties;
+	std::vector<Tile *> game_board;
 };
 
 

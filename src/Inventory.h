@@ -8,7 +8,7 @@ class Inventory{
 
 	private:
 		int wallet;
-		std::map<unsigned int, Property&> collection;
+		std::map<unsigned int, Property*> collection;
 	
 	public:
 		// Constructer with a default balance.
@@ -21,13 +21,12 @@ class Inventory{
 		// returns wallet + the sell_price of each property (in collecition) owned by the player.
 		int getNetWorth() const;
 		// returns a map, containing respectively the id of a property and a pointer on the Property
-		std::map<unsigned int, Property&> getProperties() const;
+		std::map<unsigned int, Property*> getProperties() const;
 		bool collectionEmpty() const;
 
-		Property& getProperty(unsigned int property_id);
-		void addProperty(unsigned int property_id, Property& new_property);
+		Property* getProperty(unsigned int property_id);
+		void addProperty(unsigned int property_id, Property* new_property);
 		void removeProperty(unsigned int property_id);
-
 };
 
 

@@ -2,7 +2,7 @@
 
 
 
-Property::Property(std::string new_name, unsigned int new_id, char new_price, unsigned int new_sell_price, 
+Property::Property(std::string new_name, unsigned int new_id, unsigned int new_price, unsigned int new_sell_price, 
 					unsigned int new_build_price, unsigned int rent_0, unsigned int rent_1,
 					unsigned int rent_2, unsigned int rent_3,
 					unsigned int rent_4, unsigned int rent_5){
