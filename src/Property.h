@@ -1,5 +1,5 @@
 #ifndef _PROPERTY
-#define _PROPERY
+#define _PROPERTY
 
 #include "Tile.h"
 
@@ -12,7 +12,7 @@ class Property :  public Tile{
 		int owner;
 
 	public:
-		Property(std::string name, unsigned int id, char price, unsigned int sell_price, 
+		Property(std::string name, unsigned int id, unsigned int price, unsigned int sell_price, 
 		unsigned int new_build_price, unsigned int rent_0, 
 		unsigned int rent_1, unsigned int rent_2, unsigned int rent_3,
 		unsigned int rent_4, unsigned int rent_5);

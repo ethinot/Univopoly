@@ -1,5 +1,5 @@
-#ifndef _PROPERTY
-#define _PROPERTY
+#ifndef _GARE
+#define _GARE
 
 #include "Tile.h"
 

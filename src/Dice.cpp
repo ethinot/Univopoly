@@ -4,7 +4,7 @@
 #include <assert.h>
 
 
-Dice::Dice(){ values = new unsigned int [2];}
+Dice::Dice(){ values = new unsigned int[2];}
 
 Dice::~Dice(){
 	delete [] values;

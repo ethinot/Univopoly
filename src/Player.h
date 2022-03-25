@@ -23,7 +23,8 @@ class Player{
 		void plusGare();
 		void minusGare();
 		unsigned int getGareCount() const;
-		void buyProperty(unsigned int property_id, Property& property);
+		Property* getProperty(unsigned int property_id);
+		void buyProperty(unsigned int property_id, Property* property);
 		void sellProperty(unsigned int property_id);
 
 
