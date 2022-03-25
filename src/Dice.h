@@ -52,7 +52,7 @@ public:
 	* @brief Procédure qui effectue le teste de regression du module Dice
 	* Procédure regressionTestDice -> Test si les fonctions membres du module Dice fonctionnes correctement.
 	*/
-	void regressionTestDice()
+	void regressionTestDice();
 };
 
 #endif
