@@ -1,22 +1,19 @@
-#include "Board.h"
-#include "Dice.h"
-#include "Gare.h"
-#include "Inventory.h"
-#include "Player.h"
-#include "Property.h"
-#include "Tile.h"
-#include <time.h> 
-
+#include "Game.h"
 #include <iostream>
 using namespace std;
 
-int main(){
+int main(int argc, char ** argv){
+    
     cout<<"**************************************************"<endl;
     cout<<"**       Bienvenue dans le jeu UNIVOPOLY        **"<endl;
     cout<<"****                                         *****"<endl;
     cout<<"**************************************************"<endl;
     cout<<"**************************************************"<endl;
     cout<<"**************************************************"<endl;
+    
+    Game game;
+
+    
 
     return 0;
 }
