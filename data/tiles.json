@@ -1,5 +1,5 @@
 {
-	"size": {"property":10, "gare": 4},
+	"size": {"property":22, "gare": 4},
 
 	"property" : {
 		"1": { "name": "Braconnier", "price": 60, "sell_price": 30, "build_price": 50, "0": 2, "1": 10, "2": 30, "3": 90, "4": 160, "5": 250},
