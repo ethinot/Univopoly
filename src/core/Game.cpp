@@ -1,7 +1,6 @@
 #include "Game.h"
 #include "Player.h"
 
-
 Game::Game(int new_total_player) : board_game("data/tiles.json"){
 
 	total_player = total_player;
@@ -9,7 +8,6 @@ Game::Game(int new_total_player) : board_game("data/tiles.json"){
 	for (unsigned char i = 0; i < total_player; i++){
 		Players[i] = new Player(i);
 	}
-
 }
 
 Game::~Game() {
