@@ -10,21 +10,19 @@ class Game{
 
 	private:
 		Board board_game;
-		Player * Players;
+		Player * *Players;
 		int total_player;
 		Dice dice;
 
 	public:
-		Game();
+		Game(int total_player);
+		Game(int total_player, std::string filename);
 		~Game();
 		int checkWinner();
 		int rollDice();
 		bool checkDouble();
 		int buyTile();
 		int sellTile(unsigned int property_id);
-
-
-
 };
 
 #endif

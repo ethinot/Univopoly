@@ -1,6 +1,6 @@
 #include "Tile.h"
 
-unsigned int Tile::getId() const{ return id;}
+unsigned char Tile::getId() const{ return id;}
 
 std::string Tile::getName() const{return name;};
 
@@ -12,6 +12,6 @@ void Tile::sold() {owner = -1;}
 
 void Tile::bought(unsigned int buyer_id) {owner = buyer_id;}
 
-void Tile:regressionTestTile() {
+void Tile::regressionTestTile() {
     
 }

@@ -11,9 +11,11 @@ int main(int argc, char ** argv){
     cout<<"**************************************************"<endl;
     cout<<"**************************************************"<endl;
     
-    Game game;
 
-    
+    cout<<"Salut, on joue à combien ?"<<endl;
+    cin>>;
+    Game game();
+
 
     return 0;
 }

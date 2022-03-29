@@ -72,7 +72,7 @@ public:
 	* @brief Procédure qui effectue le teste de regression du module Tile
 	* Procédure regressionTestTile -> Test si les fonctions membres du module Tile fonctionnes correctement.
 	*/
-	void regressionTestDice();
+	void regressionTestTile();
 };
 
 #endif
