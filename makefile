@@ -2,7 +2,7 @@ CCOPTIONS	= -Wall -g
 CC			= g++ $(CCOPTIONS) 
 OBJ			= obj/Board.o obj/Dice.o obj/Game.o obj/Gare.o obj/Inventory.o obj/Player.o obj/Property.o obj/Tile.o
 HEADERS		= src/core/Board.h src/core/Dice.h src/core/Game.h src/core/Gare.h src/core/Inventory.h src/core/Player.h src/core/Property.h src/core/Tile.cpp
-
+INC			= -std=c++11
 
 all: bin/test
 
@@ -19,16 +19,13 @@ obj/Dice.o: src/core/Dice.h src/core/Dice.cpp
 bin/test2: obj/test2.o $(OBJ)
 	$(CC) obj/test2.o $(OBJ) -o bin/test2
 
-obj/test2.o: src/core/test.cpp $(HEADERS)
-	$(CC) -c src/core/test.cpp -o obj/test2.o
+obj/test2.o: src/test.cpp $(HEADERS)
+	$(CC) -c src/test.cpp -o obj/test2.o
 
 obj/Board.o: src/core/Board.h src/core/Board.cpp src/core/Tile.h
 	$(CC) -c src/core/Board.cpp -o obj/Board.o
 
-obj/Dice.o: src/core/Dice.h src/core/Dice.cpp
-	$(CC) -c src/core/Dice.cpp -o obj/Dice.o
-
-obj/Game.o: src/core/Game.h src/Game.cpp
+obj/Game.o: src/core/Game.h src/core/Game.cpp
 	$(CC) -c src/core/Game.cpp -o obj/Game.o
 
 obj/Gare.o: src/core/Gare.h src/core/Gare.cpp src/core/Tile.h
