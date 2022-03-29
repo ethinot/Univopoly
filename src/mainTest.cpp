@@ -1,6 +1,7 @@
 #include "Dice.h"
 #include <time.h> 
 #include <stdlib.h>
+#include "Board.h"
 
 int main() {
     
