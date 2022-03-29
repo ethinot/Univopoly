@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
 	"size": [{"property":10}, {"gare": 4}, {"special": 3}],
+=======
+	"size": {"property":22, "gare": 4},
+>>>>>>> 9efe02f88a83e6e4deb0a269401335b34a969d4b
 
 	"property" : [
 		{ "id": 1, "name": "Braconnier", "price": 60, "sell_price": 30, "build_price": 50, "0": 2, "1": 10, "2": 30, "3": 90, "4": 160, "5": 250},
