@@ -17,7 +17,17 @@ Player::Player(unsigned int new_id){
 
 unsigned int Player::getId() const{ return id;}
 unsigned int Player::getPosition() const{ return position;}
-void Player::changePostion(unsigned int how_much) {position += position;}
+
+void Player::changePostion(unsigned int how_much) {
+	unsigned int avancement = 0;
+	if ((position + how_much) > 39){
+		avancement = (position + how_much) - 39;
+		position = avancement - 1; // décallage de -1 car la case départ est la casse 0
+	}
+	else {
+		position += how_much;
+	}
+}
 
 void Player::transaction(unsigned int amount){
 	goods.changeBalance(amount);

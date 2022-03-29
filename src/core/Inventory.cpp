@@ -4,7 +4,7 @@
 
 
 Inventory::Inventory() : collection() {
-	wallet = 5000;
+	wallet = 1500;
 	//collection = std::map<unsigned int, Property>();
 }
 
