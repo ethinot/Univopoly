@@ -13,6 +13,7 @@ class Player{
 		unsigned int number_gare;
 
 	public:
+		Player();
 		Player(unsigned int _id);
 		unsigned int getId() const;
 		unsigned int getPosition() const;

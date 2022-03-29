@@ -1,42 +1,44 @@
 {
-	"size": {"property":10, "gare": 4},
+	"size": {"property":10, "gare": 4, "special": 3},
 
 	"property" : {
-		"1": { "name": "Braconnier", "price": 60, "sell_price": 30, "build_price": 50, "0": 2, "1": 10, "2": 30, "3": 90, "4": 160, "5": 250},
-		"2": { "name": "Darwin", "price": 60, "sell_price": 30, "build_price": 50, "0": 4, "1": 20, "2": 60, "3": 180, "4": 320, "5": 450},
+		"1": { "id": 1, "name": "Braconnier", "price": 60, "sell_price": 30, "build_price": 50, "0": 2, "1": 10, "2": 30, "3": 90, "4": 160, "5": 250},
+		"2": { "id": 3, "name": "Darwin", "price": 60, "sell_price": 30, "build_price": 50, "0": 4, "1": 20, "2": 60, "3": 180, "4": 320, "5": 450},
 
-		"3": { "name": "Gouy", "price": 100, "sell_price": 50, "build_price": 50, "0": 6, "1": 30, "2": 90, "3": 270, "4": 400, "5": 550},
-		"4": { "name": "Lippmann", "price": 100, "sell_price": 50, "build_price": 50, "0": 6, "1": 30, "2": 90, "3": 270, "4": 400, "5": 550},
-		"5": { "name": "Ampere", "price": 120, "sell_price": 60, "build_price": 50, "0": 8, "1": 40, "2": 100, "3": 300, "4": 450, "5": 600},
+		"3": { "id": 6, "name": "Gouy", "price": 100, "sell_price": 50, "build_price": 50, "0": 6, "1": 30, "2": 90, "3": 270, "4": 400, "5": 550},
+		"4": { "id": 8, "name": "Lippmann", "price": 100, "sell_price": 50, "build_price": 50, "0": 6, "1": 30, "2": 90, "3": 270, "4": 400, "5": 550},
+		"5": { "id": 9, "name": "Ampere", "price": 120, "sell_price": 60, "build_price": 50, "0": 8, "1": 40, "2": 100, "3": 300, "4": 450, "5": 600},
 		
-		"6": { "name": "Polytech", "price": 140, "sell_price": 70, "build_price": 100, "0": 10, "1": 50, "2": 150, "3": 450, "4": 625, "5": 750},
-		"7": { "name": "SUAPS HallTennis", "price": 140, "sell_price": 70, "build_price": 100, "0": 10, "1": 50, "2": 150, "3": 450, "4": 625, "5": 750},
-		"8": { "name": "SUAPS Complexe", "price": 160, "sell_price": 80, "build_price": 100, "0": 12, "1": 60, "2": 180, "3": 500, "4": 700, "5": 900},
+		"6": { "id": 11, "name": "Polytech", "price": 140, "sell_price": 70, "build_price": 100, "0": 10, "1": 50, "2": 150, "3": 450, "4": 625, "5": 750},
+		"7": { "id": 13, "name": "SUAPS HallTennis", "price": 140, "sell_price": 70, "build_price": 100, "0": 10, "1": 50, "2": 150, "3": 450, "4": 625, "5": 750},
+		"8": { "id": 14, "name": "SUAPS Complexe", "price": 160, "sell_price": 80, "build_price": 100, "0": 12, "1": 60, "2": 180, "3": 500, "4": 700, "5": 900},
 		
-		"9": { "name": "Forel", "price": 180, "sell_price": 90, "build_price": 100, "0": 14, "1": 70, "2": 200, "3": 550, "4": 700, "5": 900},
-		"10": { "name": "Ariane", "price": 180, "sell_price": 90, "build_price": 100, "0": 14, "1": 70, "2": 200, "3": 550, "4": 700, "5": 950},
-		"11": { "name": "Marie-Curie", "price": 200, "sell_price": 100, "build_price": 100, "0": 16, "1": 80, "2": 220, "3": 600, "4": 800, "5": 1000},
+		"9": { "id": 16, "name": "Forel", "price": 180, "sell_price": 90, "build_price": 100, "0": 14, "1": 70, "2": 200, "3": 550, "4": 700, "5": 900},
+		"10": { "id": 18, "name": "Ariane", "price": 180, "sell_price": 90, "build_price": 100, "0": 14, "1": 70, "2": 200, "3": 550, "4": 700, "5": 950},
+		"11": { "id": 19, "name": "Marie-Curie", "price": 200, "sell_price": 100, "build_price": 100, "0": 16, "1": 80, "2": 220, "3": 600, "4": 800, "5": 1000},
 		
-		"12": { "name": "Berthollet", "price": 220, "sell_price": 110, "build_price": 150, "0": 18, "1": 90, "2": 250, "3": 700, "4": 875, "5": 1050},
-		"13": { "name": "Omega", "price": 220, "sell_price": 110, "build_price": 150, "0": 18, "1": 90, "2": 250, "3": 700, "4": 875, "5": 1050},
-		"14": { "name": "Quai 43", "price": 140, "sell_price": 120, "build_price": 150, "0": 20, "1": 100, "2": 300, "3": 750, "4": 925, "5": 1100},
+		"12": { "id": 21, "name": "Berthollet", "price": 220, "sell_price": 110, "build_price": 150, "0": 18, "1": 90, "2": 250, "3": 700, "4": 875, "5": 1050},
+		"13": { "id": 23, "name": "Omega", "price": 220, "sell_price": 110, "build_price": 150, "0": 18, "1": 90, "2": 250, "3": 700, "4": 875, "5": 1050},
+		"14": { "id": 24, "name": "Quai 43", "price": 140, "sell_price": 120, "build_price": 150, "0": 20, "1": 100, "2": 300, "3": 750, "4": 925, "5": 1100},
 		
-		"15": { "name": "Deambu 2", "price": 260, "sell_price": 130, "build_price": 150, "0": 22, "1": 110, "2": 330, "3": 800, "4": 975, "5": 1150},
-		"16": { "name": "Deambu 3", "price": 260, "sell_price": 130, "build_price": 150, "0": 22, "1": 110, "2": 330, "3": 800, "4": 975, "5": 1150},
-		"17": { "name": "Deambu 4", "price": 280, "sell_price": 140, "build_price": 150, "0": 24, "1": 120, "2": 360, "3": 850, "4": 1025, "5": 1200},
+		"15": { "id": 26, "name": "Deambu 2", "price": 260, "sell_price": 130, "build_price": 150, "0": 22, "1": 110, "2": 330, "3": 800, "4": 975, "5": 1150},
+		"16": { "id": 27, "name": "Deambu 3", "price": 260, "sell_price": 130, "build_price": 150, "0": 22, "1": 110, "2": 330, "3": 800, "4": 975, "5": 1150},
+		"17": { "id": 29, "name": "Deambu 4", "price": 280, "sell_price": 140, "build_price": 150, "0": 24, "1": 120, "2": 360, "3": 850, "4": 1025, "5": 1200},
 		
-		"18": { "name": "Grignard", "price": 300, "sell_price": 150, "build_price": 200, "0": 26, "1": 130, "2": 390, "3": 900, "4": 1100, "5": 1275},
-		"19": { "name": "Astree", "price": 300, "sell_price": 150, "build_price": 200, "0": 26, "1": 130, "2": 390, "3": 900, "4": 1100, "5": 1275},
-		"20": { "name": "Themis", "price": 320, "sell_price": 160, "build_price": 200, "0": 28, "1": 150, "2": 450, "3": 1000, "4": 1200, "5": 1400},
+		"18": { "id": 31, "name": "Grignard", "price": 300, "sell_price": 150, "build_price": 200, "0": 26, "1": 130, "2": 390, "3": 900, "4": 1100, "5": 1275},
+		"19": { "id": 32, "name": "Astree", "price": 300, "sell_price": 150, "build_price": 200, "0": 26, "1": 130, "2": 390, "3": 900, "4": 1100, "5": 1275},
+		"20": { "id": 34, "name": "Themis", "price": 320, "sell_price": 160, "build_price": 200, "0": 28, "1": 150, "2": 450, "3": 1000, "4": 1200, "5": 1400},
 		
-		"21": { "name": "Nautibus Ext", "price": 350, "sell_price": 175, "build_price": 200, "0": 35, "1": 175, "2": 500, "3": 1100, "4": 1300, "5": 1500},
-		"22": { "name": "Nautibus", "price": 400, "sell_price": 200, "build_price": 200, "0": 50, "1": 200, "2": 600, "3": 1400, "4": 1700, "5": 2000}
+		"21": { "id": 37, "name": "Nautibus Ext", "price": 350, "sell_price": 175, "build_price": 200, "0": 35, "1": 175, "2": 500, "3": 1100, "4": 1300, "5": 1500},
+		"22": { "id": 39, "name": "Nautibus", "price": 400, "sell_price": 200, "build_price": 200, "0": 50, "1": 200, "2": 600, "3": 1400, "4": 1700, "5": 2000}
 	},
 
 	"gare" : {
-		"1": { "name": "Condorcet", "price": 200, "sell_price": 100},
-		"2": { "name": "Universite Lyon 1", "price": 200, "sell_price": 100},
-		"3": { "name": "Gaston Berger", "price": 200, "sell_price": 100},
-		"4": { "name": "INSA Einstein", "price": 200, "sell_price": 100}
-	}
+		"1": { "id": 5, "name": "Condorcet", "price": 200, "sell_price": 100},
+		"2": { "id": 15, "name": "Universite Lyon 1", "price": 200, "sell_price": 100},
+		"3": { "id": 25, "name": "Gaston Berger", "price": 200, "sell_price": 100},
+		"4": { "id": 35, "name": "INSA Einstein", "price": 200, "sell_price": 100}
+	},
+
+	"special" : {}
 }

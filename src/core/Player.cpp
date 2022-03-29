@@ -1,7 +1,12 @@
 #include "Player.h"
 
 
-
+Player::Player(){
+	id = -1;
+	position = 0;
+	in_jail = false;
+	number_gare = 0;
+}
 
 Player::Player(unsigned int new_id){
 	id = new_id;
