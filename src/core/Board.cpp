@@ -4,7 +4,7 @@
 
 
 
-Board::Board(std::string filename){
-
+Board::Board(){
+	
 }
 	
