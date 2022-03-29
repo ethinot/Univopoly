@@ -15,8 +15,8 @@ class Game{
 		Dice dice;
 
 	public:
-		Game(int total_player);
-		Game(int total_player, std::string filename);
+		//Game(int total_player);
+		//Game(int total_player, std::string filename);
 		~Game();
 		int checkWinner();
 		int rollDice();

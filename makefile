@@ -25,7 +25,7 @@ obj/test2.o: src/test.cpp $(HEADERS)
 obj/Board.o: src/core/Board.h src/core/Board.cpp src/core/Tile.h
 	$(CC) -c src/core/Board.cpp -o obj/Board.o
 
-obj/Game.o: src/core/Game.h src/core/Game.cpp
+obj/Game.o: src/core/Game.h src/core/Game.cpp src/core/Dice.h src/core/Player.h src/core/Board.h
 	$(CC) -c src/core/Game.cpp -o obj/Game.o
 
 obj/Gare.o: src/core/Gare.h src/core/Gare.cpp src/core/Tile.h

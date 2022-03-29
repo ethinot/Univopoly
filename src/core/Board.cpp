@@ -28,7 +28,7 @@ Board::Board(){
     game_board.push_back(new Gare("Gare2", 4, 100, 50, 25));
 }
 
-Board::Board(std::string filename){
-
+Board::Board(){
+	
 }
 	

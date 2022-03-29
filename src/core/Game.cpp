@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "Player.h"
 
+/*
 Game::Game(int new_total_player) : board_game("data/tiles.json"){
 
 	total_player = total_player;
@@ -9,10 +10,17 @@ Game::Game(int new_total_player) : board_game("data/tiles.json"){
 		Players[i] = new Player(i);
 	}
 }
+*/
 
 Game::~Game() {
 	for (unsigned char i = 0; i < total_player; i++ ){
-		delete Player(i);
+		delete Players[i];
 	}
 	delete [] Players;
 }
+
+int Game::checkWinner(){
+	if (sizeof(Players) == 1) return Players[0]->getId();
+	else return -1;
+}
+
