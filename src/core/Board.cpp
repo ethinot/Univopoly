@@ -1,6 +1,9 @@
 #include "Board.h"
+#include "Property.h"
+#include "Gare.h"
 #include <iostream>
 #include <fstream>
+
 
 Board::Board(){
     game_board.push_back(new Property("Property1", 1, 200, 100, 50, 25, 30, 35, 40, 45, 60));
@@ -29,6 +32,6 @@ Board::Board(){
 }
 
 Board::Board(){
-	
+
 }
 	

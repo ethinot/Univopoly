@@ -10,7 +10,7 @@ class Game{
 
 	private:
 		Board board_game;
-		std::vector<Player *> Players;
+		std::vector<Player *> players;
 		int total_player;
 		Dice dice;
 
@@ -21,10 +21,10 @@ class Game{
 		int checkWinner();
 		int rollDice();
 		bool checkDouble();
-		int getTotal();
-		int getPlayerPosition();
-		void movePlayer(int how_much);
-		void buyTile();
+		Player * getPlayerById(int id);
+		int getPlayerPosition(int id) const;
+		void movePlayer(int id, int how_much);
+		void buyTile(int id, unsigned int property_id);
 		void sellTile(unsigned int property_id);
 };
 
