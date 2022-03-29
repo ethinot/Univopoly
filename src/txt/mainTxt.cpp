@@ -4,18 +4,24 @@
 
 int main(int argc, char ** argv){
     
-    std::cout<<"**************************************************"<std::endl;
-    std::cout<<"**       Bienvenue dans le jeu UNIVOPOLY        **"<std::endl;
-    std::cout<<"****                                         *****"<std::endl;
-    std::cout<<"**************************************************"<std::endl;
-    std::cout<<"**************************************************"<std::endl;
-    std::cout<<"**************************************************"<std::endl;
+    std::cout<<"**************************************************"<<std::endl;
+    std::cout<<"**       Bienvenue dans le jeu UNIVOPOLY        **"<<std::endl;
+    std::cout<<"****                                         *****"<<std::endl;
+    std::cout<<"**************************************************"<<std::endl;
+    std::cout<<"**************************************************"<<std::endl;
+    std::cout<<"**************************************************"<<std::endl;
     
-    txtInit();
 
-    txtBoucle();
 
-    txtFin();
+    int nb_player;
+	std::cout << "Salut, on joue à combien ?" << std::endl;
+    std::cin >> nb_player;
+
+    Game game = txtInit(nb_player);
+
+    txtLoop(game);
+
+    txtEnd();
 
     return 0;
 }

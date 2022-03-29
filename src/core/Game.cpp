@@ -38,11 +38,8 @@ Player * Game::getPlayerById(int id){
 	}
 }
 
-int Game::getPlayerPosition(int id) const{
-	for (int i = 0; i < players.size(); i++){
-		if (players[i]->getId() == id) return players[i]->getPosition();
-	}
-	return -1;
+int Game::getPlayerPosition(int id){
+	return getPlayerById(id)->getPosition();
 }
 
 void Game::movePlayer(int id, int how_much){
@@ -60,3 +57,11 @@ void Game::buyTile(int id, unsigned int property_id){
 	current_player->sellProperty(property_id);
 }
 
+Tile * Game::getTileById(int property_id){
+	return board_game.getTile(property_id);
+}
+
+void Game::pay(int id, int amount){
+	Player * current_player = getPlayerById(id);
+	current_player->transaction(-amount);
+}

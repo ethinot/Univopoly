@@ -4,8 +4,9 @@
 #include "../core/Game.h"
 
 
-void textInit();
+Game txtInit(int nb_player);
 void txtLoop(Game & game);
+void txtEnd();
 
 
 #endif
