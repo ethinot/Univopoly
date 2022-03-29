@@ -5,17 +5,17 @@
 #include "Board.h"
 #include "Player.h"
 #include "Dice.h"
-
+#include <vector>
 class Game{
 
 	private:
 		Board board_game;
-		Player * *Players;
+		std::vector<Player *> Players;
 		int total_player;
 		Dice dice;
 
 	public:
-		//Game(int total_player);
+		Game(int total_player);
 		//Game(int total_player, std::string filename);
 		~Game();
 		int checkWinner();

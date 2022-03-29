@@ -18,14 +18,11 @@ using namespace rapidjson;
 int main (void){
 
     int **my_ints;
-	my_ints = new int * [10];
-	for (unsigned char i = 0; i < 10; i++){
-		my_ints[i] = new int;
-	}
+    int *my_int;
+    *my_int = 10;
+	my_ints = new int [10];
+    *my_ints[0] = my_int;
     std::cout << my_ints[0] << std::endl;
-    int *ptr = my_ints;
-    std::cout << sizeof(ptr) << std::endl;
-
 
 	return 0;
 }
