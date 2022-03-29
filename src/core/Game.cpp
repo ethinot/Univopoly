@@ -6,13 +6,15 @@ Game::Game(int new_total_player) : board_game("data/tiles.json"){
 
 	total_player = new_total_player;
 	for (unsigned char i = 0; i < total_player; i++){
-		players.push_back(new Player(i));
+		players.push_back(new Player(i+1));
 	}
 }
 
 Game::~Game() {
 
 }
+
+int Game::getGameSize() const{return total_player;}
 
 int Game::checkWinner(){
 	if (players.size() == 1) return players[0]->getId();
@@ -27,6 +29,8 @@ int Game::rollDice(){
 bool Game::checkDouble(){
 	return dice.checkDouble();
 }
+
+unsigned int Game::getId(int index) const{return players[index]->getId();}
 
 Player * Game::getPlayerById(int id){
 	for (int i = 0; i < players.size(); i++){
@@ -49,5 +53,10 @@ void Game::movePlayer(int id, int how_much){
 void Game::buyTile(int id, unsigned int property_id){ 
 	Player * current_player = getPlayerById(id);
 	current_player->buyProperty(property_id, board_game.getTile(property_id));
+}
+
+void Game::buyTile(int id, unsigned int property_id){ 
+	Player * current_player = getPlayerById(id);
+	current_player->sellProperty(property_id);
 }
 

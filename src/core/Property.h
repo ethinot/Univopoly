@@ -21,6 +21,7 @@ class Property :  public Tile{
 		void rentUpgrade();
 		void emptyProperty();
 
+
 };
 
 

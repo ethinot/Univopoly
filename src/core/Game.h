@@ -18,9 +18,11 @@ class Game{
 		Game(int total_player);
 		//Game(int total_player, std::string filename);
 		~Game();
+		int getGameSize() const;
 		int checkWinner();
 		int rollDice();
 		bool checkDouble();
+		unsigned int getId(int index) const;
 		Player * getPlayerById(int id);
 		int getPlayerPosition(int id) const;
 		void movePlayer(int id, int how_much);
