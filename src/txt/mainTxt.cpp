@@ -22,11 +22,7 @@ int main(int argc, char ** argv){
     cin>>nb_player;
     Game game(nb_player);
     
-    void rePlay(){
-        if(game.dice.checkDouble() == 1){
-            game.dice.roll
-        }
-    }
+
 
     do {
         for(unsigned char i = 0 ; i<total_player; i++){ // boucle de jeu pour les différents joeurs
