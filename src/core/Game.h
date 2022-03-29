@@ -21,8 +21,11 @@ class Game{
 		int checkWinner();
 		int rollDice();
 		bool checkDouble();
-		int buyTile();
-		int sellTile(unsigned int property_id);
+		int getTotal();
+		int getPlayerPosition();
+		void movePlayer(int how_much);
+		void buyTile();
+		void sellTile(unsigned int property_id);
 };
 
 #endif

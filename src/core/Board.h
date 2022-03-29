@@ -7,10 +7,11 @@
 
 
 class Board{
-	
+
 	private:
 		std::vector<Tile *> game_board;
 	public:
+		Board();
 		Board(std::string filename);
 		Tile* getTile(unsigned int property_id);
 };
