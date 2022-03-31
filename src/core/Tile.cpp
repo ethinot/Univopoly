@@ -1,11 +1,19 @@
 #include "Tile.h"
 
+<<<<<<< HEAD
 
 void Tile::getType(){}
 
 Tile::Tile(){};
 Tile::~Tile(){};
 
+=======
+Tile::Tile(){};
+Tile::~Tile(){};
+
+void Tile::getType(){}
+
+>>>>>>> 608542780c26bd288eb47a1e8df163544e0f2c1f
 unsigned int Tile::getId() const{ return id;}
 
 std::string Tile::getName() const{return name;};

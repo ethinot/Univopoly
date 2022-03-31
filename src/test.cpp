@@ -10,10 +10,8 @@
 #include <fstream>
 #include <cstdlib>
 #include <stdlib.h>
-#include "rapidjson/document.h"
 
 
-using namespace rapidjson;
 
 int main (void){
 
