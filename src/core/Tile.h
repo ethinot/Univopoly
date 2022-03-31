@@ -10,13 +10,15 @@
 #ifndef _TILE
 #define _TILE
 
+//#include <iostream>
+#include <fstream>
 #include <string>
 
 class Tile {
 
 protected:
 
-	unsigned char id; /**< id char non signé, les case son numéroter de 0 à 39 */
+	unsigned int id; /**< id char non signé, les case son numéroter de 0 à 39 */
 	std::string name; /**< nom de la case */
 	unsigned int price; /**< prix de la case */
 	unsigned int sell_price; /**< prix de revent */
@@ -28,7 +30,7 @@ public:
 	* @brief getId() récupère l'id de la case
 	* La fonction getId -> ne prend pas de paramètre et renvoie l'id d'une case.
 	*/
-	unsigned char getId() const;
+	unsigned int getId() const;
 	
 	/**
 	* @brief getName() récupère le nom associer à la case
@@ -69,10 +71,14 @@ public:
 	void bought(unsigned int); 
 
 	/**
-	* @brief Procédure qui effectue le teste de regression du module Tile
-	* Procédure regressionTestTile -> Test si les fonctions membres du module Tile fonctionnes correctement.
-	*/
-	void regressionTestTile();
+	 * @brief opérateur de surcharge pour afficher les cases (gare/propriété) 
+	 * La fontion operator << permet de surchager l'oppérateur de flux cout.
+	 * Cela facilite l'affiche d'une case qu'elle soit propriété ou gare.
+	 * @param out -> flux de sortie
+	 * @param t -> instance de la classe tile, peut être une propriété ou une gare.
+	 * @return ostream& 
+	 */
+	friend std::ostream & operator << (std::ostream &out, const Tile &t);
 };
 
 #endif
