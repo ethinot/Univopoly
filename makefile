@@ -6,14 +6,11 @@ INC			= -std=c++11
 
 all: bin/test
 
-bin/test: obj/mainTest.o obj/Dice.o
-	$(CC) obj/mainTest.o obj/Dice.o -o bin/test
+bin/test: obj/mainTest.o obj/Dice.o obj/Tile.o obj/Property.o
+	$(CC) obj/mainTest.o obj/Dice.o obj/Tile.o obj/Property.o -o bin/test
 
-obj/mainTest.o: src/mainTest.cpp src/Dice.h
+obj/mainTest.o: src/mainTest.cpp src/core/Dice.h src/core/Tile.h src/core/Property.h
 	$(CC) -c src/mainTest.cpp -o obj/mainTest.o
-
-obj/Dice.o: src/core/Dice.h src/core/Dice.cpp
-	$(CC) -c src/core/Dice.cpp -o obj/Dice.o
 
 
 bin/test2: obj/test2.o $(OBJ)
@@ -43,6 +40,8 @@ obj/Property.o: src/core/Property.h src/core/Property.cpp src/core/Tile.h
 obj/Tile.o: src/core/Tile.h src/core/Tile.cpp
 	$(CC) -c src/core/Tile.cpp -o obj/Tile.o
 	
+obj/Dice.o: src/core/Dice.h src/core/Dice.cpp
+	$(CC) -c src/core/Dice.cpp -o obj/Dice.o
 
 clean:
 	rm obj/* bin/*

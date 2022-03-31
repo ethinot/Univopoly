@@ -18,6 +18,9 @@
  */
 
 #include "Tile.h"
+#include <iostream>
+#include <assert.h>
+#include <string.h>
 
 class Property :  public Tile{
 
@@ -49,10 +52,43 @@ class Property :  public Tile{
 		unsigned int new_build_price, unsigned int rent_0, 
 		unsigned int rent_1, unsigned int rent_2, unsigned int rent_3,
 		unsigned int rent_4, unsigned int rent_5);
+		
+		/**
+		 * @brief Récupère le loyer 
+		 * Récupère le loyer en fonction du nombre de construction sur la case.
+		 * 
+		 * @return unsigned int 
+		 */
 		unsigned int getRent() const;
+		
+		/**
+		 * @brief Renvoie le prix d'une construction
+		 * Récupère le prix d'une construction lier à la propriété.
+		 * @return unsigned int 
+		 */
 		unsigned int getBuildPrice() const;
+		
+		/**
+		 * @brief Augmente le prix de ventre d'un propriété
+		 * Si le proriétaire achète une maison, cela augment le nombre de construction sur le terrain et
+		 * augmente par la même occasion le prix de vente (plus 30% du prix d'un batiment)
+		 * 
+		 */
 		void rentUpgrade();
+		
+		/**
+		 * @brief Remet le prix de base d'une propriété
+		 * Exemple si un propriétaire veut vendre une propriété, cette dernière doit pouvoir être  racheter au prix d'origine.
+		 * 
+		 */
 		void emptyProperty();
+		
+		/**
+		 * @brief Test de regression pour le module property
+		 * Cette procédure permet de tester les fonction et procédure hériter du module "Tile". 
+		 * 
+		 */
+		void testRegProperty();
 };
 
 
