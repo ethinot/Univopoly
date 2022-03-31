@@ -3,13 +3,19 @@
  * @brief Module Tile (case)
  *
  * Module contenant la classe Tile, le classe Tile représente un case du plateau de jeu. 
- * Ell est composée d'un id (le numéro de la case de 0 à 39)  d'un string (nom de la case), d'un price,
- * d'un sell_price et d'un owner représenter par un nombre dans [0..8].
+ * Elle est composée: 
+ * 	- D'un id (le numéro de la case de 0 à 39)  
+ * 	- D'un string (nom de la case) 
+ *	- D'un prix
+ * 	- D'un sell_price
+ *  - D'un owner représenter par un nombre dans [0..8].
  *  
  */
 #ifndef _TILE
 #define _TILE
 
+//#include <iostream>
+#include <fstream>
 #include <string>
 
 class Tile {
@@ -74,10 +80,14 @@ public:
 	void bought(unsigned int); 
 
 	/**
-	* @brief Procédure qui effectue le teste de regression du module Tile
-	* Procédure regressionTestTile -> Test si les fonctions membres du module Tile fonctionnes correctement.
-	*/
-	void regressionTestTile();
+	 * @brief opérateur de surcharge pour afficher les cases (gare/propriété) 
+	 * La fontion operator << permet de surchager l'oppérateur de flux cout.
+	 * Cela facilite l'affiche d'une case qu'elle soit propriété ou gare.
+	 * @param out -> flux de sortie
+	 * @param t -> instance de la classe tile, peut être une propriété ou une gare.
+	 * @return ostream& 
+	 */
+	friend std::ostream & operator << (std::ostream &out, const Tile &t);
 };
 
 #endif
