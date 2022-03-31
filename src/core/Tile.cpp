@@ -1,10 +1,11 @@
 #include "Tile.h"
 
 
-void Tile::getType(){}
 
 Tile::Tile(){};
 Tile::~Tile(){};
+
+void Tile::getType(){}
 
 unsigned int Tile::getId() const{ return id;}
 

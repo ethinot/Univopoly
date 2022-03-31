@@ -14,9 +14,6 @@
 
 class Tile {
 
-//public TYPE{ Property, Gare, NoType };
-//virtual int getType(){ return Tile::TYPE::NoType; };
-virtual void getType();
 
 protected:
 
@@ -30,6 +27,8 @@ public:
 
 	Tile();
 	~Tile();
+	virtual void getType();
+	
 	/**
 	* @brief getId() récupère l'id de la case
 	* La fonction getId -> ne prend pas de paramètre et renvoie l'id d'une case.

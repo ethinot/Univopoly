@@ -48,6 +48,11 @@ void txtLoop(Game & game)
 						std::cout << "Property" << std::endl;
 						game.pay(current_player_id, static_cast<Property*>(current_tile)->getRent());
 					}
+					else if (typeid(*current_tile).name() == "8Gare"){
+						std::cout << "Property" << std::endl;
+						game.pay(current_player_id, static_cast<Property*>(current_tile)->getRent());
+					}
+				}
 			}
 		} while(game.checkWinner() == -1);
 }
