@@ -1,5 +1,6 @@
+#ifndef _PROPERTY
+#define _PROPERTY
 /**
- * @file Property.h
  * @brief Module Property
  *  
  * Module contenant la classe Property, le classe Property représente un case particulière, une propriétée. 
@@ -15,8 +16,6 @@
  * 	- Un compteur de propiété poser sur le terains
  *    
  */
-#ifndef _PROPERTY
-#define _PROPERTY
 
 #include "Tile.h"
 
@@ -25,15 +24,9 @@ class Property :  public Tile{
 	//virtual int getType()override{ return Tile::TYPE::Property;};
 	
 	private:
-<<<<<<< HEAD
 		unsigned int build_price; /**< Prix pour une construction de salle*/
 		unsigned int * rent; /**< Tableau d'entier non signé des loyers en fonction du nombre de construction*/
 		unsigned int rent_count; /**< Compteur de construction*/
-=======
-		unsigned int build_price;
-		unsigned int * rent;
-		unsigned int rent_count;
->>>>>>> a11f19620b73b5a7bc5086feeab9387de7654fc2
 
 	public:
 		/**
