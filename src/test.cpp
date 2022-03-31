@@ -16,6 +16,7 @@
 int main (void){
 
     std::cout << "Welcome" << std::endl;
+    std::cout << "Welcome" << std::endl;
 
 	return 0;
 }
