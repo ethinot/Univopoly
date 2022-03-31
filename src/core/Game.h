@@ -28,7 +28,7 @@ class Game{
 		int getPlayerPosition(int id);
 		void movePlayer(int id, int how_much);
 		void buyTile(int id, unsigned int property_id);
-		void sellTile(unsigned int property_id);
+		void sellTile(int id, unsigned int property_id);
 		void pay(int id, int amount);
 };
 

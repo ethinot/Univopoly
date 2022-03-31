@@ -1,5 +1,14 @@
 #include "Tile.h"
 
+<<<<<<< HEAD
+=======
+
+void Tile::getType(){}
+
+Tile::Tile(){};
+Tile::~Tile(){};
+
+>>>>>>> a11f19620b73b5a7bc5086feeab9387de7654fc2
 unsigned int Tile::getId() const{ return id;}
 
 std::string Tile::getName() const{return name;};
@@ -13,6 +22,7 @@ int Tile::getOwner() const {return owner;}
 void Tile::sold() {owner = -1;}
 
 void Tile::bought(unsigned int buyer_id) {owner = buyer_id;}
+<<<<<<< HEAD
 
 std::ostream & operator << (std::ostream &out, const Tile &t){
     out<< "Vous venez de tomber sur la case: "<<t.id<< " dont le nom est ";
@@ -27,3 +37,5 @@ std::ostream & operator << (std::ostream &out, const Tile &t){
 
     return out;
 }
+=======
+>>>>>>> a11f19620b73b5a7bc5086feeab9387de7654fc2

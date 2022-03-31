@@ -3,6 +3,7 @@
 Game txtInit(int nb_player){
     Game game(nb_player);
 	return game;
+	// check operator = 
 }
 
 
@@ -43,7 +44,10 @@ void txtLoop(Game & game)
 							break;
 					}
 				}else if(current_tile->getOwner() != current_player_id){
-					game.pay(current_player_id, current_tile->getRent())
+					if (typeid(*current_tile).name() == "Property"){
+						std::cout << "Property" << std::endl;
+						game.pay(current_player_id, static_cast<Property*>(current_tile)->getRent());
+					}
 			}
 		} while(game.checkWinner() == -1);
 }

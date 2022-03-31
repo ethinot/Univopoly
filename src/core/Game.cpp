@@ -2,7 +2,7 @@
 #include "Player.h"
 
 
-Game::Game(int new_total_player) : board_game("data/tiles.json"){
+Game::Game(int new_total_player){
 
 	total_player = new_total_player;
 	for (unsigned char i = 0; i < total_player; i++){
@@ -11,7 +11,7 @@ Game::Game(int new_total_player) : board_game("data/tiles.json"){
 }
 
 Game::~Game() {
-
+	players.clear();
 }
 
 int Game::getGameSize() const{return total_player;}
@@ -52,7 +52,7 @@ void Game::buyTile(int id, unsigned int property_id){
 	current_player->buyProperty(property_id, board_game.getTile(property_id));
 }
 
-void Game::buyTile(int id, unsigned int property_id){ 
+void Game::sellTile(int id, unsigned int property_id){ 
 	Player * current_player = getPlayerById(id);
 	current_player->sellProperty(property_id);
 }

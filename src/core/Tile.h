@@ -20,6 +20,10 @@
 
 class Tile {
 
+//public TYPE{ Property, Gare, NoType };
+//virtual int getType(){ return Tile::TYPE::NoType; };
+virtual void getType();
+
 protected:
 
 	unsigned int id; /**< id char non signé, les case son numéroter de 0 à 39 */
@@ -29,7 +33,9 @@ protected:
 	int owner; /**< propriétaire -> -1 si elle appartient a personne / -1 < owner =< 8 si la case est acheter*/
 
 public:
-	
+
+	Tile();
+	~Tile();
 	/**
 	* @brief getId() récupère l'id de la case
 	* La fonction getId -> ne prend pas de paramètre et renvoie l'id d'une case.
