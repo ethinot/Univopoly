@@ -17,7 +17,3 @@ int Tile::getOwner() const {return owner;}
 void Tile::sold() {owner = -1;}
 
 void Tile::bought(unsigned int buyer_id) {owner = buyer_id;}
-
-void Tile::regressionTestTile() {
-    
-}
