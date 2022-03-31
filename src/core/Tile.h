@@ -3,8 +3,12 @@
  * @brief Module Tile (case)
  *
  * Module contenant la classe Tile, le classe Tile représente un case du plateau de jeu. 
- * Ell est composée d'un id (le numéro de la case de 0 à 39)  d'un string (nom de la case), d'un price,
- * d'un sell_price et d'un owner représenter par un nombre dans [0..8].
+ * Elle est composée: 
+ * 	- D'un id (le numéro de la case de 0 à 39)  
+ * 	- D'un string (nom de la case) 
+ *	- D'un prix
+ * 	- D'un sell_price
+ *  - D'un owner représenter par un nombre dans [0..8].
  *  
  */
 #ifndef _TILE
