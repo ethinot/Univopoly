@@ -1,6 +1,12 @@
 #include "Tile.h"
 
-unsigned char Tile::getId() const{ return id;}
+
+void Tile::getType(){}
+
+Tile::Tile(){};
+Tile::~Tile(){};
+
+unsigned int Tile::getId() const{ return id;}
 
 std::string Tile::getName() const{return name;};
 

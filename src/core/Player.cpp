@@ -39,11 +39,11 @@ void Player::plusGare() {number_gare ++;}
 void Player::minusGare() {number_gare --;}
 unsigned int Player::getGareCount() const{return number_gare;}
 
-Property* Player::getProperty(unsigned int property_id) { 
+Tile* Player::getProperty(unsigned int property_id) { 
 	return goods.getProperty(property_id);
 }
 
-void Player::buyProperty(unsigned int property_id, Property *property){
+void Player::buyProperty(unsigned int property_id, Tile*property){
 	transaction(- (property->getPrice()));
 	goods.addProperty(property_id, property);
 }

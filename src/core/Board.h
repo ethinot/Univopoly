@@ -9,10 +9,11 @@
 class Board{
 
 	private:
-		std::vector<Tile *> game_board;
+		std::vector<Tile*> game_board;
 	public:
 		Board();
-		Board(std::string filename);
+		//Board(std::string filename);
+		~Board();
 		Tile* getTile(unsigned int property_id);
 };
 

@@ -5,11 +5,12 @@
 
 class Property :  public Tile{
 
+	//virtual int getType()override{ return Tile::TYPE::Property;};
+	
 	private:
 		unsigned int build_price;
 		unsigned int * rent;
 		unsigned int rent_count;
-		int owner;
 
 	public:
 		Property(std::string name, unsigned int id, unsigned int price, unsigned int sell_price, 

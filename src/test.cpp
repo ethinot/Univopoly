@@ -10,19 +10,20 @@
 #include <fstream>
 #include <cstdlib>
 #include <stdlib.h>
-#include "rapidjson/document.h"
+//#include "rapidjson/document.h"
 
 
-using namespace rapidjson;
+//using namespace rapidjson;
 
 int main (void){
 
-    int **my_ints;
-    int *my_int;
-    *my_int = 10;
-	my_ints = new int [10];
-    *my_ints[0] = my_int;
-    std::cout << my_ints[0] << std::endl;
+    Property * my_property = new Property("Property1", 7, 200, 100, 50, 25, 30, 35, 40, 45, 60);
+    Property * my_property2 = new Property("Property1", 9, 200, 100, 50, 25, 30, 35, 40, 45, 60);
 
+    Tile * current_tile = my_property;
+    Tile * current_tile2 = my_property2;
+
+    std::cout << typeid(*current_tile).name() << std::endl; 
+    std::cout << typeid(*current_tile2).name() << std::endl; 
 	return 0;
 }

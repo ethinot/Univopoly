@@ -9,5 +9,6 @@ Gare::Gare(std::string new_name, unsigned int new_id, unsigned int new_price, un
     basic_rent = new_basic_rent;
     owner = -1;
 }
+Gare::~Gare(){}
 
 unsigned int Gare::getRent(unsigned int gare_number) const { return basic_rent * gare_number;}
