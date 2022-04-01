@@ -29,6 +29,15 @@ Board::Board(){
     game_board.push_back(new Property("Property6", 12, 300, 150, 70, 40, 40, 45, 50, 55, 65));
 
     //game_board.push_back(new Gare("Gare2", 4, 100, 50, 25));
+    game_board.push_back(new Property("Property4", 13, 300, 150, 70, 40, 40, 45, 50, 55, 65));
+    game_board.push_back(new Property("Property5", 14, 300, 150, 70, 40, 40, 45, 50, 55, 65));
+    game_board.push_back(new Property("Property6", 15, 300, 150, 70, 40, 40, 45, 50, 55, 65));
+    game_board.push_back(new Property("Property4", 16, 300, 150, 70, 40, 40, 45, 50, 55, 65));
+    game_board.push_back(new Property("Property5", 17, 300, 150, 70, 40, 40, 45, 50, 55, 65));
+    game_board.push_back(new Property("Property6", 18, 300, 150, 70, 40, 40, 45, 50, 55, 65));
+    game_board.push_back(new Property("Property4", 19, 300, 150, 70, 40, 40, 45, 50, 55, 65));
+    game_board.push_back(new Property("Property5", 20, 300, 150, 70, 40, 40, 45, 50, 55, 65));
+    game_board.push_back(new Property("Property6", 21, 300, 150, 70, 40, 40, 45, 50, 55, 65));
 }
 
 Board::~Board() {

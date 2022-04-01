@@ -52,3 +52,7 @@ void Player::sellProperty(unsigned int property_id){
 	transaction(goods.getProperty(property_id)->getSellPrice());
 	goods.removeProperty(property_id);
 }
+
+void Player::printProperties(){
+	std::cout << goods;
+}

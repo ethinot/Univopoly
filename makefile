@@ -1,10 +1,16 @@
 CCOPTIONS	= -Wall -g
 CC			= g++ $(CCOPTIONS) 
 OBJ			= obj/Board.o obj/Dice.o obj/Game.o obj/Gare.o obj/Inventory.o obj/Player.o obj/Property.o obj/Tile.o
-HEADERS		= src/core/Board.h src/core/Dice.h src/core/Game.h src/core/Gare.h src/core/Inventory.h src/core/Player.h src/core/Property.h src/core/Tile.cpp
+HEADERS		= src/core/Board.h src/core/Dice.h src/core/Game.h src/core/Gare.h src/core/Inventory.h src/core/Player.h src/core/Property.h src/core/Tile.h
 INC			= -std=c++11
 
 all: bin/test
+
+bin/txt: obj/txt.o obj/Gametxt.o $(OBJ)
+	$(CC) obj/txt.o obj/Gametxt.o $(OBJ) -o bin/txt
+
+obj/txt.o: src/txt/mainTxt.cpp $(HEADERS)
+	$(CC) -c src/txt/mainTxt.cpp -o obj/txt.o
 
 bin/test: obj/mainTest.o obj/Dice.o obj/Tile.o obj/Property.o
 	$(CC) obj/mainTest.o obj/Dice.o obj/Tile.o obj/Property.o -o bin/test
@@ -12,12 +18,14 @@ bin/test: obj/mainTest.o obj/Dice.o obj/Tile.o obj/Property.o
 obj/mainTest.o: src/mainTest.cpp src/core/Dice.h src/core/Tile.h src/core/Property.h
 	$(CC) -c src/mainTest.cpp -o obj/mainTest.o
 
-
 bin/test2: obj/test2.o $(OBJ)
 	$(CC) obj/test2.o $(OBJ) -o bin/test2
 
 obj/test2.o: src/test.cpp $(HEADERS)
 	$(CC) -c src/test.cpp -o obj/test2.o
+
+obj/Gametxt.o: src/txt/Gametxt.cpp $(HEADERS)
+	$(CC) -c src/txt/Gametxt.cpp -o obj/Gametxt.o
 
 obj/Board.o: src/core/Board.h src/core/Board.cpp src/core/Tile.h
 	$(CC) -c src/core/Board.cpp -o obj/Board.o

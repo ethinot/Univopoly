@@ -65,3 +65,7 @@ void Game::pay(int id, int amount){
 	Player * current_player = getPlayerById(id);
 	current_player->transaction(-amount);
 }
+
+void Game::printPlayerProperties(int id){
+	getPlayerById(id)->printProperties();
+}

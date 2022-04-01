@@ -2,7 +2,7 @@
 #define _PLAYER
 
 #include "Inventory.h"
-
+#include <map>
 class Player{
 
 	private:
@@ -27,7 +27,7 @@ class Player{
 		Tile* getProperty(unsigned int property_id);
 		void buyProperty(unsigned int property_id, Tile* property);
 		void sellProperty(unsigned int property_id);
-
+		void printProperties();
 
 
 

@@ -5,7 +5,10 @@
 #include "Board.h"
 #include "Player.h"
 #include "Dice.h"
+#include "Gare.h"
+#include <map>
 #include <vector>
+
 class Game{
 
 	private:
@@ -30,6 +33,7 @@ class Game{
 		void buyTile(int id, unsigned int property_id);
 		void sellTile(int id, unsigned int property_id);
 		void pay(int id, int amount);
+		void printPlayerProperties(int id);
 };
 
 #endif

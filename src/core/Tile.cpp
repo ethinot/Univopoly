@@ -19,15 +19,15 @@ void Tile::sold() {owner = -1;}
 
 void Tile::bought(unsigned int buyer_id) {owner = buyer_id;}
 
-std::ostream & operator << (std::ostream &out, const Tile &t){
-    out<< "Vous venez de tomber sur la case: "<<t.id<< " dont le nom est ";
-    out<<t.name<<"."<<std::endl;
-    if (t.owner != -1){
-        out<<"Cette case appartient au joueur avec l'id = "<<t.owner<<std::endl;
-        out<<"Vous ne pouvez donc pas l'acheter."<<std::endl;
+std::ostream & operator << (std::ostream &out, const Tile* &t){
+    out << "Vous venez de tomber sur la case: " << t->getId() << " dont le nom est ";
+    out << t->getName() << "." << std::endl;
+    if (t->getOwner() != -1){
+        out << "Cette case appartient au joueur avec l'id = " << t->getOwner()<<std::endl;
+        out << "Vous ne pouvez donc pas l'acheter."<<std::endl;
     }
     else {
-        out<<"La propriété est achetable vous pevez l'acheter pour "<<t.price<<"€"<<std::endl;
+        out << "La propriété est achetable vous pevez l'acheter pour " << t->getPrice() << "€" << std::endl;
     }
 
     return out;
