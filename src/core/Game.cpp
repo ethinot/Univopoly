@@ -26,6 +26,14 @@ int Game::rollDice(){
 	return dice.getTotal();
 }
 
+unsigned int Game::firstDice() const{
+	return dice.getFirstDice();
+}
+
+unsigned int Game::firstDice() const{
+	return dice.getSecondDice();
+}
+
 bool Game::checkDouble(){
 	return dice.checkDouble();
 }

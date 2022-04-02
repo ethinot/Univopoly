@@ -24,6 +24,8 @@ class Game{
 		int getGameSize() const;
 		int checkWinner();
 		int rollDice();
+		unsigned int firstDice() const;
+		unsigned int secondDice() const;
 		bool checkDouble();
 		unsigned int getId(int index) const;
 		Player * getPlayerById(int id);

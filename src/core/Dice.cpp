@@ -4,7 +4,7 @@
 #include <assert.h>
 
 
-Dice::Dice(){ values = new unsigned char[2];}
+Dice::Dice(){ values = new unsigned int[2];}
 
 Dice::~Dice(){
 	delete [] values;
@@ -16,11 +16,19 @@ void Dice::roll(){
 	values[1] = (unsigned char)(rand()%6)+1;
 }
 
+unsigned int Dice::getFirstDice() const{
+	return values[0];
+}
+
+unsigned int Dice::getSecondDice() const{
+	return values[1];
+}
+
 bool Dice::checkDouble() const{
 	return values[0] == values[1];
 }
 
-unsigned char Dice::getTotal() const{
+unsigned int Dice::getTotal() const{
 	return values[0] + values[1];
 }
 
@@ -34,6 +42,14 @@ void Dice::regressionTestDice() {
 		unDes.roll();
 		assert(unDes.values[0] > 0 && unDes.values[0] <= 6);
 		assert(unDes.values[1] > 0 && unDes.values[1] <= 6);
+	}
+
+	//Test fonction getSecondDice & getFirstDice
+
+	for(unsigned char i=0; i<100; i++){
+		unDes.roll();
+		assert(unDes.values[0] == unDes.getFirstDice());
+		assert(unDes.values[1] == unDes.getSecondDice());
 	}
 
 	//Test fonction checkDouble

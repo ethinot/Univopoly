@@ -6,6 +6,9 @@ Game txtInit(int nb_player){
 	// check operator = 
 }
 
+void lineBreak(){
+	std::cout<<std::endl;
+}
 
 void txtLoop(Game & game)
 {
@@ -18,18 +21,19 @@ void txtLoop(Game & game)
 				current_player_id = game.getId(i);
 				std::cout << std::endl;
 				std::cout << "C'est au tour du joueur " << current_player_id << "!" << std::endl;
-				std::cout<<std::endl;
+				lineBreak();
 
 				current_position = game.getPlayerPosition(current_player_id);
 				std::cout << "Case actuelle: " << current_position << "." << std::endl;
-				
 				std::cout << "Le joueur "<< i+1 << " lance les dés..." << std::endl;
 				dice_total = game.rollDice();
-			
+				std::cout<< "Vous avez fait un "<<game.firstDice()<<" et un "<<game.secondDice()<<std::endl;
+				lineBreak();
+				
 				game.movePlayer(current_player_id, dice_total);
 				
 				current_position = game.getPlayerPosition(current_player_id);
-				std::cout << "Pion se déplace a la casse " << current_position << std::endl;
+				std::cout << "Pion se déplace à la casse " << current_position << std::endl;
 				/*
 				if (game.checkDouble() == 1) {
 					

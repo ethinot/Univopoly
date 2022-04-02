@@ -12,7 +12,7 @@ class Dice {
 
 private:
 
-	unsigned char * values;  /**< tableau 1D d'entier non signé */
+	unsigned int * values;  /**< tableau 1D d'entier non signé */
 
 public:
 
@@ -35,6 +35,20 @@ public:
 	void roll();
 	
 	/**
+	 * @brief Fonction qui renvoie la valeur du premier dés
+	 * La valeur du premier dés est sotcké dans un tableau d'entier, le premier dés est donc la case 0 du tableau.
+	 * @return unsigned int 
+	 */
+	unsigned int getFirstDice() const;
+	
+	/**
+	 * @brief Fonction qui renvoie la valeur du deuxième dés
+	 * La valeur du second dés est sotcké dans un tableau d'entier, le second dés est donc la case 1 du tableau.
+	 * @return unsigned int 
+	 */
+	unsigned int getSecondDice() const;
+	
+	/**
 	* @brief Fonction qui vérifie si les deux dés sont des doubles
 	* @return booléen 
 	* Fonction checkDouble -> renvoie vrais ou faux selon si les deux dés formes un double.
@@ -46,7 +60,7 @@ public:
 	* @return enier non-signé
 	* Procédure getTotal -> renvoie la somme des deux dés lancés, le résultat est compris dans [2..12].
 	*/
-	unsigned char getTotal() const;
+	unsigned int getTotal() const;
 	
 	/**
 	* @brief Procédure qui effectue le teste de regression du module Dice
