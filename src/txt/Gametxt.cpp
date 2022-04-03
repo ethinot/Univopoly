@@ -27,7 +27,7 @@ void txtLoop(Game & game)
 				std::cout << "Case actuelle: " << current_position << "." << std::endl;
 				std::cout << "Le joueur "<< i+1 << " lance les dés..." << std::endl;
 				dice_total = game.rollDice();
-				std::cout<< "Vous avez fait un "<<game.firstDice()<<" et un "<<game.secondDice()<<std::endl;
+				std::cout<< "Vous avez fait un "<<game.firstDice()<<" et un "<<game.secondeDice()<<std::endl;
 				lineBreak();
 				
 				game.movePlayer(current_player_id, dice_total);

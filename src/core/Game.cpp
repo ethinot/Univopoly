@@ -30,7 +30,7 @@ unsigned int Game::firstDice() const{
 	return dice.getFirstDice();
 }
 
-unsigned int Game::firstDice() const{
+unsigned int Game::secondeDice() const{
 	return dice.getSecondDice();
 }
 
