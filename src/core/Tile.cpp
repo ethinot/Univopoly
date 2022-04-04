@@ -1,5 +1,7 @@
 #include "Tile.h"
 
+Tile::Tile(){};
+
 Tile::Tile(std::string new_name, unsigned int new_id, unsigned int new_price, unsigned int new_sell_price){
     name = new_name;
     id = new_id;

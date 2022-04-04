@@ -17,7 +17,7 @@ int main(int argc, char ** argv){
     std::string filename = "../../data/tiles.json";
 	std::cout << "Salut, on joue à combien ?: ";
     std::cin >> nb_player;
-    Game game = txtInit(nb_player, filename);
+    Game game = txtInit(nb_player);
 
     txtLoop(game);
 

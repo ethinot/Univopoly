@@ -10,7 +10,7 @@ Game::Game(int new_total_player){
 	}
 }
 
-Game::Game(int new_total_player, std::string filename) : board_game(filename){
+Game::Game(int new_total_player, std::string filename) : board_game(){
 	total_player = new_total_player;
 		for (unsigned char i = 0; i < total_player; i++){
 		players.push_back(new Player(i+1));

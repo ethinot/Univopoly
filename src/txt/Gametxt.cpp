@@ -1,7 +1,7 @@
 #include "Gametxt.h"
 
-Game txtInit(int nb_player, std::string filename){
-    Game game(nb_player, filename);
+Game txtInit(int nb_player){
+    Game game(nb_player);
 	return game;
 	// check operator = 
 }

@@ -3,7 +3,7 @@
 
 #include "../core/Game.h"
 
-Game txtInit(int nb_player, std::string filename);
+Game txtInit(int nb_player);
 
 void txtLoop(Game & game);
 

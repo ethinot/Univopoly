@@ -38,5 +38,22 @@
 		{ "id": 15, "name": "Universite Lyon 1", "price": 200, "sell_price": 100},
 		{ "id": 25, "name": "Gaston Berger", "price": 200, "sell_price": 100},
 		{ "id": 35, "name": "INSA Einstein", "price": 200, "sell_price": 100}
+	],
+
+	"special" : [
+		{ "id": 0, "name": "Start", "price": -1, "sell_price": -1},
+		{ "id": 2, "name": "Chance", "price": -1, "sell_price": 100},
+		{ "id": 4, "name": "AML", "price": 50, "sell_price": 100},
+		{ "id": 7, "name": "Chance", "price": -1, "sell_price": 100},
+		{ "id": 10, "name": "Visit Prison", "price": -1, "sell_price": -1},
+		{ "id": 12, "name": "Stage", "price": 200, "sell_price": 100},
+		{ "id": 17, "name": "Chance", "price": 200, "sell_price": 100},
+		{ "id": 20, "name": "Parc", "price": 200, "sell_price": 100},
+		{ "id": 22, "name": "Chance", "price": 200, "sell_price": 100},
+		{ "id": 28, "name": "Stage", "price": 200, "sell_price": 100},
+		{ "id": 30, "name": "Go To Jail", "price": 200, "sell_price": 100},
+		{ "id": 33, "name": "Chance", "price": 200, "sell_price": 100},
+		{ "id": 36, "name": "Chance", "price": 200, "sell_price": 100},
+		{ "id": 38, "name": "AML", "price": 200, "sell_price": 100}
 	]
 }
