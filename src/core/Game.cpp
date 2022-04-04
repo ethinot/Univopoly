@@ -10,6 +10,13 @@ Game::Game(int new_total_player){
 	}
 }
 
+Game::Game(int new_total_player, std::string filename) : board_game(filename){
+	total_player = new_total_player;
+		for (unsigned char i = 0; i < total_player; i++){
+		players.push_back(new Player(i+1));
+	}
+}
+
 Game::~Game() {
 	players.clear();
 }
@@ -30,7 +37,7 @@ unsigned int Game::firstDice() const{
 	return dice.getFirstDice();
 }
 
-unsigned int Game::secondeDice() const{
+unsigned int Game::secondDice() const{
 	return dice.getSecondDice();
 }
 
@@ -76,4 +83,18 @@ void Game::pay(int id, int amount){
 
 void Game::printPlayerProperties(int id){
 	getPlayerById(id)->printProperties();
+}
+
+int Game::getPlayerIndex(int id){
+	for (int i = 0; i < players.size(); i++){
+		if (players[i]->getId() == id){
+			return i;
+		}
+	}
+	return -1;
+}
+
+void Game::killPlayer(int id){
+	int index = getPlayerIndex(id);
+	players.erase(players.begin() + index);
 }

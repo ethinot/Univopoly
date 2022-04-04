@@ -14,11 +14,10 @@ int main(int argc, char ** argv){
 
 
     int nb_player;
-	std::cout << "Salut, on joue à combien ?" << std::endl;
+    std::string filename = "../../data/tiles.json";
+	std::cout << "Salut, on joue à combien ?: ";
     std::cin >> nb_player;
-    Game game1 = txtInit(5);
-    Game game2 = game1;
-    Game game = txtInit(nb_player);
+    Game game = txtInit(nb_player, filename);
 
     txtLoop(game);
 

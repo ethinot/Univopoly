@@ -19,13 +19,13 @@ class Game{
 
 	public:
 		Game(int total_player);
-		//Game(int total_player, std::string filename);
+		Game(int total_player, std::string filename);
 		~Game();
 		int getGameSize() const;
 		int checkWinner();
 		int rollDice();
 		unsigned int firstDice() const;
-		unsigned int secondeDice() const;
+		unsigned int secondDice() const;
 		bool checkDouble();
 		unsigned int getId(int index) const;
 		Player * getPlayerById(int id);
@@ -36,6 +36,8 @@ class Game{
 		void sellTile(int id, unsigned int property_id);
 		void pay(int id, int amount);
 		void printPlayerProperties(int id);
+		int getPlayerIndex(int id);
+		void killPlayer(int id);
 };
 
 #endif

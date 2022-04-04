@@ -23,6 +23,7 @@ void Player::changePostion(unsigned int how_much) {
 	if ((position + how_much) > 39){
 		avancement = (position + how_much) - 39;
 		position = avancement - 1; // décallage de -1 car la case départ est la case 0
+		goods.changeBalance(200);
 	}
 	else {
 		position += how_much;
