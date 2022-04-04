@@ -9,7 +9,7 @@ class Player{
 		unsigned int id;
 		Inventory goods;
 		unsigned int position;
-		bool in_jail;
+		int jail_count;
 		unsigned int number_gare;
 
 	public:
@@ -19,7 +19,8 @@ class Player{
 		unsigned int getPosition() const;
 		void changePostion(unsigned int how_much);
 		void transaction(unsigned int amout);
-		bool onJail() const;
+		void goJail();
+		bool checkJail();
 		bool isDead() const;
 		void plusGare();
 		void minusGare();

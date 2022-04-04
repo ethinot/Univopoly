@@ -11,7 +11,7 @@ class Gare : public Tile{
 		unsigned int basic_rent;
 
 	public:
-		Gare(std::string name, unsigned int id, unsigned int price, unsigned int sell_price, unsigned int basic_rent);
+		Gare(std::string name, unsigned int id, unsigned int price, unsigned int sell_price);
 		~Gare();
 		unsigned int getRent(unsigned int gare_number) const;
 

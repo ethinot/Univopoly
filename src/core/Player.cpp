@@ -4,14 +4,14 @@
 Player::Player(){
 	id = -1;
 	position = 0;
-	in_jail = false;
+	jail_count = -1;
 	number_gare = 0;
 }
 
 Player::Player(unsigned int new_id){
 	id = new_id;
 	position = 0;
-	in_jail = false;
+	jail_count = -1;
 	number_gare = 0;
 }
 
@@ -33,7 +33,22 @@ void Player::transaction(unsigned int amount){
 	goods.changeBalance(amount);
 }
 
-bool Player::onJail() const{return position == 10;}
+void Player::goJail(){
+	position = 10;
+	jail_count = 0;
+}
+
+bool Player::checkJail() {
+	if (jail_count>-1 && jail_count<3) {
+		jail_count ++;
+		return true;
+	}
+	else {
+		jail_count = -1;
+		return false;
+	}
+}
+
 bool Player::isDead() const{ return goods.getNetWorth() == 0;}
 void Player::plusGare() {number_gare ++;}
 void Player::minusGare() {number_gare --;}

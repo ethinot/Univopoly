@@ -35,11 +35,10 @@ void Property::emptyProperty(){
 void Property::testRegProperty(){
 	//Création d'un objet propriété
 	Property p1("propriété1",3,100,50,30,30,35,40,45,50,60);
-	Property * ptrP = &p1;
-	
+
 	//test affichage de l'objet
 	std::cout<<"Test afficher d'un objet Property"<<std::endl;
-	std::cout<<ptrP<<std::endl;
+	//std::cout<<p1<<std::endl;
 	
 	//getID
 	assert(p1.getId() == 3 && 3 == p1.id);
