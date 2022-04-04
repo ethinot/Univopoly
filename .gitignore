@@ -7,3 +7,5 @@ doc/html/search/*
 .vscode/*
 UML_Univopoly.drawio
 inc/*
+.qmake.stash
+univopoly_qt.app/*
