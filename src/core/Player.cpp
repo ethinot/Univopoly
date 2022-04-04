@@ -35,7 +35,7 @@ void Player::transaction(unsigned int amount){
 }
 
 bool Player::onJail() const{return position == 10;}
-bool Player::isDead() const{ return goods.getNetWorth() == 0;}
+bool Player::isDead() const{ return goods.getNetWorth() == 0 || goods.getBalance() < 0;}
 void Player::plusGare() {number_gare ++;}
 void Player::minusGare() {number_gare --;}
 unsigned int Player::getGareCount() const{return number_gare;}

@@ -4,10 +4,7 @@
 #include <iostream>
 #include <fstream>
 
-#include <nlohmann/json.hpp>
 
-// for convenience
-using json = nlohmann::json;
 
 
 Board::Board(){
@@ -47,9 +44,6 @@ Board::Board(){
 
 Board::Board(std::string filename){
 
-    std::ifstream ifs(filename);
-    json jf = json::parse(ifs);
-    std::cout << jf << std::endl;
 }
 
 Board::~Board() {
