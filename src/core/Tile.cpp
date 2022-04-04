@@ -29,12 +29,11 @@ void Tile::sold() {owner = -1;}
 void Tile::bought(unsigned int buyer_id) {owner = buyer_id;}
 
 std::ostream & operator << (std::ostream &out, const Tile &t){
-    out << "Vous venez de tomber sur la case: " << t.getId() << " dont le nom est ";
-    out << t.getName() << "." << std::endl;
-    if (t.getOwner() != -1){
-        out << "Cette case appartient au joueur avec l'id = " << t.getOwner()<<std::endl;
+    out << "Case numero: " << t.getId() << " Nom: " << t.getName() << "." << std::endl;;
+    if (t.getOwner() > 0){
+        out << "Cette case appartient au joueur numero: " << t.getOwner()<<std::endl;
     }
-    else {
+    else if (t.getOwner() == -1){
         out << "La propriété est achetable vous pevez l'acheter pour " << t.getPrice() << "€" << std::endl;
     }
 

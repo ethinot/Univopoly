@@ -18,7 +18,7 @@ class Player{
 		unsigned int getId() const;
 		unsigned int getPosition() const;
 		void changePostion(unsigned int how_much);
-		void transaction(unsigned int amout);
+		bool transaction(unsigned int amout);
 		void goJail();
 		bool checkJail();
 		bool isDead() const;
@@ -26,9 +26,11 @@ class Player{
 		void minusGare();
 		unsigned int getGareCount() const;
 		Tile* getProperty(unsigned int property_id);
-		void buyProperty(unsigned int property_id, Tile* property);
-		void sellProperty(unsigned int property_id);
+		bool buyProperty(unsigned int property_id, Tile* property);
+		bool sellProperty(unsigned int property_id);
 		void printProperties();
+		int getNetWorth();
+		int getBalance();
 
 
 

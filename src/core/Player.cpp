@@ -23,6 +23,8 @@ void Player::changePostion(unsigned int how_much) {
 	if ((position + how_much) > 39){
 		avancement = (position + how_much) - 39;
 		position = avancement - 1; // décallage de -1 car la case départ est la case 0
+		// version Qt fair eun pop
+		std::cout<< "Vous avez atterie sur la case Start !! Recuperer 200$ !!!!" << std::endl;
 		goods.changeBalance(200);
 	}
 	else {
@@ -30,8 +32,13 @@ void Player::changePostion(unsigned int how_much) {
 	}
 }
 
-void Player::transaction(unsigned int amount){
-	goods.changeBalance(amount);
+int Player::getBalance(){
+	return goods.getBalance();
+}
+
+bool Player::transaction(unsigned int amount){
+	if (goods.changeBalance(amount) >= 0) return true;
+	return false;
 }
 
 void Player::goJail(){
@@ -59,16 +66,24 @@ Tile* Player::getProperty(unsigned int property_id) {
 	return goods.getProperty(property_id);
 }
 
-void Player::buyProperty(unsigned int property_id, Tile*property){
-	transaction(- (property->getPrice()));
-	goods.addProperty(property_id, property);
+bool Player::buyProperty(unsigned int property_id, Tile*property){
+	if (transaction(- (property->getPrice()))){
+		goods.addProperty(property_id, property);
+		return true;
+	}else return false;
 }
 
-void Player::sellProperty(unsigned int property_id){
-	transaction(goods.getProperty(property_id)->getSellPrice());
-	goods.removeProperty(property_id);
+bool Player::sellProperty(unsigned int property_id){
+	int selling_price = goods.getProperty(property_id)->getSellPrice();
+	if (goods.removeProperty(property_id)){
+		return transaction(selling_price);
+	}else return false;
 }
 
 void Player::printProperties(){
 	std::cout << goods;
+}
+
+int Player::getNetWorth(){
+	return goods.getNetWorth();
 }

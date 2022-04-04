@@ -15,10 +15,10 @@ class Inventory{
 		Inventory();
 		~Inventory();
 		// returns the value in wallet (it represents the amount of money that the player have).
-		unsigned int getBalance() const;
+		int getBalance() const;
 		friend std::ostream& operator<< (std::ostream& out, const Inventory& inventory);
 		// modify wallet by adding amount to the wallet (amount can be negative).
-		void changeBalance(int amount);
+		int changeBalance(int amount);
 		// returns wallet + the sell_price of each property (in collecition) owned by the player.
 		int getNetWorth() const;
 		// returns a map, containing respectively the id of a property and a pointer on the Property
@@ -27,7 +27,7 @@ class Inventory{
 
 		Tile* getProperty(unsigned int property_id);
 		void addProperty(unsigned int property_id, Tile* new_property);
-		void removeProperty(unsigned int property_id);
+		bool removeProperty(unsigned int property_id);
 };
 
 

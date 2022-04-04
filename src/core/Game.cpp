@@ -8,6 +8,7 @@ Game::Game(int new_total_player){
 	for (unsigned char i = 0; i < total_player; i++){
 		players.push_back(new Player(i+1));
 	}
+	parc_money = 0;
 }
 
 Game::Game(int new_total_player, std::string filename) : board_game(){
@@ -15,6 +16,7 @@ Game::Game(int new_total_player, std::string filename) : board_game(){
 		for (unsigned char i = 0; i < total_player; i++){
 		players.push_back(new Player(i+1));
 	}
+	parc_money = 0;
 }
 
 Game::~Game() {
@@ -62,23 +64,41 @@ void Game::movePlayer(int id, int how_much){
 	current_player->changePostion(how_much);
 }
 
-void Game::buyTile(int id, unsigned int property_id){ 
+bool Game::buyTile(int id, unsigned int property_id){ 
 	Player * current_player = getPlayerById(id);
-	current_player->buyProperty(property_id, board_game.getTile(property_id));
+	if (current_player->buyProperty(property_id, board_game.getTile(property_id))){
+		board_game.getTile(property_id)->bought(id);
+		if (typeid(*board_game.getTile(property_id)).name() == typeid(Gare).name()) current_player->plusGare();
+		return true;
+	}else return false;
 }
 
-void Game::sellTile(int id, unsigned int property_id){ 
+bool Game::sellTile(int id, unsigned int property_id){ 
 	Player * current_player = getPlayerById(id);
-	current_player->sellProperty(property_id);
+	if (current_player->sellProperty(property_id)){
+		board_game.getTile(property_id)->sold();
+		if (typeid(*board_game.getTile(property_id)).name() == typeid(Property).name()) static_cast<Property*>(board_game.getTile(property_id))->emptyProperty();
+		else if (typeid(*board_game.getTile(property_id)).name() == typeid(Gare).name()) current_player->minusGare();
+		return true;
+	}else return false;
 }
 
 Tile * Game::getTileById(int property_id){
 	return board_game.getTile(property_id);
 }
 
-void Game::pay(int id, int amount){
+bool Game::pay(int id, int amount, int id_reciever){
 	Player * current_player = getPlayerById(id);
-	current_player->transaction(-amount);
+	if (current_player->transaction(-amount)){
+		if (id_reciever == -1){
+			parc_money += amount;
+			return true;
+		}else{
+			Player * reciever_player = getPlayerById(id_reciever);
+			reciever_player->transaction(+amount);
+			return true;
+		}
+	}else return false;
 }
 
 void Game::printPlayerProperties(int id){
@@ -97,4 +117,24 @@ int Game::getPlayerIndex(int id){
 void Game::killPlayer(int id){
 	int index = getPlayerIndex(id);
 	players.erase(players.begin() + index);
+}
+
+bool Game::checkJail(int id){
+	return getPlayerById(id)->checkJail();
+}
+
+void Game::sendJail(int id){
+	getPlayerById(id)->goJail();
+}
+
+void Game::checkPropertiesToSell(int id){
+	int input_property_id;
+	Player * current_player = getPlayerById(id);
+	current_player->printProperties();
+	do
+	{
+		std::cout << "Entrez le id de la propriété que vous voulais vendre: ";
+		std::cin >> input_property_id;
+
+	}while(!sellTile(id, input_property_id));
 }
