@@ -19,7 +19,7 @@ class Game{
 
 	public:
 		Game(int total_player);
-		//Game(int total_player, std::string filename);
+		Game(int total_player, std::string filename);
 		~Game();
 		int getGameSize() const;
 		int checkWinner();
@@ -36,6 +36,8 @@ class Game{
 		void sellTile(int id, unsigned int property_id);
 		void pay(int id, int amount);
 		void printPlayerProperties(int id);
+		int getPlayerIndex(int id);
+		void killPlayer(int id);
 };
 
 #endif

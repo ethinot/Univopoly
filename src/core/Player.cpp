@@ -23,6 +23,7 @@ void Player::changePostion(unsigned int how_much) {
 	if ((position + how_much) > 39){
 		avancement = (position + how_much) - 39;
 		position = avancement - 1; // décallage de -1 car la case départ est la case 0
+		goods.changeBalance(200);
 	}
 	else {
 		position += how_much;
@@ -33,6 +34,7 @@ void Player::transaction(unsigned int amount){
 	goods.changeBalance(amount);
 }
 
+<<<<<<< HEAD
 void Player::goJail(){
 	position = 10;
 	jail_count = 0;
@@ -50,6 +52,10 @@ bool Player::checkJail() {
 }
 
 bool Player::isDead() const{ return goods.getNetWorth() == 0;}
+=======
+bool Player::onJail() const{return position == 10;}
+bool Player::isDead() const{ return goods.getNetWorth() == 0 || goods.getBalance() < 0;}
+>>>>>>> 2a71f8bf98a752db8c8a36acfca27cae4cd96b98
 void Player::plusGare() {number_gare ++;}
 void Player::minusGare() {number_gare --;}
 unsigned int Player::getGareCount() const{return number_gare;}

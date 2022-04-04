@@ -87,7 +87,11 @@ public:
 	 * @param t -> instance de la classe tile, peut être une propriété ou une gare.
 	 * @return ostream& 
 	 */
+<<<<<<< HEAD
 	friend std::ostream & operator << (std::ostream &out, const Tile* &t); //A remplacer 
+=======
+	friend std::ostream & operator << (std::ostream &out, const Tile &t);
+>>>>>>> 2a71f8bf98a752db8c8a36acfca27cae4cd96b98
 };
 
 #endif

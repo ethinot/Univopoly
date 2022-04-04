@@ -5,6 +5,8 @@
 #include <fstream>
 
 
+
+
 Board::Board(){
     game_board.push_back(new Property("Property1", 1, 200, 100, 50, 25, 30, 35, 40, 45, 60));
     game_board.push_back(new Property("Property2", 2, 200, 100, 50, 25, 30, 35, 40, 45, 60));
@@ -40,9 +42,12 @@ Board::Board(){
     game_board.push_back(new Property("Property6", 21, 300, 150, 70, 40, 40, 45, 50, 55, 65));
 }
 
+Board::Board(std::string filename){
+
+}
+
 Board::~Board() {
     game_board.clear();
-
 }
 
 Tile* Board::getTile(unsigned int property_id){
