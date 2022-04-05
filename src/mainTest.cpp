@@ -9,7 +9,7 @@ int main() {
     
     Dice unDes;
     srand((unsigned int)time(NULL));
-    unDes.regressionTestDice();
+    unDes.testRegDice();
 
     Property p("test",1,99,99,99,99,99,99,99,99,99);
     p.testRegProperty();

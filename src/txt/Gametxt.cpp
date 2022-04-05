@@ -20,8 +20,7 @@ void txtLoop(Game & game)
 	char anwser;
 	do {
 		for(unsigned char i = 0 ; i < game.getGameSize(); i++){ // boucle de jeu pour les différents joeurs
-			std::cout << "#####################################################################";
-			std::cout << "#####################################################################";
+			std::cout << "########################################################";
 
 			//std::cout << typeid(Gare).name() << "   " << typeid(Property).name() << "  " << typeid(*game.getTileById(15)).name() << "  " << typeid(*game.getTileById(39)).name() << std::endl;
 
@@ -63,7 +62,7 @@ void txtLoop(Game & game)
 							std::cout<< "Case Chance pour le moment il ne se passe rien :(" << std::endl;
 							break;
 						case 4:
-							std::cout<< "L'AML vous welcome ! mai l'adhesion va vous coute 50$ :)" << std::endl;
+							std::cout<< "L'AML vous welcome ! mais l'adhesion va vous coute 50$ :)" << std::endl;
 							if (game.pay(current_player_id, 50, -1)){
 								std::cout << "L'AML vous remercie !!" << std::endl;
 							}else{
@@ -111,7 +110,7 @@ void txtLoop(Game & game)
 							std::cout << "Stage dans la prochain version vous aurai un challenge pour gagner de l'argent" << std::endl;
 							break;
 						case 38:
-							std::cout<< "L'AML vous welcome ! mai l'adhesion va vous coute 50$ :)" << std::endl;
+							std::cout<< "L'AML vous welcome ! mais l'adhesion va vous coute 50$ :)" << std::endl;
 							if (game.pay(current_player_id, 50, -1)){
 								std::cout << "L'AML vous remercie !!" << std::endl;
 							}else{
@@ -143,17 +142,20 @@ void txtLoop(Game & game)
 							break;
 
 						case 'n':
-							std::cout << "La prochaine fois peutetre" << std::endl;
+							std::cout << "La prochaine fois peut etre" << std::endl;
 							lineBreak();
 							break;
 					}
 				
 				// Tile is owned (can be a Property or Gare)
 				}else if(current_tile->getOwner() != current_player_id){
+
+					// type Property
 					if (typeid(*current_tile).name() == typeid(Property).name()){
 						current_rent = static_cast<Property*>(current_tile)->getRent();
 						std::cout << "Le loyer est de: " << current_rent << "$" << std::endl;
 						if (game.pay(current_player_id, current_rent, current_tile->getOwner())){
+							std::cout << "Vous payer " << current_rent << "$ au Joueur " << current_tile->getOwner() << std::endl;
 							std::cout << "A la prochaine !!" << std::endl;
 						}else{
 							std::cout << "Oopsii vous n'avais pas assez d'argent" << std::endl;
@@ -168,6 +170,8 @@ void txtLoop(Game & game)
 							}
 						}
 					}
+
+					// type Gare
 					else if (typeid(*current_tile).name() == typeid(Gare).name()){
 						current_rent = static_cast<Gare*>(current_tile)->getRent(game.getPlayerById(current_tile->getOwner())->getGareCount());
 						std::cout << "Le loyer est de: "<< current_rent << "$" << std::endl;
@@ -188,8 +192,9 @@ void txtLoop(Game & game)
 							}
 						}
 					}
+
 				}else{
-					std::cout << "Qui aime pas faire cours a : " << current_tile->getName() << std::endl;
+					std::cout << "Vous etes: " << current_tile->getName() << std::endl;
 					lineBreak();
 				}
 			}
