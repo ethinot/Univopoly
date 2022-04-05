@@ -32,7 +32,7 @@ unsigned int Dice::getTotal() const{
 	return values[0] + values[1];
 }
 
-void Dice::regressionTestDice() {
+void Dice::testRegDice() {
 	
 	//Test constructeur
 	Dice unDes;

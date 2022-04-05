@@ -18,12 +18,6 @@ bin/test: obj/mainTest.o obj/Dice.o obj/Tile.o obj/Property.o
 obj/mainTest.o: src/mainTest.cpp src/core/Dice.h src/core/Tile.h src/core/Property.h
 	$(CC) -c src/mainTest.cpp -o obj/mainTest.o
 
-bin/test2: obj/test2.o $(OBJ)
-	$(CC) obj/test2.o $(OBJ) -o bin/test2
-
-obj/test2.o: src/test.cpp $(HEADERS)
-	$(CC) -c src/test.cpp -o obj/test2.o
-
 obj/Gametxt.o: src/txt/Gametxt.cpp $(HEADERS)
 	$(CC) -c src/txt/Gametxt.cpp -o obj/Gametxt.o
 
