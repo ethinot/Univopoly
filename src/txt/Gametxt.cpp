@@ -1,4 +1,7 @@
 #include "Gametxt.h"
+#include <unistd.h>
+#include <termios.h>
+#include <unistd.h>
 
 Game txtInit(int nb_player){
     Game game(nb_player);
@@ -203,6 +206,7 @@ void txtLoop(Game & game)
 
 			anwser = ' ';
 			do{std::cout << "Passer le tour. (y/n): "; std::cin >> anwser;} while(anwser != 'y' and anwser != 'n');
+			system("clear");
 
 		}
 	} while(game.checkWinner() == -1);

@@ -81,7 +81,7 @@ bool Player::sellProperty(unsigned int property_id){
 }
 
 void Player::printProperties(){
-	std::cout << goods;
+	goods.printInventory(number_gare);
 }
 
 int Player::getNetWorth(){

@@ -27,6 +27,7 @@ class Inventory{
 
 		Tile* getProperty(unsigned int property_id);
 		void addProperty(unsigned int property_id, Tile* new_property);
+		void printInventory(int gare_count);
 		bool removeProperty(unsigned int property_id);
 };
 

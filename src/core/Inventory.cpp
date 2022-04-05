@@ -1,5 +1,6 @@
 #include "Inventory.h"
 #include "Property.h"
+#include "Gare.h"
 
 
 Inventory::Inventory() : collection() {
@@ -11,15 +12,34 @@ Inventory::~Inventory(){}
 
 int Inventory::getBalance() const{ return wallet;}
 
+void Inventory::printInventory(int gare_count){
+	std::cout << "Tu as: " << wallet << '$' << std::endl;
+	std::cout << std::endl;
+	for (auto const &p : collection) {
+		std::cout << "--------------- Nom: " << p.second->getName() << " ----------------" << std::endl;
+		std::cout << "Id de la propriete: " << p.second->getId() << std::endl;
+		std::cout << "Prix de vente: " << p.second->getSellPrice() << '$' << std::endl;
+
+		if (typeid(*p.second).name() == typeid(Property).name()){
+			std::cout << "Prix d'une salle de classe: " << static_cast<Property*>(p.second)->getBuildPrice() << '$' << std::endl;
+			std::cout << "Loyer actuelle: " << static_cast<Property*>(p.second)->getRent() << '$' << std::endl;
+
+		}else if (typeid(*p.second).name() == typeid(Gare).name()){
+			std::cout << "Loyer actuelle: " << static_cast<Gare*>(p.second)->getRent(gare_count) << '$' << std::endl;
+		}
+
+	}
+	std::cout << "-------------------------------------------------" << std::endl;
+}
+
+
 std::ostream& operator<< (std::ostream& out, const Inventory& inventory){
 	out << "Tu as: " << inventory.getBalance() << '$' << std::endl;
 	out << std::endl;
 	for (auto const &p : inventory.collection) {
-		out << "-----------------------------------------------------------" << std::endl;
+		out << "--------------- Nom: " << p.second->getName() << "----------------" << std::endl;
 		out << "Id de la propriete: " << p.second->getId() << std::endl;
-		out << "Nom de la propriete: " << p.second->getName() << std::endl;
 		out << "Prix de vente: " << p.second->getSellPrice() << '$' << std::endl;
-		out << "-----------------------------------------------------------" << std::endl;
 	}
 	return out;
 }

@@ -26,7 +26,7 @@ public:
      */
     Board();
     
-    //Board(std::string filename); futur constructeur à partir d'un fichier json
+    Board(std::string filename); //futur constructeur à partir d'un fichier json
     
     /**
      * @brief Destructeur de l'objet board
