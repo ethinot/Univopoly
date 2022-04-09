@@ -7,7 +7,7 @@
 # ./release/pacman_qt
 */
 
-
+#include <iostream>
 #include <QApplication>
 #include <QMainWindow>
 #include <QGraphicsPixmapItem>
@@ -15,7 +15,6 @@
 #include <QtGui>
 #include <QGraphicsScene>
 #include <QGraphicsView>
-#include <iostream>
 #include <QMenu>
 #include <QMenuBar>
 #include <QToolBar>
@@ -28,10 +27,8 @@ int main(int argc, char **argv)
 {
     
     QApplication app(argc, argv);
-    QPixmap pm("../../img/UCBL_logo.png");
-    QLabel lbl;
-    lbl.setPixmap(pm);
-    lbl.show();
+    QImage image
+    image.load("../../img/Univopoly_board.png");
     return app.exec();
 
 }
