@@ -1,6 +1,5 @@
 #include "Player.h"
 
-
 Player::Player(){
 	id = -1;
 	position = 0;
@@ -16,6 +15,7 @@ Player::Player(unsigned int new_id){
 }
 
 unsigned int Player::getId() const{ return id;}
+
 unsigned int Player::getPosition() const{ return position;}
 
 void Player::changePostion(unsigned int how_much) {
@@ -24,7 +24,7 @@ void Player::changePostion(unsigned int how_much) {
 		avancement = (position + how_much) - 39;
 		position = avancement - 1; // décallage de -1 car la case départ est la case 0
 		// version Qt fair eun pop
-		std::cout<< "Vous avez atterie sur la case Start !! Recuperer 200$ !!!!" << std::endl;
+		std::cout<< "Vous avez atterie sur la case Start !! Recuperer 200€ !!!" << std::endl;
 		goods.changeBalance(200);
 	}
 	else {
@@ -58,16 +58,19 @@ bool Player::checkJail() {
 }
 
 bool Player::isDead() const{ return goods.getNetWorth() == 0;}
+
 void Player::plusGare() {number_gare ++;}
+
 void Player::minusGare() {number_gare --;}
+
 unsigned int Player::getGareCount() const{return number_gare;}
 
-Tile* Player::getProperty(unsigned int property_id) { 
+Tile& Player::getProperty(unsigned int property_id) { 
 	return goods.getProperty(property_id);
 }
 
-bool Player::buyProperty(unsigned int property_id, Tile*property){
-	if (transaction(- (property->getPrice()))){
+bool Player::buyProperty(unsigned int property_id, Tile& property){
+	if (transaction(- (property.getPrice()))){
 		goods.addProperty(property_id, property);
 		return true;
 	}else return false;

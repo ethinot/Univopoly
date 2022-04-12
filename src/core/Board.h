@@ -15,7 +15,7 @@
 class Board{
 
 private:
-    std::vector<Tile*> game_board; /**< vector de type pointeur sur Tile*/
+    std::vector<Tile> game_board; /**< vector de typeTile*/
 public:
     
     /**
@@ -38,9 +38,9 @@ public:
      * @brief Fonction qui prend en paramètre l'id d'une propriété et renvoie un pointeur correspondant à l'id passer en paramètre
      * 
      * @param property_id -> id d'une propriété 
-     * @return Tile* -> renvoie un pointeur sur Tile
+     * @return Tile -> renvoie une référence sur Tile qui ne pourra pas être modifier
      */
-    Tile* getTile(unsigned int property_id);
+    const Tile& getTile(unsigned int property_id);
     
     void testRegBoard();
 };

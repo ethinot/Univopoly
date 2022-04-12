@@ -13,9 +13,12 @@ class Game{
 
 	private:
 		Board board_game;
-		std::vector<Player *> players;
+		std::vector<Player> players;
 		int total_player;
 		Dice dice;
+
+		Player& player(int id);
+		Tile& tile(int tile_id);
 
 	public:
 		Game(int total_player);
@@ -31,8 +34,6 @@ class Game{
 		bool checkJail(int id);
 		void sendJail(int id);
 		unsigned int getId(int index) const;
-		Player * getPlayerById(int id);
-		Tile * getTileById(int tile_id);
 		int getPlayerPosition(int id);
 		void movePlayer(int id, int how_much);
 		bool buyTile(int id, unsigned int property_id);

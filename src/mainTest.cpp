@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "core/Tile.h"
 #include "core/Property.h"
+#include "core/Inventory.h"
 
 
 int main() {
@@ -13,6 +14,9 @@ int main() {
 
     Property p("test",1,99,99,99,99,99,99,99,99,99);
     p.testRegProperty();
+
+    Inventory i;
+    i.testRegInventory();
 
     return 0;
 }

@@ -12,10 +12,10 @@ bin/txt: obj/txt.o obj/Gametxt.o $(OBJ)
 obj/txt.o: src/txt/mainTxt.cpp $(HEADERS)
 	$(CC) -c src/txt/mainTxt.cpp -o obj/txt.o
 
-bin/test: obj/mainTest.o obj/Dice.o obj/Tile.o obj/Property.o
-	$(CC) obj/mainTest.o obj/Dice.o obj/Tile.o obj/Property.o -o bin/test
+bin/test: obj/mainTest.o obj/Dice.o obj/Tile.o obj/Property.o obj/Gare.o obj/Inventory.o
+	$(CC) obj/mainTest.o obj/Dice.o obj/Tile.o obj/Property.o obj/Gare.o obj/Inventory.o -o bin/test
 
-obj/mainTest.o: src/mainTest.cpp src/core/Dice.h src/core/Tile.h src/core/Property.h
+obj/mainTest.o: src/mainTest.cpp src/core/Dice.h src/core/Tile.h src/core/Property.h src/core/Inventory.h
 	$(CC) -c src/mainTest.cpp -o obj/mainTest.o
 
 obj/Gametxt.o: src/txt/Gametxt.cpp $(HEADERS)
@@ -30,7 +30,7 @@ obj/Game.o: src/core/Game.h src/core/Game.cpp src/core/Dice.h src/core/Player.h 
 obj/Gare.o: src/core/Gare.h src/core/Gare.cpp src/core/Tile.h
 	$(CC) -c src/core/Gare.cpp -o obj/Gare.o
 
-obj/Inventory.o: src/core/Inventory.h src/core/Inventory.cpp src/core/Property.h
+obj/Inventory.o: src/core/Inventory.h src/core/Inventory.cpp src/core/Property.h src/core/Gare.h
 	$(CC) -c src/core/Inventory.cpp -o obj/Inventory.o
 
 obj/Player.o: src/core/Player.h src/core/Player.cpp src/core/Inventory.h

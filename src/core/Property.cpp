@@ -10,7 +10,6 @@ Property::Property(std::string new_name, unsigned int new_id, unsigned int new_p
 	price = new_price;
 	sell_price = new_sell_price;
 	build_price = new_build_price;
-	rent = new unsigned int [6];
 	rent[0] = rent_0; rent[1] = rent_1;
 	rent[2] = rent_2; rent[3] = rent_3;
 	rent[4] = rent_4; rent[5] = rent_5;
@@ -38,7 +37,7 @@ void Property::testRegProperty(){
 
 	//test affichage de l'objet
 	std::cout<<"Test afficher d'un objet Property"<<std::endl;
-	//std::cout<<p1<<std::endl;
+	std::cout<<p1<<std::endl;
 	
 	//getID
 	assert(p1.getId() == 3 && 3 == p1.id);

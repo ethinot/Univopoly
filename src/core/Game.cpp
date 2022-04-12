@@ -83,7 +83,8 @@ bool Game::sellTile(int id, unsigned int property_id){
 	}else return false;
 }
 
-Tile * Game::getTileById(int property_id){
+Tile& Game::getTileById(int property_id){
+	//assert(property_id<)
 	return board_game.getTile(property_id);
 }
 
@@ -102,12 +103,13 @@ bool Game::pay(int id, int amount, int id_reciever){
 }
 
 void Game::printPlayerProperties(int id){
-	getPlayerById(id)->printProperties();
+	//getPlayerById(id)->printProperties();
+	player(0).printProperties();
 }
 
 int Game::getPlayerIndex(int id){
 	for (int i = 0; i < players.size(); i++){
-		if (players[i]->getId() == id){
+		if (player([i)->getId() == id){
 			return i;
 		}
 	}

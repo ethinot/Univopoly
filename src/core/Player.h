@@ -25,8 +25,8 @@ class Player{
 		void plusGare();
 		void minusGare();
 		unsigned int getGareCount() const;
-		Tile* getProperty(unsigned int property_id);
-		bool buyProperty(unsigned int property_id, Tile* property);
+		Tile& getProperty(unsigned int property_id);
+		bool buyProperty(unsigned int property_id, Tile& property);
 		bool sellProperty(unsigned int property_id);
 		void printProperties();
 		int getNetWorth();
