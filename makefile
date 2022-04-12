@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = univopoly_qt1.0.0
-DISTDIR = /Users/enzo/Desktop/univopoly/.tmp/univopoly_qt1.0.0
+DISTDIR = /Users/enzo/Desktop/projetp4/univopoly/.tmp/univopoly_qt1.0.0
 LINK          = /Library/Developer/CommandLineTools/usr/bin/clang++
 LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11 -Wl,-rpath,@executable_path/../Frameworks -Wl,-rpath,/usr/local/lib
 LIBS          = $(SUBLIBS) -F/usr/local/lib -framework QtWidgets -framework QtGui -framework AppKit -framework ImageIO -framework Metal -framework QtCore -framework DiskArbitration -framework IOKit -framework AGL -framework OpenGL   
@@ -323,12 +323,12 @@ TARGET        = univopoly_qt
 EXPORT_QMAKE_MAC_SDK = macosx
 EXPORT_QMAKE_MAC_SDK_VERSION = 12.1
 EXPORT_QMAKE_XCODE_DEVELOPER_PATH = /Library/Developer/CommandLineTools
-EXPORT__QMAKE_STASH_ = /Users/enzo/Desktop/univopoly/.qmake.stash
+EXPORT__QMAKE_STASH_ = /Users/enzo/Desktop/projetp4/univopoly/.qmake.stash
 EXPORT_VALID_ARCHS = x86_64
 EXPORT_DEFAULT_ARCHS = x86_64
 EXPORT_ARCHS = $(filter $(EXPORT_VALID_ARCHS), $(if $(ARCHS), $(ARCHS), $(if $(EXPORT_DEFAULT_ARCHS), $(EXPORT_DEFAULT_ARCHS), $(EXPORT_VALID_ARCHS))))
 EXPORT_ARCH_ARGS = $(foreach arch, $(if $(EXPORT_ARCHS), $(EXPORT_ARCHS), $(EXPORT_VALID_ARCHS)), -arch $(arch))
-EXPORT__PRO_FILE_ = /Users/enzo/Desktop/univopoly/univopoly_qt.pro
+EXPORT__PRO_FILE_ = /Users/enzo/Desktop/projetp4/univopoly/univopoly_qt.pro
 
 
 include /usr/local/Cellar/qt/6.2.3_1/share/qt/mkspecs/features/mac/sdk.mk

@@ -21,7 +21,7 @@ int main(int argc, char **argv)
     //palette.setColor(label.backgroundRole(), Qt::yellow);
     //label.setPalette(palette);
 
-    label.setPixmap( QPixmap( "/Users/enzo/Desktop/Univopoly_Qt/univopoly/img/Univopoly_Board.png" ) );
+    label.setPixmap( QPixmap( "/Users/enzo/Desktop/projetp4/Univopoly_Qt/univopoly/img/Univopoly_Board.png" ) );
 
     label.setScaledContents( true );
 
