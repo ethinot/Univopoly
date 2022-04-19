@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Tile.h"
 #include <assert.h>
 
 Player::Player(){
@@ -8,7 +9,7 @@ Player::Player(){
 	number_gare = 0;
 }
 
-Player::Player(unsigned int new_id){
+Player::Player(int new_id){
 	id = new_id;
 	position = 0;
 	jail_count = -1;
@@ -72,7 +73,7 @@ void Player::goJail(){
 	jail_count = 0;
 }
 
-bool Player::checkJail() {
+bool Player::checkJail(){
 	if (jail_count>-1 && jail_count<3) {
 		jail_count ++;
 		return true;
@@ -90,3 +91,66 @@ void Player::plusGare() {number_gare ++;}
 void Player::minusGare() {number_gare --;}
 
 unsigned int Player::getGareCount() const{return number_gare;}
+
+void Player::testRegPlayer(){
+	
+	//test constucteur par défault
+	Player void_player;
+	assert(void_player.id == -1);
+	assert(void_player.position == 0);
+	assert(void_player.jail_count == -1);
+	assert(void_player.number_gare == 0);
+
+	//test constructeur avec paramètre
+	Player player2(2); 
+	assert(player2.id == 2);
+	assert(player2.position == 0);
+	assert(player2.jail_count == -1);
+	assert(player2.number_gare == 0);
+
+	//test getId
+	assert(player2.getId() == (unsigned int)player2.id);
+
+	//getBalance déja tester dans le module Inventory
+	//getNetWorth déja tester dans le module Inventory
+	//transaction déja tester dans le module Inventory
+	//getProperty déja tester dans property/gare
+
+	//test buyProperty
+	Tile p1 = Property("Braconnier", 1, 60, 30, 50, 2, 10, 30, 90, 160, 250);
+	assert(player2.buyProperty(&p1) == true);
+	assert(player2.getBalance() == 1000-60);
+	assert(player2.getNetWorth() == 940+30);
+
+	//test printProperties
+	std::cout<<"Test affichage des propriétés:"<<std::endl;
+	player2.printProperties();
+
+	//test sellProperty
+	assert(player2.sellProperty(1) == true);
+	assert(player2.getBalance() == 940+30);
+
+	//test position
+	assert(player2.getPosition() == 0);
+	player2.changePostion(30);
+	assert(player2.getPosition() == 30);
+	player2.changePostion(10);
+	assert(player2.getBalance() == 970+200); //passe par le case départ
+
+	//test prison
+	player2.goJail();
+	assert(player2.getPosition() == 10);
+	for (int i=0; i<3; i++){
+		assert(player2.jail_count == i);
+		assert(player2.checkJail() == true);
+	}
+	assert(player2.checkJail() == false);
+	assert(player2.jail_count == -1);
+
+	//test gare
+	player2.plusGare();
+	player2.plusGare();
+	assert(player2.getGareCount() == 2);
+	player2.minusGare();
+	assert(player2.getGareCount() == 1);
+}

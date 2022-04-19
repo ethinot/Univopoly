@@ -17,7 +17,9 @@ int Inventory::changeBalance(int amount) {
 }
 
 int Inventory::getNetWorth() const{
+	
 	int total = wallet;
+	
 	for (auto & element : collection){
 		total += element->getSellPrice();
 	}
@@ -25,8 +27,10 @@ int Inventory::getNetWorth() const{
 	return total;
 }
 
-Tile* Inventory::getProperty(unsigned int property_id) const{
+Tile* Inventory::getProperty(int property_id) const{
+	
 	assert(property_id >=0 && property_id < 40);
+	
 	Tile* res;
 	for (auto & element : collection){
 		if (element->getId() == property_id) {res = element;}
@@ -39,12 +43,14 @@ void Inventory::addProperty(Tile *new_property) {
 }
 
 bool Inventory::removeProperty(unsigned int property_id){
+	
 	assert(property_id >=0 && property_id < 40);
 	
 	std::vector<Tile *>::iterator it; //declaration of a iterator
 	it = collection.begin(); // initialisation 
+	
 	for(auto & element : collection)    {
-    	if(element->getId() == property_id){
+    	if((unsigned int)element->getId() == property_id){
 			collection.erase(it);
 			return true;
 		}
@@ -58,8 +64,10 @@ std::vector<Tile*> Inventory::getProperties() const {return collection;}
 bool Inventory::collectionEmpty() const{ return collection.empty();}
 
 std::ostream& operator<< (std::ostream& out, const Inventory& inventory){
+	
 	out << "Tu as: " << inventory.getBalance() << 'e' << std::endl;
 	out << std::endl;
+	
 	for (auto const &element : inventory.collection) {
 		out << "-------------- Nom: " << element->getName() << " --------------" << std::endl;
 		out << " Id de la propriete: " << element->getId() << std::endl;
@@ -72,6 +80,7 @@ std::ostream& operator<< (std::ostream& out, const Inventory& inventory){
 void Inventory::printInventory(int gare_count){
 	std::cout << "Tu as: " << wallet << 'e' << std::endl;
 	std::cout << std::endl;
+	
 	for (auto const &element : collection) {
 		std::cout << "-------------- Nom: " << element->getName() << " --------------" << std::endl;
 		std::cout << "Id de la propriete: " << element->getId() << std::endl;

@@ -14,7 +14,7 @@ Tile::~Tile(){}
 
 void Tile::getType(){}
 
-unsigned int Tile::getId() const{ return id;}
+int Tile::getId() const{ return id;}
 
 std::string Tile::getName() const{return name;};
 

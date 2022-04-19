@@ -12,10 +12,10 @@ bin/txt: obj/txt.o obj/Gametxt.o $(OBJ)
 obj/txt.o: src/txt/mainTxt.cpp $(HEADERS)
 	$(CC) -c src/txt/mainTxt.cpp -o obj/txt.o
 
-bin/test: obj/mainTest.o obj/Dice.o obj/Tile.o obj/Property.o obj/Gare.o obj/Inventory.o
-	$(CC) obj/mainTest.o obj/Dice.o obj/Tile.o obj/Property.o obj/Gare.o obj/Inventory.o -o bin/test
+bin/test: obj/mainTest.o obj/Dice.o obj/Tile.o obj/Property.o obj/Gare.o obj/Inventory.o obj/Player.o
+	$(CC) obj/mainTest.o obj/Dice.o obj/Tile.o obj/Property.o obj/Gare.o obj/Inventory.o obj/Player.o -o bin/test
 
-obj/mainTest.o: src/mainTest.cpp src/core/Dice.h src/core/Tile.h src/core/Property.h src/core/Inventory.h
+obj/mainTest.o: src/mainTest.cpp src/core/Dice.h src/core/Tile.h src/core/Property.h src/core/Inventory.h src/core/Player.h
 	$(CC) -c src/mainTest.cpp -o obj/mainTest.o
 
 obj/Gametxt.o: src/txt/Gametxt.cpp $(HEADERS)

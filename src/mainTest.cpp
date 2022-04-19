@@ -4,7 +4,7 @@
 #include "core/Tile.h"
 #include "core/Property.h"
 #include "core/Inventory.h"
-
+#include "core/Player.h"
 
 int main() {
     
@@ -12,11 +12,17 @@ int main() {
     srand((unsigned int)time(NULL));
     unDes.testRegDice();
 
-    Property p("test",1,99,99,99,99,99,99,99,99,99);
-    p.testRegProperty();
+    Property prop("test",1,99,99,99,99,99,99,99,99,99);
+    prop.testRegProperty();
 
     Inventory i;
     i.testRegInventory();
+
+    std::cout<<std::endl;
+    std::cout<<std::endl;
+
+    Player player;
+    player.testRegPlayer();
 
     return 0;
 }

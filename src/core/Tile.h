@@ -39,7 +39,7 @@ public:
 	* @brief getId() récupère l'id de la case
 	* La fonction getId -> ne prend pas de paramètre et renvoie l'id d'une case.
 	*/
-	unsigned int getId() const;
+	int getId() const;
 	
 	/**
 	* @brief getName() récupère le nom associer à la case

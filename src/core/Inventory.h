@@ -62,7 +62,7 @@ public:
 	 * @param property_id -> l'id de la propriété à récuperer
 	 * @return Tile*
 	 */
-	Tile* getProperty(unsigned int property_id) const;
+	Tile* getProperty(int property_id) const;
 
 	/**
 	 * @brief ajoute une propriété à la collection d'un joueur

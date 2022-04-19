@@ -18,7 +18,7 @@
 class Player{
 
 private:
-	unsigned int id; /**< Id joueur */
+	int id; /**< Id joueur */
 	Inventory goods; /**< Inventaire */
 	unsigned int position; /**< Position actuel du joueur */
 	int jail_count; /**< Compteur de tours en prison (-1 si pas en prison) */
@@ -37,7 +37,7 @@ public:
 	 * Initialise les différents données membre
 	 * @param new_id -> id du nouveau joueur crée
 	 */
-	Player(unsigned int new_id);
+	Player(int new_id);
 	
 	/**
 	 * @brief Récupère l'id du joueur
@@ -155,6 +155,12 @@ public:
 	 * @return unsigned int 
 	 */
 	unsigned int getGareCount() const;
+
+	/**
+	 * @brief Test de régression du module Player
+	 * 
+	 */
+	void testRegPlayer();
 };
 
 #endif
