@@ -34,7 +34,7 @@ Tile* Inventory::getProperty(unsigned int property_id) const{
 	return res;
 }
 
-void Inventory::addProperty(Tile * new_property) {
+void Inventory::addProperty(Tile *new_property) {
 	collection.push_back(new_property);
 }
 
@@ -106,13 +106,13 @@ void Inventory::testRegInventory(){
 	assert(invent.getBalance() == 900);
 
 	//Test addProperty
-	Tile* p1 = new Property("Braconnier", 1, 60, 30, 50, 2, 10, 30, 90, 160, 250);
-	Tile* g1 = new Gare("Condorcet", 5, 200, 100);
-	invent.addProperty(p1);
-	invent.addProperty(g1);
+	Tile p1 = Property("Braconnier", 1, 60, 30, 50, 2, 10, 30, 90, 160, 250);
+	Tile g1 = Gare("Condorcet", 5, 200, 100);
+	invent.addProperty(&p1);
+	invent.addProperty(&g1);
 	assert(invent.collection.size() == 2);
-	assert(invent.collection[0] == p1);
-	assert(invent.collection[1] == g1);
+	assert(invent.collection[0] == &p1);
+	assert(invent.collection[1] == &g1);
 
 	//Test surcharge cout
 	std::cout<<"Test affichage:"<<std::endl;
@@ -123,7 +123,7 @@ void Inventory::testRegInventory(){
 	invent.printInventory(1);
 
 	//Test getProperty
-	assert(invent.getProperty(5) == g1);
+	assert(invent.getProperty(5) == &g1);
 
 	//Test getNetWorth
 	int net_worth = invent.getNetWorth();
