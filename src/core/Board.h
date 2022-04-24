@@ -15,7 +15,7 @@
 class Board{
 
 private:
-    std::vector<Tile> game_board; /**< vector de typeTile*/
+    std::vector<Tile> game_board; /**< vector de type Tile*/
 public:
     
     /**
@@ -40,7 +40,7 @@ public:
      * @param property_id -> id d'une propriété 
      * @return Tile -> renvoie une référence sur Tile qui ne pourra pas être modifier
      */
-    const Tile& getTile(unsigned int property_id);
+    Tile* getTile(unsigned int property_id);
     
     void testRegBoard();
 };

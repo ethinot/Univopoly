@@ -2,7 +2,7 @@
  * @file Tile.h
  * @brief Module Tile (case)
  *
- * Module contenant la classe Tile, le classe Tile représente un case du plateau de jeu. 
+ * Module contenant la classe Tile, la classe Tile représente un case du plateau de jeu. 
  * Elle est composée: 
  * 	- D'un id (le numéro de la case de 0 à 39)  
  * 	- D'un string (nom de la case) 

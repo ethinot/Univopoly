@@ -57,7 +57,7 @@ Board::~Board() {
     game_board.clear();
 }
 
-const Tile& Board::getTile(unsigned int property_id){
-    return game_board[property_id];
+Tile* Board::getTile(unsigned int property_id){ 
+    return &game_board[property_id];
 }
 	
