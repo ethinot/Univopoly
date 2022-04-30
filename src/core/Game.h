@@ -28,13 +28,17 @@ private:
 	int total_player; /**< nombre de joueur*/
 	Dice dice; /**< paire de dés */
 
+public:
+	
+	int parc_money; /**< argent contenue dans le parking gratuit*/
+
 	/**
 	 * @brief Fonction qui récupère un joueur 
 	 * 
 	 * @param id -> id du joueur qu'on veut récupérer
 	 * @return Player& -> référence sur un joueur
 	 */
-	const Player& getPlayerById(int id);
+	Player* getPlayerById(int id);
 	
 	/**
 	 * @brief Fonction qui récupère une case (chance, propriété, gare etc...)
@@ -43,11 +47,7 @@ private:
 	 * @return Tile& -> pointeur sur la case
 	 */
 	Tile* getTileById(int tile_id);
-
-public:
 	
-	int parc_money; /**< argent contenue dans le parking gratuit*/
-
 	/**
 	 * @brief Constructeur d'un objet Game
 	 * 
@@ -76,6 +76,13 @@ public:
 	 */
 	int getGameSize() const;
 		
+	/**
+	 * @brief Récupere l'id du joueur
+	 * 
+	 * @return int -> l'id du joueur
+	 */
+	int getId(int indice) const;
+	
 	/**
 	 * @brief Fonction qui récupère l'index d'un joueur en fonction de sont id  
 	 * 

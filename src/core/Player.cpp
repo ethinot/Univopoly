@@ -7,6 +7,7 @@ Player::Player(){
 	position = 0;
 	jail_count = -1;
 	number_gare = 0;
+	bot = false;
 }
 
 Player::Player(int new_id){
@@ -14,9 +15,10 @@ Player::Player(int new_id){
 	position = 0;
 	jail_count = -1;
 	number_gare = 0;
+	bot = false;
 }
 
-unsigned int Player::getId() const {return id;}
+int Player::getId() const {return id;}
 
 int Player::getBalance(){
 	return goods.getBalance();
@@ -27,7 +29,7 @@ int Player::getNetWorth(){
 }
 
 bool Player::transaction(unsigned int amount){
-	if (goods.changeBalance(amount) >= 0) return true;
+	if (goods.changeBalance(amount) == true) return true;
 	return false;
 }
 
@@ -84,6 +86,7 @@ bool Player::checkJail(){
 	}
 }
 
+
 bool Player::isDead() const {return goods.getNetWorth() == 0;}
 
 void Player::plusGare() {number_gare ++;}
@@ -91,6 +94,8 @@ void Player::plusGare() {number_gare ++;}
 void Player::minusGare() {number_gare --;}
 
 unsigned int Player::getGareCount() const{return number_gare;}
+
+bool Player::checkBot() const{return bot;}
 
 void Player::testRegPlayer(){
 	
@@ -109,7 +114,7 @@ void Player::testRegPlayer(){
 	assert(player2.number_gare == 0);
 
 	//test getId
-	assert(player2.getId() == (unsigned int)player2.id);
+	assert(player2.getId() == player2.id);
 
 	//getBalance déja tester dans le module Inventory
 	//getNetWorth déja tester dans le module Inventory

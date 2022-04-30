@@ -32,7 +32,7 @@ void txtLoop(Game & game)
 			lineBreak();
 
 			if (game.checkJail(current_player_id)){
-				std::cout << "Vous ete en prison !!" << std::endl;
+				std::cout << "Vous êtes en prison !!" << std::endl;
 			}else{
 
 				std::cout << "Joueur "<< i+1 << " lance les dés..." << std::endl;
@@ -42,17 +42,17 @@ void txtLoop(Game & game)
 				game.movePlayer(current_player_id, dice_total);
 				
 				current_position = game.getPlayerPosition(current_player_id);
-				std::cout << "Pion se déplace à la casse " << current_position << std::endl;
+				std::cout << "Vous vous déplacez à la case " << current_position << std::endl;
 				/*
 				if (game.checkDouble() == 1) {
 					
 				}*/
 				lineBreak();
-				current_tile = game.getTileById(current_position);
+				current_tile = game.getTileById(current_position); // a faire on veut récuperrer la tile sur lequel est le joueurs
 
 				std::cout << *current_tile << std::endl;
 				lineBreak();
-				std::cout << "Tu as: " << game.getPlayerById(current_player_id)->getBalance() << "$" << std::endl;
+				std::cout << "Tu as: " << game.getPlayerById(current_player_id)->getBalance() << "€" << std::endl;
 
 				if (current_tile->getOwner() == -2){ // Case speciale 
 					switch(current_tile->getId()){
@@ -62,18 +62,18 @@ void txtLoop(Game & game)
 							std::cout<< "Case Chance pour le moment il ne se passe rien :(" << std::endl;
 							break;
 						case 4:
-							std::cout<< "L'AML vous welcome ! mais l'adhesion va vous coute 50$ :)" << std::endl;
+							std::cout<< "L'AML vous welcome ! l'adhesion va vous coute 50€ :)" << std::endl;
 							if (game.pay(current_player_id, 50, -1)){
 								std::cout << "L'AML vous remercie !!" << std::endl;
 							}else{
 								std::cout << "Oops vous n'avais pas assez d'argent" << std::endl;
-								if(game.getPlayerById(current_player_id)->getNetWorth() > 50){
+								if( (game.getPlayerById(current_player_id))->getNetWorth() > 50){
 									do{
 										std::cout << "Vendre des propriétés" << std::endl;
 										game.checkPropertiesToSell(current_player_id);
 									}while(!game.pay(current_player_id, 50, -1));
 								}else{
-									std::cout << "Tu na plus assez de capitale tu as perdu ;(" << std::endl;
+									std::cout << "Tu n'as plus assez de capitale tu as perdu ;(" << std::endl;
 									game.killPlayer(current_player_id);
 								}
 							}
@@ -82,7 +82,7 @@ void txtLoop(Game & game)
 							std::cout<< "Case Chance pour le moment il ne se passe rien :(" << std::endl;
 							break;
 						case 10:
-							std::cout << "Vous ete en visite en Prison" << std::endl;
+							std::cout << "Vous êtes en visite dans la Prison" << std::endl;
 							break;
 						case 12:
 							std::cout << "Stage dans la prochain version vous aurai un challenge pour gagner de l'argent" << std::endl;
@@ -91,7 +91,7 @@ void txtLoop(Game & game)
 							std::cout << "Case Chance pour le moment il ne se passe rien :(" << std::endl;
 							break;
 						case 20:
-							std::cout << "Vous ete au parc de la tete d'or" << std::endl;
+							std::cout << "Vous êtes au parc de la tete d'or" << std::endl;
 							break;
 						case 22:
 							std::cout << "Case Chance pour le moment il ne se passe rien :(" << std::endl;
@@ -110,12 +110,12 @@ void txtLoop(Game & game)
 							std::cout << "Stage dans la prochain version vous aurai un challenge pour gagner de l'argent" << std::endl;
 							break;
 						case 38:
-							std::cout<< "L'AML vous welcome ! mais l'adhesion va vous coute 50$ :)" << std::endl;
+							std::cout<< "L'AML vous welcome ! mais l'adhesion va vous coute 50€ :)" << std::endl;
 							if (game.pay(current_player_id, 50, -1)){
 								std::cout << "L'AML vous remercie !!" << std::endl;
 							}else{
 								std::cout << "Oops vous n'avais pas assez d'argent" << std::endl;
-								if(game.getPlayerById(current_player_id)->getNetWorth() > 50){
+								if( (game.getPlayerById(current_player_id))->getNetWorth() > 50){
 									do{
 										std::cout << "Vendre des propriétés" << std::endl;
 										game.checkPropertiesToSell(current_player_id);
@@ -137,7 +137,7 @@ void txtLoop(Game & game)
 					switch(anwser){
 
 						case 'y':
-							if (game.buyTile(current_player_id, current_position)) std::cout << "Joueur " << current_player_id << " a acheter " << current_tile->getName() << std::endl;
+							if (game.buyTile(current_player_id, current_position)) std::cout << "Joueur " << current_player_id << " à acheter " << current_tile->getName() << std::endl;
 							else std::cout << "Vous avez pas pu acheter " << current_tile->getName() << std::endl;
 							break;
 
@@ -155,11 +155,11 @@ void txtLoop(Game & game)
 						current_rent = static_cast<Property*>(current_tile)->getRent();
 						std::cout << "Le loyer est de: " << current_rent << "$" << std::endl;
 						if (game.pay(current_player_id, current_rent, current_tile->getOwner())){
-							std::cout << "Vous payer " << current_rent << "$ au Joueur " << current_tile->getOwner() << std::endl;
+							std::cout << "Vous payer " << current_rent << "€ au Joueur " << current_tile->getOwner() << std::endl;
 							std::cout << "A la prochaine !!" << std::endl;
 						}else{
-							std::cout << "Oopsii vous n'avais pas assez d'argent" << std::endl;
-							if(game.getPlayerById(current_player_id)->getNetWorth() > current_rent){
+							std::cout << "Oopsii vous n'avez pas assez d'argent" << std::endl;
+							if( (game.getPlayerById(current_player_id))->getNetWorth() > current_rent){
 								do{
 									std::cout << "Vendre des propriétés" << std::endl;
 									game.checkPropertiesToSell(current_player_id);
@@ -173,7 +173,7 @@ void txtLoop(Game & game)
 
 					// type Gare
 					else if (typeid(*current_tile).name() == typeid(Gare).name()){
-						current_rent = static_cast<Gare*>(current_tile)->getRent(game.getPlayerById(current_tile->getOwner())->getGareCount());
+						current_rent = static_cast<Gare*>(current_tile)->getRent( (game.getPlayerById(current_tile->getOwner()) )->getGareCount());
 						std::cout << "Le loyer est de: "<< current_rent << "$" << std::endl;
 						if (game.pay(current_player_id, current_rent, current_tile->getOwner())){
 							std::cout << "Vous payer " << current_rent << "$ au Joueur " << current_tile->getOwner() << std::endl;
@@ -181,7 +181,7 @@ void txtLoop(Game & game)
 							lineBreak();
 						}else{
 							std::cout << "Oopsii vous n'avais pas assez d'argent" << std::endl;
-							if(game.getPlayerById(current_player_id)->getNetWorth() > current_rent){
+							if( (game.getPlayerById(current_player_id))->getNetWorth() > current_rent){
 								do{
 									std::cout << "Vendre des propriétés" << std::endl;
 									game.checkPropertiesToSell(current_player_id);

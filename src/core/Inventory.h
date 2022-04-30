@@ -42,12 +42,13 @@ public:
 	int getBalance() const;
 
 	/**
-	 * @brief met à jours le porte monnaie
+	 * @brief Vérifie si la mise à jours du porte monnaie est possible 
 	 * Modifie la valeur du porte monnaie, avec le changement de wallet négativement ou positivement
 	 * @param amount -> valeur positive ou négative à ajouter au porte monnaie
-	 * @return int 
+	 * @return true -> si la mise à jour est possible
+	 * @return false -> si ce n'est pas possible (solde < 0) 
 	 */
-	int changeBalance(int amount);
+	bool changeBalance(int amount);
 
 	/**
 	 * @brief Renvoie la valeur de tous les bien que possède un joueur

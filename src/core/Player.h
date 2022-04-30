@@ -23,6 +23,7 @@ private:
 	unsigned int position; /**< Position actuel du joueur */
 	int jail_count; /**< Compteur de tours en prison (-1 si pas en prison) */
 	unsigned int number_gare; /**< nombre de gare */
+	bool bot; /**< booléen si joueur est un bot ou non */
 
 public:
 	
@@ -44,7 +45,7 @@ public:
 	 * 
 	 * @return unsigned int 
 	 */
-	unsigned int getId() const;
+	int getId() const;
 	
 	/**
 	 * @brief Renvoie combien le joueur à d'argent dans son porte monnaie
@@ -155,6 +156,14 @@ public:
 	 * @return unsigned int 
 	 */
 	unsigned int getGareCount() const;
+
+	/**
+	 * @brief Vérifie si un joueur est un bot
+	 * 
+	 * @return true -> vrai, c'est un bot
+	 * @return false -> faux c'est un joueur
+	 */
+	bool checkBot() const;
 
 	/**
 	 * @brief Test de régression du module Player

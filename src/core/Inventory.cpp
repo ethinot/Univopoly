@@ -12,8 +12,13 @@ Inventory::~Inventory(){}
 
 int Inventory::getBalance() const{ return wallet;}
 
-int Inventory::changeBalance(int amount) {
-	return wallet += amount;
+bool Inventory::changeBalance(int amount) {
+	if ( (getBalance() + amount) <= 0){
+		return false;
+	} else {
+		wallet += amount;
+		return true;
+	}
 }
 
 int Inventory::getNetWorth() const{
@@ -109,10 +114,10 @@ void Inventory::testRegInventory(){
 	assert(invent.getBalance() == 1000);
 
 	//Test changeBalance
-	invent.changeBalance(100);
+	assert(invent.changeBalance(100) == true);
 	assert(invent.getBalance() == 1100);
-	invent.changeBalance(-200);
-	assert(invent.getBalance() == 900);
+	assert(invent.changeBalance(-1200) == false);
+	assert(invent.getBalance() == 1100);
 
 	//Test addProperty
 	Tile p1 = Property("Braconnier", 1, 60, 30, 50, 2, 10, 30, 90, 160, 250);

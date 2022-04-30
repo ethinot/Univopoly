@@ -30,9 +30,13 @@ protected:
 	int owner; /**< propriétaire -> -1 si elle appartient a personne / -1 < owner =< 8 si la case est acheter*/
 
 public:
+	
 	Tile();
+	
 	Tile(std::string name, unsigned int id, unsigned int price, unsigned int sell_price);
+	
 	~Tile();
+	
 	virtual void getType();
 	
 	/**
