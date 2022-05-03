@@ -13,3 +13,7 @@ main_qt.o
 univopoly_qt.app
 univopoly_qt
 __MACOSX/Demo/inc/cget/cget/._.DS_Store
+*/.DS_Store
+moc_Controllers.cpp
+moc_mainWindow.cpp
+moc_predefs.h
