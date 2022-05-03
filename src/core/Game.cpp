@@ -23,12 +23,13 @@ Game::~Game() {
 	players.clear();
 }
 
-Player * Game::getPlayerById(int player_id){
+Player & Game::getPlayerById(int player_id){
 	assert(player_id > 0 && player_id <= getGameSize());
+	int res;
 	for (long unsigned int i = 0; i < players.size(); i++){
-		if (players[i].getId() == player_id) return & players[i];
+		if (players[i].getId() == player_id) res=i; 
 	}
-	return 0;
+	return players[res];
 }
 
 Tile* Game::getTileById(int tile_id){
@@ -54,7 +55,7 @@ int Game::getPlayerIndex(int player_id){
 int Game::getGameSize() const{return total_player;}
 
 int Game::getPlayerPosition(int player_id){
-	return getPlayerById(player_id)->getPosition();
+	return getPlayerById(player_id).getPosition();
 }
 
 int Game::rollDice(){
@@ -75,32 +76,32 @@ bool Game::checkDouble() const{
 }
 
 void Game::movePlayer(int id, int how_much){
-	getPlayerById(id)->changePostion(how_much);
+	getPlayerById(id).changePostion(how_much);
 }
 
 void Game::printPlayerProperties(int id){
-	getPlayerById(id)->printProperties();
+	getPlayerById(id).printProperties();
 }
 
 bool Game::pay(int id, int amount, int id_reciever){
-	if (getPlayerById(id)->transaction(-amount)){
+	if (getPlayerById(id).transaction(-amount)){
 		if (id_reciever == -1){
 			parc_money += amount;
 			return true;
 		}else{
-			getPlayerById(id_reciever)->transaction(+amount);
+			getPlayerById(id_reciever).transaction(+amount);
 			return true;
 		}
 	}else return false;
 }
 
 bool Game::buyTile(int id, unsigned int property_id){ 
-	if (getPlayerById(id)->buyProperty(getTileById(property_id))){
+	if (getPlayerById(id).buyProperty(getTileById(property_id))){
 		
 		board_game.getTile(property_id)->bought(id);
 		
 		if (typeid(*board_game.getTile(property_id)).name() == typeid(Gare).name()) {
-			getPlayerById(id)->plusGare();
+			getPlayerById(id).plusGare();
 		}
 		return true;
 	
@@ -108,7 +109,7 @@ bool Game::buyTile(int id, unsigned int property_id){
 }
 
 bool Game::sellTile(int id, unsigned int property_id){ 
-	if (getPlayerById(id)->sellProperty(property_id)){
+	if (getPlayerById(id).sellProperty(property_id)){
 		
 		board_game.getTile(property_id)->sold();
 		
@@ -116,7 +117,7 @@ bool Game::sellTile(int id, unsigned int property_id){
 			static_cast<Property*>(board_game.getTile(property_id))->emptyProperty();
 		} 
 		else if (typeid(*board_game.getTile(property_id)).name() == typeid(Gare).name()) {
-			getPlayerById(id)->minusGare();
+			getPlayerById(id).minusGare();
 		}
 		return true;
 	
@@ -125,7 +126,7 @@ bool Game::sellTile(int id, unsigned int property_id){
 
 void Game::checkPropertiesToSell(int id){
 	int input_property_id;
-	getPlayerById(id)->printProperties();
+	getPlayerById(id).printProperties();
 	do
 	{
 		std::cout << "Entrez le id de la propriété que vous voulais vendre: ";
@@ -135,11 +136,11 @@ void Game::checkPropertiesToSell(int id){
 }
 
 bool Game::checkJail(int id){
-	return getPlayerById(id)->checkJail();
+	return getPlayerById(id).checkJail();
 }
 
 void Game::sendJail(int id){
-	getPlayerById(id)->goJail();
+	getPlayerById(id).goJail();
 }
 
 void Game::killPlayer(int id){

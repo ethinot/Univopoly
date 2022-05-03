@@ -4,7 +4,7 @@ OBJ			= obj/Board.o obj/Dice.o obj/Game.o obj/Gare.o obj/Inventory.o obj/Player.
 HEADERS		= src/core/Board.h src/core/Dice.h src/core/Game.h src/core/Gare.h src/core/Inventory.h src/core/Player.h src/core/Property.h src/core/Tile.h
 INC			= -std=c++11
 
-all: bin/test
+all: bin/test bin/txt
 
 bin/txt: obj/txt.o obj/Gametxt.o $(OBJ)
 	$(CC) obj/txt.o obj/Gametxt.o $(OBJ) -o bin/txt

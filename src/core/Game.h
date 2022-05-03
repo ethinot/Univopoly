@@ -38,7 +38,7 @@ public:
 	 * @param id -> id du joueur qu'on veut récupérer
 	 * @return Player& -> référence sur un joueur
 	 */
-	Player* getPlayerById(int id);
+	Player& getPlayerById(int id);
 	
 	/**
 	 * @brief Fonction qui récupère une case (chance, propriété, gare etc...)
