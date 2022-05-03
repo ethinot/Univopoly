@@ -17,7 +17,7 @@ CXX           = /Library/Developer/CommandLineTools/usr/bin/clang++
 DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11 -Wall -Wextra -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -stdlib=libc++ -O2 -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11 -Wall -Wextra -fPIC $(DEFINES)
-INCPATH       = -I. -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/AGL.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/AGL.framework/Headers -I/usr/local/share/qt/mkspecs/macx-clang -F/usr/local/lib
+INCPATH       = -I. -Isrc/core -Isrc/qt -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/AGL.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/AGL.framework/Headers -I/usr/local/share/qt/mkspecs/macx-clang -F/usr/local/lib
 QMAKE         = /usr/local/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = univopoly_qt1.0.0
-DISTDIR = /Users/enzo/Desktop/projetp4/univopoly/.tmp/univopoly_qt1.0.0
+DISTDIR = /Users/enzo/Desktop/projetp4/univopoly/obj/univopoly_qt1.0.0
 LINK          = /Library/Developer/CommandLineTools/usr/bin/clang++
 LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11 -Wl,-rpath,@executable_path/../Frameworks -Wl,-rpath,/usr/local/lib
 LIBS          = $(SUBLIBS) -F/usr/local/lib -framework QtWidgets -framework QtGui -framework AppKit -framework ImageIO -framework Metal -framework QtCore -framework DiskArbitration -framework IOKit -framework AGL -framework OpenGL   
@@ -48,18 +48,35 @@ STRIP         = strip
 
 ####### Output directory
 
-OBJECTS_DIR   = ./
+OBJECTS_DIR   = obj/
 
 ####### Files
 
-SOURCES       = src/qt/main_qt.cpp 
-OBJECTS       = main_qt.o
+SOURCES       = src/qt/main_qt.cpp \
+		src/qt/mainWindow.cpp \
+		src/core/Board.cpp \
+		src/core/Dice.cpp \
+		src/core/Game.cpp \
+		src/core/Gare.cpp \
+		src/core/Inventory.cpp \
+		src/core/Player.cpp \
+		src/core/Property.cpp \
+		src/core/Tile.cpp moc_mainWindow.cpp
+OBJECTS       = obj/main_qt.o \
+		obj/mainWindow.o \
+		obj/Board.o \
+		obj/Dice.o \
+		obj/Game.o \
+		obj/Gare.o \
+		obj/Inventory.o \
+		obj/Player.o \
+		obj/Property.o \
+		obj/Tile.o \
+		obj/moc_mainWindow.o
 DIST          = README.md \
-		img/UCBL_logo.png \
-		img/UML_v1.png \
-		img/UML_v2.png \
 		img/Univopoly_Board.png \
 		img/Univopoly_noshadow.png \
+		img/pions.png \
 		/usr/local/share/qt/mkspecs/features/spec_pre.prf \
 		/usr/local/share/qt/mkspecs/features/device_config.prf \
 		/usr/local/Cellar/qt/6.2.3_1/share/qt/mkspecs/common/unix.conf \
@@ -314,7 +331,24 @@ DIST          = README.md \
 		/usr/local/share/qt/mkspecs/features/exceptions.prf \
 		/usr/local/share/qt/mkspecs/features/yacc.prf \
 		/usr/local/share/qt/mkspecs/features/lex.prf \
-		univopoly_qt.pro  src/qt/main_qt.cpp
+		univopoly_qt.pro src/core/Board.h \
+		src/core/Dice.h \
+		src/core/Game.h \
+		src/core/Gare.h \
+		src/core/Inventory.h \
+		src/core/Player.h \
+		src/core/Property.h \
+		src/core/Tile.h \
+		src/qt/mainWindow.h src/qt/main_qt.cpp \
+		src/qt/mainWindow.cpp \
+		src/core/Board.cpp \
+		src/core/Dice.cpp \
+		src/core/Game.cpp \
+		src/core/Gare.cpp \
+		src/core/Inventory.cpp \
+		src/core/Player.cpp \
+		src/core/Property.cpp \
+		src/core/Tile.cpp
 QMAKE_TARGET  = univopoly_qt
 DESTDIR       = 
 TARGET        = univopoly_qt
@@ -870,7 +904,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/local/share/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents src/qt/main_qt.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents src/core/Board.h src/core/Dice.h src/core/Game.h src/core/Gare.h src/core/Inventory.h src/core/Player.h src/core/Property.h src/core/Tile.h src/qt/mainWindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents src/qt/main_qt.cpp src/qt/mainWindow.cpp src/core/Board.cpp src/core/Dice.cpp src/core/Game.cpp src/core/Gare.cpp src/core/Inventory.cpp src/core/Player.cpp src/core/Property.cpp src/core/Tile.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -905,8 +940,24 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/local/share/qt/mkspecs/features/data/dummy.cpp
 	/Library/Developer/CommandLineTools/usr/bin/clang++ -pipe -stdlib=libc++ -O2 -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11 -Wall -Wextra -dM -E -o moc_predefs.h /usr/local/share/qt/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all:
+compiler_moc_header_make_all: moc_mainWindow.cpp
 compiler_moc_header_clean:
+	-$(DEL_FILE) moc_mainWindow.cpp
+moc_mainWindow.cpp: src/qt/mainWindow.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QWidget \
+		/usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
+		src/core/Game.h \
+		src/core/Board.h \
+		src/core/Tile.h \
+		src/core/Player.h \
+		src/core/Inventory.h \
+		src/core/Property.h \
+		src/core/Dice.h \
+		src/core/Gare.h \
+		moc_predefs.h \
+		/usr/local/share/qt/libexec/moc
+	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/enzo/Desktop/projetp4/univopoly/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/enzo/Desktop/projetp4/univopoly -I/Users/enzo/Desktop/projetp4/univopoly/src/core -I/Users/enzo/Desktop/projetp4/univopoly/src/qt -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/usr/local/lib src/qt/mainWindow.h -o moc_mainWindow.cpp
+
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
@@ -921,13 +972,92 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_predefs_clean 
+compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean 
 
 ####### Compile
 
-main_qt.o: src/qt/main_qt.cpp /usr/local/lib/QtGui.framework/Headers/QPalette \
-		/usr/local/lib/QtGui.framework/Headers/qpalette.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main_qt.o src/qt/main_qt.cpp
+obj/main_qt.o: src/qt/main_qt.cpp src/qt/mainWindow.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QWidget \
+		/usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
+		src/core/Game.h \
+		src/core/Board.h \
+		src/core/Tile.h \
+		src/core/Player.h \
+		src/core/Inventory.h \
+		src/core/Property.h \
+		src/core/Dice.h \
+		src/core/Gare.h \
+		/usr/local/lib/QtGui.framework/Headers/QPalette \
+		/usr/local/lib/QtGui.framework/Headers/qpalette.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QPushButton \
+		/usr/local/lib/QtWidgets.framework/Headers/qpushbutton.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/main_qt.o src/qt/main_qt.cpp
+
+obj/mainWindow.o: src/qt/mainWindow.cpp src/qt/mainWindow.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QWidget \
+		/usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
+		src/core/Game.h \
+		src/core/Board.h \
+		src/core/Tile.h \
+		src/core/Player.h \
+		src/core/Inventory.h \
+		src/core/Property.h \
+		src/core/Dice.h \
+		src/core/Gare.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QApplication \
+		/usr/local/lib/QtWidgets.framework/Headers/qapplication.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QPushButton \
+		/usr/local/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/usr/local/lib/QtGui.framework/Headers/QScreen \
+		/usr/local/lib/QtGui.framework/Headers/qscreen.h \
+		/usr/local/lib/QtCore.framework/Headers/QDebug \
+		/usr/local/lib/QtCore.framework/Headers/qdebug.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/mainWindow.o src/qt/mainWindow.cpp
+
+obj/Board.o: src/core/Board.cpp src/core/Board.h \
+		src/core/Tile.h \
+		src/core/Property.h \
+		src/core/Gare.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/Board.o src/core/Board.cpp
+
+obj/Dice.o: src/core/Dice.cpp src/core/Dice.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/Dice.o src/core/Dice.cpp
+
+obj/Game.o: src/core/Game.cpp src/core/Game.h \
+		src/core/Board.h \
+		src/core/Tile.h \
+		src/core/Player.h \
+		src/core/Inventory.h \
+		src/core/Property.h \
+		src/core/Dice.h \
+		src/core/Gare.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/Game.o src/core/Game.cpp
+
+obj/Gare.o: src/core/Gare.cpp src/core/Gare.h \
+		src/core/Tile.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/Gare.o src/core/Gare.cpp
+
+obj/Inventory.o: src/core/Inventory.cpp src/core/Inventory.h \
+		src/core/Property.h \
+		src/core/Tile.h \
+		src/core/Gare.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/Inventory.o src/core/Inventory.cpp
+
+obj/Player.o: src/core/Player.cpp src/core/Player.h \
+		src/core/Inventory.h \
+		src/core/Property.h \
+		src/core/Tile.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/Player.o src/core/Player.cpp
+
+obj/Property.o: src/core/Property.cpp src/core/Property.h \
+		src/core/Tile.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/Property.o src/core/Property.cpp
+
+obj/Tile.o: src/core/Tile.cpp src/core/Tile.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/Tile.o src/core/Tile.cpp
+
+obj/moc_mainWindow.o: moc_mainWindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/moc_mainWindow.o moc_mainWindow.cpp
 
 ####### Install
 
