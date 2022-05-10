@@ -122,7 +122,7 @@ void Player::testRegPlayer(){
 	//getProperty déja tester dans property/gare
 
 	//test buyProperty
-	Tile p1 = Property("Braconnier", 1, 60, 30, 50, 2, 10, 30, 90, 160, 250);
+	Tile p1 = Property("Braconnier", "green",1, 60, 30, 50, 2, 10, 30, 90, 160, 250);
 	assert(player2.buyProperty(&p1) == true);
 	assert(player2.getBalance() == 1000-60);
 	assert(player2.getNetWorth() == 940+30);

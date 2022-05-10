@@ -120,8 +120,8 @@ void Inventory::testRegInventory(){
 	assert(invent.getBalance() == 1100);
 
 	//Test addProperty
-	Tile p1 = Property("Braconnier", 1, 60, 30, 50, 2, 10, 30, 90, 160, 250);
-	Tile g1 = Gare("Condorcet", 5, 200, 100);
+	Tile p1 = Property("Braconnier", "red", 1, 60, 30, 50, 2, 10, 30, 90, 160, 250);
+	Tile g1 = Gare("Condorcet", "jul", 5, 200, 100);
 	invent.addProperty(&p1);
 	invent.addProperty(&g1);
 	assert(invent.collection.size() == 2);

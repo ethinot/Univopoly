@@ -1,11 +1,12 @@
 #include "Property.h"
 
-Property::Property(std::string new_name, unsigned int new_id, unsigned int new_price, unsigned int new_sell_price, 
+Property::Property(std::string new_name, std::string new_color, unsigned int new_id, unsigned int new_price, unsigned int new_sell_price, 
 					unsigned int new_build_price, unsigned int rent_0, unsigned int rent_1,
 					unsigned int rent_2, unsigned int rent_3,
 					unsigned int rent_4, unsigned int rent_5){
 
 	name = new_name;
+	color = new_color;
 	id = new_id;
 	price = new_price;
 	sell_price = new_sell_price;
@@ -33,7 +34,7 @@ void Property::emptyProperty(){
 
 void Property::testRegProperty(){
 	//Création d'un objet propriété
-	Property p1("propriété1",3,100,50,30,30,35,40,45,50,60);
+	Property p1("propriété1","blue",3,100,50,30,30,35,40,45,50,60);
 
 	//test affichage de l'objet
 	std::cout<<"Test afficher d'un objet Property"<<std::endl;
@@ -42,6 +43,10 @@ void Property::testRegProperty(){
 	//getID
 	assert(p1.getId() == 3 && 3 == p1.id);
 	
+
+	//getColor
+	assert(p1.getColor() == "blue" && p1.getColor() == color);
+
 	//getName
 	std::string nom = p1.name;
 	assert(p1.getName() == "propriété1" && p1.getName() == nom);

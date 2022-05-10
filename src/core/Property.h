@@ -35,6 +35,7 @@ public:
 	 * Constructeur qui initialise tous les données membres d'une propriété et, passe le propriétaire à -1
 	 * car quand la propriété est crée il n'en a pas encore.
 	 * @param name nom de la propriété
+	 * @param color nom de la couleur
 	 * @param id id de la propriété
 	 * @param price prix de la propriété
 	 * @param sell_price prix de ventre
@@ -46,7 +47,7 @@ public:
 	 * @param rent_4 loyer avec 4 salles
 	 * @param rent_5 loyer avec un amphithéatre
 	 */
-	Property(std::string name, unsigned int id, unsigned int price, unsigned int sell_price,
+	Property(std::string name, std::string color, unsigned int id, unsigned int price, unsigned int sell_price,
 	unsigned int new_build_price, unsigned int rent_0, 
 	unsigned int rent_1, unsigned int rent_2, unsigned int rent_3,
 	unsigned int rent_4, unsigned int rent_5);

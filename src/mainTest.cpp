@@ -12,7 +12,7 @@ int main() {
     srand((unsigned int)time(NULL));
     unDes.testRegDice();
 
-    Property prop("test",1,99,99,99,99,99,99,99,99,99);
+    Property prop("test","blue",1,99,99,99,99,99,99,99,99,99);
     prop.testRegProperty();
 
     Inventory i;
