@@ -24,7 +24,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_mainView_t {
     const uint offsetsAndSize[16];
-    char stringdata0[77];
+    char stringdata0[78];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_mainView_t, stringdata0) + ofs), len 
@@ -37,11 +37,11 @@ QT_MOC_LITERAL(22, 19), // "std::vector<Player>"
 QT_MOC_LITERAL(42, 7), // "players"
 QT_MOC_LITERAL(50, 7), // "buyMenu"
 QT_MOC_LITERAL(58, 10), // "buyMenuOff"
-QT_MOC_LITERAL(69, 7) // "buyTrue"
+QT_MOC_LITERAL(69, 8) // "buyTrueM"
 
     },
     "mainView\0renderBoard\0\0std::vector<Player>\0"
-    "players\0buyMenu\0buyMenuOff\0buyTrue"
+    "players\0buyMenu\0buyMenuOff\0buyTrueM"
 };
 #undef QT_MOC_LITERAL
 
@@ -62,13 +62,13 @@ static const uint qt_meta_data_mainView[] = {
        1,    1,   38,    2, 0x06,    1 /* Public */,
        5,    1,   41,    2, 0x06,    3 /* Public */,
        6,    0,   44,    2, 0x06,    5 /* Public */,
-       7,    1,   45,    2, 0x06,    6 /* Public */,
+       7,    0,   45,    2, 0x06,    6 /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -82,7 +82,7 @@ void mainView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 0: _t->renderBoard((*reinterpret_cast< std::vector<Player>(*)>(_a[1]))); break;
         case 1: _t->buyMenu((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 2: _t->buyMenuOff(); break;
-        case 3: _t->buyTrue((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 3: _t->buyTrueM(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -109,8 +109,8 @@ void mainView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
             }
         }
         {
-            using _t = void (mainView::*)(int );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&mainView::buyTrue)) {
+            using _t = void (mainView::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&mainView::buyTrueM)) {
                 *result = 3;
                 return;
             }
@@ -125,7 +125,7 @@ const QMetaObject mainView::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_mainView_t
-, QtPrivate::TypeAndForceComplete<mainView, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<Player>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
+, QtPrivate::TypeAndForceComplete<mainView, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<Player>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 
@@ -185,10 +185,9 @@ void mainView::buyMenuOff()
 }
 
 // SIGNAL 3
-void mainView::buyTrue(int _t1)
+void mainView::buyTrueM()
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
-    QMetaObject::activate(this, &staticMetaObject, 3, _a);
+    QMetaObject::activate(this, &staticMetaObject, 3, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

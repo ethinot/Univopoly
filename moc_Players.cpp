@@ -93,7 +93,7 @@ void Players::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
 }
 
 const QMetaObject Players::staticMetaObject = { {
-    QMetaObject::SuperData::link<QGridLayout::staticMetaObject>(),
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
     qt_meta_stringdata_Players.offsetsAndSize,
     qt_meta_data_Players,
     qt_static_metacall,
@@ -118,12 +118,12 @@ void *Players::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Players.stringdata0))
         return static_cast<void*>(this);
-    return QGridLayout::qt_metacast(_clname);
+    return QWidget::qt_metacast(_clname);
 }
 
 int Players::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QGridLayout::qt_metacall(_c, _id, _a);
+    _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {

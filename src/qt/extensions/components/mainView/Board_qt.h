@@ -24,7 +24,7 @@ class Board_qt : public QGridLayout{
 		void render(std::vector<Player>);
 		void buy(int);
 		void buyOff();
-		void buyTrue(int);
+		void buyTrue();
 		void buyFalse();
 	private slots:
 		void rendering(std::vector<Player>);

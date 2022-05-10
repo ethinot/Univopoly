@@ -23,6 +23,7 @@ Player_qt::Player_qt(Player *input_player) : QWidget(){
 
 	
 	head = new QPushButton(QString::fromStdString(std::to_string(player->getId())));
+	head->setStyleSheet("background-color:white; color:black;");
 	layout->addWidget(head, 0, 0);
 	//layout->addLayout(playersLayout, 1, 0);
 

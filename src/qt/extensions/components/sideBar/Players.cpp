@@ -11,10 +11,11 @@
 #include "Player_qt.h"
 
 
-Players::Players(QWidget *parent, std::vector<Player> new_players) : QGridLayout(parent){
+Players::Players(QWidget *parent, std::vector<Player> new_players) : QWidget(parent){
+	layout = new QGridLayout(this);
 	loadPlayers(new_players);
 	layoutAddWidgets();
-
+	this->setStyleSheet("background-color: white;");
 	connect(this, SIGNAL(render(std::vector<Player>)), this, SLOT(rendering(std::vector<Player>)));
 
 }
@@ -28,7 +29,7 @@ void Players::loadPlayers(std::vector<Player> players){
 
 void Players::layoutAddWidgets(){
 	for (int i=0; i<players_qt.size(); i++){
-		this->addWidget(players_qt[i], 0, i);
+		layout->addWidget(players_qt[i], 0, i);
 	}
 }
 
@@ -37,4 +38,5 @@ void Players::rendering(std::vector<Player> new_players){
 	loadPlayers(new_players);
 	layoutAddWidgets();
 	qDebug() << new_players[0].getNetWorth();
+	qDebug() << new_players[1].getNetWorth();
 }

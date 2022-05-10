@@ -2,6 +2,7 @@
 #define CONTROLLERS_H
 
 #include <QWidget>
+#include <QGridLayout>
 
 
 class QPushButton;
@@ -21,6 +22,7 @@ class Controllers : public QWidget{
 	private:
 		QPushButton *roll;
 		QPushButton *pass; 
+		QGridLayout *layout;
 		void disableButton(QPushButton* button);
 		void enableButton(QPushButton* button);
 };

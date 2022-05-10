@@ -47,7 +47,7 @@ Window::Window() : QWidget(){
 
 	// buy property
 	connect(this, SIGNAL(askBuy(int)), mainview, SIGNAL(buyMenu(int)));
-	connect(mainview, SIGNAL(buyTrue()), this, SLOT(buying()));
+	connect(mainview, SIGNAL(buyTrueM()), this, SLOT(buying()));
 
 	// pay rent
 
@@ -87,5 +87,6 @@ void Window::passingTurn(){
 
 void Window::buying(){
 	game->buyTile( game->getId(current_player_index), game->getPlayerPosition(game->getId(current_player_index)));
+	qDebug() << game->getTileById(game->getPlayerPosition(game->getId(current_player_index)))->getPrice();
 	emit bought(game->getPlayers());
 }

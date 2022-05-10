@@ -15,7 +15,7 @@
 
 class QPushButton;
 
-class Players : public QGridLayout{
+class Players : public QWidget{
 	Q_OBJECT
 	public:
 		explicit Players(QWidget *parent = 0, std::vector<Player> player = std::vector<Player>());
@@ -25,6 +25,7 @@ class Players : public QGridLayout{
 		void rendering(std::vector<Player>);
 	private:
 		QVector<Player_qt*> players_qt;
+		QGridLayout *layout;
 		void loadPlayers(std::vector<Player> new_players);
 		void layoutAddWidgets();
 };

@@ -8,7 +8,10 @@
 #include "Controllers.h"
 
 Controllers::Controllers(QWidget *parent) : QWidget(parent){
-	
+
+	layout = new QGridLayout(this);
+
+	this->setStyleSheet("background-color: white;");
 	//Create and position the button
 	roll = new QPushButton(this);
 	roll->setIcon(QIcon("img/roll_dice.png"));
@@ -17,7 +20,6 @@ Controllers::Controllers(QWidget *parent) : QWidget(parent){
 	if(!file.exists()){ qDebug() << "File is not found!" << file.fileName(); }
 	//Button settings 
 	roll->setIconSize(QSize(60, 60));
-	roll->setGeometry(140, 630, 60, 60);
 	roll->setShortcut(tr("r"));
 	//If the button is clicked the signal diceRolled is emit
 	connect(roll, SIGNAL(clicked()), this, SIGNAL(diceButton()));
@@ -32,11 +34,13 @@ Controllers::Controllers(QWidget *parent) : QWidget(parent){
 	//if(!file.exists()){ qDebug() << "File is not found!" << file.fileName(); }
 	//Button settings 
 	pass->setIconSize(QSize(60, 60));
-	pass->setGeometry(200, 630, 60, 60);
 	pass->setShortcut(tr("p"));
 	connect(pass, SIGNAL(clicked()), this, SIGNAL(passButton()));
 	connect(pass, SIGNAL(clicked()), this, SLOT(disablePass()));
 	connect(pass, SIGNAL(clicked()), this, SLOT(enableRoll()));
+
+	layout->addWidget(roll, 0, 0);
+	layout->addWidget(pass, 0, 1);
 }
 
 

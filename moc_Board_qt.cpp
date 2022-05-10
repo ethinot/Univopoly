@@ -66,19 +66,19 @@ static const uint qt_meta_data_Board_qt[] = {
        1,    1,   62,    2, 0x06,    1 /* Public */,
        4,    1,   65,    2, 0x06,    3 /* Public */,
        5,    0,   68,    2, 0x06,    5 /* Public */,
-       6,    1,   69,    2, 0x06,    6 /* Public */,
-       7,    0,   72,    2, 0x06,    8 /* Public */,
+       6,    0,   69,    2, 0x06,    6 /* Public */,
+       7,    0,   70,    2, 0x06,    7 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       8,    1,   73,    2, 0x08,    9 /* Private */,
-       9,    1,   76,    2, 0x08,   11 /* Private */,
-      10,    0,   79,    2, 0x08,   13 /* Private */,
+       8,    1,   71,    2, 0x08,    8 /* Private */,
+       9,    1,   74,    2, 0x08,   10 /* Private */,
+      10,    0,   77,    2, 0x08,   12 /* Private */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    2,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void,
     QMetaType::Void,
 
  // slots: parameters
@@ -98,7 +98,7 @@ void Board_qt::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 0: _t->render((*reinterpret_cast< std::vector<Player>(*)>(_a[1]))); break;
         case 1: _t->buy((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 2: _t->buyOff(); break;
-        case 3: _t->buyTrue((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 3: _t->buyTrue(); break;
         case 4: _t->buyFalse(); break;
         case 5: _t->rendering((*reinterpret_cast< std::vector<Player>(*)>(_a[1]))); break;
         case 6: _t->buying((*reinterpret_cast< int(*)>(_a[1]))); break;
@@ -129,7 +129,7 @@ void Board_qt::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
             }
         }
         {
-            using _t = void (Board_qt::*)(int );
+            using _t = void (Board_qt::*)();
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Board_qt::buyTrue)) {
                 *result = 3;
                 return;
@@ -152,7 +152,7 @@ const QMetaObject Board_qt::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_Board_qt_t
-, QtPrivate::TypeAndForceComplete<Board_qt, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<Player>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<Board_qt, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<Player>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<Player>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
@@ -212,10 +212,9 @@ void Board_qt::buyOff()
 }
 
 // SIGNAL 3
-void Board_qt::buyTrue(int _t1)
+void Board_qt::buyTrue()
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
-    QMetaObject::activate(this, &staticMetaObject, 3, _a);
+    QMetaObject::activate(this, &staticMetaObject, 3, nullptr);
 }
 
 // SIGNAL 4
