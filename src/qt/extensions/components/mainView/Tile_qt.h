@@ -27,7 +27,6 @@ class Tile_qt : public QWidget{
 		QPushButton *footer;
 		QHBoxLayout *playersLayout;
 		QGridLayout *layout;
-		char orientation;
 	
 };
 

@@ -15,7 +15,6 @@
 
 Tile_qt::Tile_qt(Tile *input_tile, char new_orientation) : QWidget(){
 	tile = input_tile;
-	orientation = new_orientation;
 	layout = new QGridLayout(this);
 	playersLayout = new QHBoxLayout();
 
@@ -41,8 +40,10 @@ Tile_qt::Tile_qt(Tile *input_tile, char new_orientation) : QWidget(){
 		layout->addWidget(footer, 2, 0);
 	}
 
-	head->setStyleSheet(QString::fromLocal8Bit("background-color: " + tile->getColor()));
-	setStyleSheet("background-color: white");
+
+	head->setStyleSheet(QString::fromLocal8Bit("background-color: " + tile->getColor() + ";color: black;"));
+	
+	setStyleSheet("background-color: white; border: 1px solid black;"); //  border: 1px solid black;
 }
 
 
