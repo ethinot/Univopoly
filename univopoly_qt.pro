@@ -15,6 +15,7 @@ SOURCES += \
         src/qt/extensions/components/sideBar/Controllers.cpp \
         src/qt/extensions/components/sideBar/Dice_qt.cpp \
         src/qt/extensions/components/sideBar/Players.cpp \
+        src/qt/extensions/components/sideBar/Player_qt.cpp \
         src/core/Board.cpp \
         src/core/Dice.cpp \
         src/core/Game.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
         src/qt/extensions/components/sideBar/Controllers.h \
         src/qt/extensions/components/sideBar/Dice_qt.h \
         src/qt/extensions/components/sideBar/Players.h \
+        src/qt/extensions/components/sideBar/Player_qt.h \
         src/core/Board.h \
         src/core/Dice.h \
         src/core/Game.h \

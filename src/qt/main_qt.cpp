@@ -9,13 +9,13 @@
 using namespace std;
 
 
-int main(int argc, char **argv)
+int main(int argc, char **argv )
 {
+    srand((unsigned int)time(NULL));
     QApplication app (argc, argv);
     Window window;
     window.show();
     return app.exec();
-
 }
 
 

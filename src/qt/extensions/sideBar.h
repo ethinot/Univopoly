@@ -3,19 +3,24 @@
 
 
 #include "components/sideBar/Controllers.h"
+#include "components/sideBar/Players.h"
 #include <QWidget>
+#include <QGridLayout>
 
 class QPushButton;
 
 class sideBar : public QWidget{
 	Q_OBJECT
 	public:
-		explicit sideBar(QWidget *parent = 0);
+		explicit sideBar(QWidget *parent = 0, std::vector<Player> players = std::vector<Player>());
 	signals: 
 		void rollDices();
 		void passTurn();
+		void renderPlayers(std::vector<Player> players);
 	private:
-		Controllers *controllers;	
+		Controllers *controllers;
+		Players *players;
+		QGridLayout *layout;
 };
 
 #endif // SIDEBAR_H

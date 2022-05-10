@@ -30,7 +30,13 @@ Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
 	connect(this, SIGNAL(render(std::vector<Player>)), this, SLOT(rendering(std::vector<Player>)));
 	connect(this, SIGNAL(buy(int)), this, SLOT(buying(int)));
 	connect(this, SIGNAL(buyOff()), this, SLOT(buyingOff()));
+
 	connect(dbuy_button, SIGNAL(clicked()), this, SLOT(buyingOff()));
+	connect(dbuy_button, SIGNAL(clicked()), this, SIGNAL(buyFalse()));
+
+	connect(buy_button, SIGNAL(clicked()), this, SLOT(buyingOff()));
+	connect(buy_button, SIGNAL(clicked()), this, SIGNAL(buyTrue()));
+
 }
 
 void Board_qt::loadProperties(Board *board){
