@@ -30,6 +30,7 @@ Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
 	connect(this, SIGNAL(render(std::vector<Player>)), this, SLOT(rendering(std::vector<Player>)));
 	connect(this, SIGNAL(buy(int)), this, SLOT(buying(int)));
 	connect(this, SIGNAL(buyOff()), this, SLOT(buyingOff()));
+	connect(dbuy_button, SIGNAL(clicked()), this, SLOT(buyingOff()));
 }
 
 void Board_qt::loadProperties(Board *board){
@@ -67,8 +68,8 @@ void Board_qt::rendering(std::vector<Player> players){
 	//tiles[players[0]->getPosition()]->setStyleSheet("background-color: yellow");
 	for(int i = 0; i < (int)players.size(); i++){
 		QWidget *tmp_widget = new QWidget();
-		if (i == 0) tmp_widget->setStyleSheet("background-color: yellow");
-		else tmp_widget->setStyleSheet("background-color: blue");
+		if (i == 0) tmp_widget->setStyleSheet("background-color: Lime");
+		else tmp_widget->setStyleSheet("background-color:Fuchsia ");
 		tiles[players[i].getPosition()]->addWidget(tmp_widget);
 	}
 }
