@@ -14,6 +14,8 @@ class mainView : public QWidget{
 		explicit mainView(QWidget *parent = 0, Board *new_board = 0);
 	signals:
 		void renderBoard(std::vector<Player> players);
+		void buyMenu(int);
+		void buyMenuOff();
 	private:
 		Board_qt *board;
 		QLayout *layout;

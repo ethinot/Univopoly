@@ -14,13 +14,22 @@ Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
 	board = new_board;
 	loadProperties(board);
 	layoutAddWidgets();
+
 	centralControls = new QWidget();
 	centralControls->setStyleSheet("background-color:grey");
+	buy_button = new QPushButton("buy", centralControls);
+	buy_button->setGeometry(10, 10, 80, 20);
+	dbuy_button = new QPushButton("Don't Buy", centralControls);
+	dbuy_button->setGeometry(100, 100, 80, 20);
+	centralControls->setVisible(false);
+
 	this->addWidget(centralControls, 4, 4, 3, 3);
 	this->setContentsMargins(0, 0, 0, 0);
 	this->setSpacing(0);	
 
 	connect(this, SIGNAL(render(std::vector<Player>)), this, SLOT(rendering(std::vector<Player>)));
+	connect(this, SIGNAL(buy(int)), this, SLOT(buying(int)));
+	connect(this, SIGNAL(buyOff()), this, SLOT(buyingOff()));
 }
 
 void Board_qt::loadProperties(Board *board){
@@ -64,3 +73,13 @@ void Board_qt::rendering(std::vector<Player> players){
 	}
 }
 
+
+void Board_qt::buying(int Tile_id){
+	qDebug() << "Showing buy menu";
+	centralControls->setVisible(true);
+}
+
+void Board_qt::buyingOff(){
+	qDebug() << "Off buy menu";
+	centralControls->setVisible(false);
+}

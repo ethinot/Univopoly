@@ -22,13 +22,19 @@ class Board_qt : public QGridLayout{
 		Board *board;
 	signals:
 		void render(std::vector<Player>);
+		void buy(int);
+		void buyOff();
 	private slots:
 		void rendering(std::vector<Player>);
+		void buying(int);
+		void buyingOff();
 	private:
 		QWidget *centralControls;
 		QVector<Tile_qt*> tiles;
 		void loadProperties(Board *board);
 		void layoutAddWidgets();
+		QPushButton* buy_button;
+		QPushButton* dbuy_button;
 };
 
 #endif // WINDOW_H

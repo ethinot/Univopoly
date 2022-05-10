@@ -42,6 +42,13 @@ Window::Window() : QWidget(){
 
 	// pass turn
 	connect(sidebar, SIGNAL(passTurn()), this, SLOT(passingTurn()));
+	connect(sidebar, SIGNAL(passTurn()), mainview, SIGNAL(buyMenuOff()));
+
+
+	// buy property
+	connect(this, SIGNAL(askBuy(int)), mainview, SIGNAL(buyMenu(int)));
+
+
 }
 
 
@@ -52,13 +59,18 @@ void Window::rollingDice(){
 }
 
 void Window::movingPlayer(int amount){
-	qDebug() << "Moving player";
 	game->movePlayer(game->getId(current_player_index), amount);
-	qDebug() << game->getPlayerPosition(game->getId(current_player_index));
+	int current_position = game->getPlayerPosition(game->getId(current_player_index));
+	qDebug() << "Moving player: " << current_position;
 	emit playerMoved(game->getPlayers());
+	qDebug() << game->getTileById(current_position)->getOwner();
+	if (game->getTileById(current_position)->getOwner() == -1){
+		emit askBuy(current_position);
+	}
 }
 
 void Window::passingTurn(){
+	qDebug() << "Passing turn";
 	current_player_index += 1;
 	if (current_player_index == game->getGameSize()) current_player_index = 0;
 
