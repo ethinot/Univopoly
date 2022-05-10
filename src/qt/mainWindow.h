@@ -20,8 +20,14 @@ class Window : public QWidget{
 		sideBar *sidebar;
 		mainView *mainview;
 		Game *game;
+		int current_player_index;
+	signals:
+		void diceRolled(int amount);
+		void playerMoved(std::vector<Player>);
 	private slots:
-		void displayTwoDice();
+		void rollingDice();
+		void movingPlayer(int amount);
+		void passingTurn();
 };
 
 #endif // MAINWINDOW_H

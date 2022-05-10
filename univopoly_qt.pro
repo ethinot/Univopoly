@@ -10,6 +10,7 @@ SOURCES += \
         src/qt/extensions/mainView.cpp \
         src/qt/extensions/sideBar.cpp \
         src/qt/extensions/components/mainView/Board_qt.cpp \
+        src/qt/extensions/components/mainView/Tile_qt.cpp \
         src/qt/extensions/components/mainView/Lobby.cpp \
         src/qt/extensions/components/sideBar/Controllers.cpp \
         src/qt/extensions/components/sideBar/Dice_qt.cpp \
@@ -28,6 +29,7 @@ HEADERS += \
         src/qt/extensions/mainView.h \
         src/qt/extensions/sideBar.h \
         src/qt/extensions/components/mainView/Board_qt.h \
+        src/qt/extensions/components/mainView/Tile_qt.h \
         src/qt/extensions/components/mainView/Lobby.h \        
         src/qt/extensions/components/sideBar/Controllers.h \
         src/qt/extensions/components/sideBar/Dice_qt.h \

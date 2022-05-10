@@ -1,18 +1,19 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'sideBar.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.8)
+** Created by: The Qt Meta Object Compiler version 68 (Qt 6.2.3)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
+#include <memory>
 #include "src/qt/extensions/sideBar.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'sideBar.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.12.8. It"
+#elif Q_MOC_OUTPUT_REVISION != 68
+#error "This file was generated using the moc from 6.2.3. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -21,44 +22,43 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_sideBar_t {
-    QByteArrayData data[4];
-    char stringdata0[18];
+    const uint offsetsAndSize[8];
+    char stringdata0[28];
 };
-#define QT_MOC_LITERAL(idx, ofs, len) \
-    Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_sideBar_t, stringdata0) + ofs \
-        - idx * sizeof(QByteArrayData)) \
-    )
+#define QT_MOC_LITERAL(ofs, len) \
+    uint(offsetof(qt_meta_stringdata_sideBar_t, stringdata0) + ofs), len 
 static const qt_meta_stringdata_sideBar_t qt_meta_stringdata_sideBar = {
     {
-QT_MOC_LITERAL(0, 0, 7), // "sideBar"
-QT_MOC_LITERAL(1, 8, 5), // "check"
-QT_MOC_LITERAL(2, 14, 0), // ""
-QT_MOC_LITERAL(3, 15, 2) // "ok"
+QT_MOC_LITERAL(0, 7), // "sideBar"
+QT_MOC_LITERAL(8, 9), // "rollDices"
+QT_MOC_LITERAL(18, 0), // ""
+QT_MOC_LITERAL(19, 8) // "passTurn"
 
     },
-    "sideBar\0check\0\0ok"
+    "sideBar\0rollDices\0\0passTurn"
 };
 #undef QT_MOC_LITERAL
 
 static const uint qt_meta_data_sideBar[] = {
 
  // content:
-       8,       // revision
+      10,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
- // signals: name, argc, parameters, tag, flags
-       1,    1,   19,    2, 0x06 /* Public */,
+ // signals: name, argc, parameters, tag, flags, initial metatype offsets
+       1,    0,   26,    2, 0x06,    1 /* Public */,
+       3,    0,   27,    2, 0x06,    2 /* Public */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::Bool,    3,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -67,29 +67,44 @@ void sideBar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         auto *_t = static_cast<sideBar *>(_o);
-        Q_UNUSED(_t)
+        (void)_t;
         switch (_id) {
-        case 0: _t->check((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 0: _t->rollDices(); break;
+        case 1: _t->passTurn(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (sideBar::*)(bool );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&sideBar::check)) {
+            using _t = void (sideBar::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&sideBar::rollDices)) {
                 *result = 0;
                 return;
             }
         }
+        {
+            using _t = void (sideBar::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&sideBar::passTurn)) {
+                *result = 1;
+                return;
+            }
+        }
     }
+    (void)_a;
 }
 
-QT_INIT_METAOBJECT const QMetaObject sideBar::staticMetaObject = { {
-    &QWidget::staticMetaObject,
-    qt_meta_stringdata_sideBar.data,
+const QMetaObject sideBar::staticMetaObject = { {
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
+    qt_meta_stringdata_sideBar.offsetsAndSize,
     qt_meta_data_sideBar,
     qt_static_metacall,
     nullptr,
+qt_incomplete_metaTypeArray<qt_meta_stringdata_sideBar_t
+, QtPrivate::TypeAndForceComplete<sideBar, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+
+
+
+>,
     nullptr
 } };
 
@@ -113,22 +128,27 @@ int sideBar::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 2;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
-            *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 1;
+        if (_id < 2)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 2;
     }
     return _id;
 }
 
 // SIGNAL 0
-void sideBar::check(bool _t1)
+void sideBar::rollDices()
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
-    QMetaObject::activate(this, &staticMetaObject, 0, _a);
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+
+// SIGNAL 1
+void sideBar::passTurn()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

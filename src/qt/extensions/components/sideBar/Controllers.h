@@ -10,16 +10,13 @@ class Controllers : public QWidget{
 	Q_OBJECT
 	public:
 		explicit Controllers(QWidget *parent = 0);
-	private slots:
-		//void rolled(bool rolled);
-		//void buyButtonClicked(bool clicked);
-	
 	signals:
-		void diceButton(bool emited);
+		void diceButton();
+		void passButton();
 	
 	private:
 		QPushButton *roll;
-		QPushButton *buy; 
+		QPushButton *pass; 
 };
 
 #endif // CONTROLLERS_H

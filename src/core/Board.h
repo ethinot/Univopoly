@@ -43,6 +43,8 @@ public:
     Tile* getTile(unsigned int property_id);
     
     void testRegBoard();
+
+    int getSize();
 };
 
 #endif
