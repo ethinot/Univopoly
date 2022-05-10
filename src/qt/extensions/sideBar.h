@@ -8,11 +8,19 @@
 class QPushButton;
 
 class sideBar : public QWidget{
+	Q_OBJECT
 	public:
 		explicit sideBar(QWidget *parent = 0);
+
+	private slots:
+		//void sendToMain(bool emited);
+		//void buyButtonClicked(bool clicked);
+	
+	signals: 
+		void check(bool ok);
+
 	private:
-		Controllers *controllers;
-		
+		Controllers *controllers;	
 };
 
-#endif // WINDOW_H
+#endif // SIDEBAR_H

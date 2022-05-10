@@ -20,6 +20,8 @@ class Window : public QWidget{
 		sideBar *sidebar;
 		mainView *mainview;
 		Game *game;
+	private slots:
+		void displayTwoDice();
 };
 
-#endif // WINDOW_H
+#endif // MAINWINDOW_H

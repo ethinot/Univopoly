@@ -46,6 +46,8 @@ DISTFILES += \
     README.md \
     img/Univopoly_Board.png \
     img/Univopoly_noshadow.png \
-    img/pions.png
+    img/pions.png \
+    img/buy.png \
+    img/roll_dice.png 
 
 INCLUDEPATH += src/core src/qt

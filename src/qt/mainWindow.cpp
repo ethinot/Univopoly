@@ -11,6 +11,7 @@ Window::Window() : QWidget(){
 
 	sidebar = new sideBar(this);
 	mainview = new mainView(this);
+	game = new Game(2);
 
 	layout = new QHBoxLayout(this);
 	setLayout(layout);
@@ -26,7 +27,14 @@ Window::Window() : QWidget(){
 	layout->addWidget(mainview);
 	layout->addWidget(sidebar);
 
+	this->setStyleSheet("background-color:white");
+	connect(sidebar, SIGNAL(check(bool)), this, SLOT(displayTwoDice()) );
+}
 
-	this->setStyleSheet("background-color:black");
+void Window::displayTwoDice() {
+	qDebug() << "Enter";
+	game->rollDice();
+	qDebug() << game->firstDice();
+	qDebug() << game->secondDice();
 }
 
