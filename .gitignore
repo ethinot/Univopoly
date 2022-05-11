@@ -18,4 +18,8 @@ moc_Controllers.cpp
 moc_mainWindow.cpp
 moc_predefs.h
 moc_mainView.cpp
-moc*
+moc_Players.cpp
+moc_sideBar.cpp
+moc_mainView.cpp
+moc_Dice_qt.cpp
+moc_Board_qt.cpp
