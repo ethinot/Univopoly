@@ -38,7 +38,7 @@ public:
 	
 	~Tile();
 	
-	virtual int getType();
+	virtual void getType();
 	
 	/**
 	* @brief getId() récupère l'id de la case

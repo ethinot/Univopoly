@@ -12,11 +12,11 @@ class QPushButton;
 class sideBar : public QWidget{
 	Q_OBJECT
 	public:
-		explicit sideBar(QWidget *parent = 0, std::vector<Player> players = std::vector<Player>());
+		explicit sideBar(QWidget *parent = 0, std::vector<Player*> players = std::vector<Player*>());
 	signals: 
 		void rollDices();
 		void passTurn();
-		void renderPlayers(std::vector<Player> players);
+		void renderPlayers(std::vector<Player*> players);
 	private:
 		Controllers *controllers;
 		Players *players;

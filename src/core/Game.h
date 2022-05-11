@@ -24,7 +24,7 @@ class Game{
 
 private:
 	Board board_game; /**< plateau de jeu*/
-	std::vector<Player> players; /**< tableau dynamique qui stocke les joueurs*/
+	std::vector<Player*> players; /**< tableau dynamique qui stocke les joueurs*/
 	int total_player; /**< nombre de joueur*/
 	Dice dice; /**< paire de dés */
 
@@ -38,7 +38,7 @@ public:
 	 * @param id -> id du joueur qu'on veut récupérer
 	 * @return Player& -> référence sur un joueur
 	 */
-	Player& getPlayerById(int id);
+	Player* getPlayerById(int id);
 	
 	/**
 	 * @brief Fonction qui récupère une case (chance, propriété, gare etc...)
@@ -211,7 +211,7 @@ public:
 	int checkWinner();
 
 	Board* getBoard();
-	std::vector<Player> getPlayers();
+	std::vector<Player*> getPlayers();
 };
 
 #endif

@@ -85,7 +85,7 @@ public:
 	 * @return true -> vrai si l'achat a bien pu s'éffectuer
 	 * @return false -> faux si l'achat n'a pas abouti
 	 */
-	bool buyProperty(Tile* property);
+	bool buyProperty(unsigned int property_id, Tile*property);
 	
 	/**
 	 * @brief Vérifie si la propriété à bien été vendue

@@ -21,13 +21,13 @@ class Board_qt : public QGridLayout{
 		explicit Board_qt(QWidget *parent = 0, Board *board = 0);
 		Board *board;
 	signals:
-		void render(std::vector<Player>);
+		void render(std::vector<Player*>);
 		void buy(int);
 		void buyOff();
 		void buyTrue();
 		void buyFalse();
 	private slots:
-		void rendering(std::vector<Player>);
+		void rendering(std::vector<Player*>);
 		void buying(int);
 		void buyingOff();
 	private:

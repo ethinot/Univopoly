@@ -21,3 +21,4 @@ moc_mainWindow.cpp
 moc_mainView.cpp
 moc_Controllers.cpp
 moc_Board_qt.cpp
+Makefile

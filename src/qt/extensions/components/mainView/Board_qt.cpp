@@ -27,7 +27,7 @@ Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
 	this->setContentsMargins(0, 0, 0, 0);
 	this->setSpacing(0);	
 
-	connect(this, SIGNAL(render(std::vector<Player>)), this, SLOT(rendering(std::vector<Player>)));
+	connect(this, SIGNAL(render(std::vector<Player*>)), this, SLOT(rendering(std::vector<Player*>)));
 	connect(this, SIGNAL(buy(int)), this, SLOT(buying(int)));
 	connect(this, SIGNAL(buyOff()), this, SLOT(buyingOff()));
 
@@ -66,17 +66,17 @@ void Board_qt::layoutAddWidgets(){
 	}
 }
 
-void Board_qt::rendering(std::vector<Player> players){
+void Board_qt::rendering(std::vector<Player*> players){
 	qDebug() << "rendering";
 	loadProperties(board);
 	layoutAddWidgets();
-	qDebug() << players[0].getPosition();
+	qDebug() << players[0]->getPosition();
 	//tiles[players[0]->getPosition()]->setStyleSheet("background-color: yellow");
 	for(int i = 0; i < (int)players.size(); i++){
 		QWidget *tmp_widget = new QWidget();
 		if (i == 0) tmp_widget->setStyleSheet("background-color: Lime");
 		else tmp_widget->setStyleSheet("background-color:Fuchsia ");
-		tiles[players[i].getPosition()]->addWidget(tmp_widget);
+		tiles[players[i]->getPosition()]->addWidget(tmp_widget);
 	}
 }
 

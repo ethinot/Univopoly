@@ -38,7 +38,7 @@ Window::Window() : QWidget(){
 
 	// move player
 	connect(this, SIGNAL(diceRolled(int)), this, SLOT(movingPlayer(int)));
-	connect(this, SIGNAL(playerMoved(std::vector<Player>)), mainview, SIGNAL(renderBoard(std::vector<Player>)));
+	connect(this, SIGNAL(playerMoved(std::vector<Player*>)), mainview, SIGNAL(renderBoard(std::vector<Player*>)));
 
 	// pass turn
 	connect(sidebar, SIGNAL(passTurn()), this, SLOT(passingTurn()));
@@ -53,7 +53,8 @@ Window::Window() : QWidget(){
 
 
 	// change player display
-	connect(this, SIGNAL(bought(std::vector<Player>)), sidebar, SIGNAL(renderPlayers(std::vector<Player>)));
+	connect(this, SIGNAL(bought(std::vector<Player*>)), sidebar, SIGNAL(renderPlayers(std::vector<Player*>)));
+	connect(this, SIGNAL(bought(std::vector<Player*>)), mainview, SIGNAL(renderBoard(std::vector<Player*>)));
 
 	//connect(this, SIGNAL())
 

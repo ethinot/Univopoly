@@ -13,12 +13,14 @@
 #include <QVector>
 #include <QLabel>
 #include "../../../../core/Tile.h"
+#include "../../../../core/Property.h"
+#include "../../../../core/Gare.h"
 
 //class QPushButton;
 
 class Tile_qt : public QWidget{
 	public:
-		explicit Tile_qt(Tile *tile = 0, char orientation = 'n');
+		explicit Tile_qt(Tile *tile = 0);
 		void addWidget(QWidget *widget);
 	private:
 		Tile *tile;

@@ -10,12 +10,14 @@
 #define _BOARD
 
 #include "Tile.h"
+#include "Property.h"
+#include "Gare.h"
 #include <vector>
 
 class Board{
 
 private:
-    std::vector<Tile> game_board; /**< vector de type Tile*/
+    std::vector<Tile*> game_board; /**< vector de type pointeur sur Tile*/
 public:
     
     /**
@@ -38,7 +40,7 @@ public:
      * @brief Fonction qui prend en paramètre l'id d'une propriété et renvoie un pointeur correspondant à l'id passer en paramètre
      * 
      * @param property_id -> id d'une propriété 
-     * @return Tile -> renvoie une référence sur Tile qui ne pourra pas être modifier
+     * @return Tile* -> renvoie un pointeur sur Tile
      */
     Tile* getTile(unsigned int property_id);
     

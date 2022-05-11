@@ -1055,10 +1055,11 @@ moc_mainView.cpp: src/qt/extensions/mainView.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QLabel \
 		/usr/local/lib/QtWidgets.framework/Headers/qlabel.h \
 		src/core/Tile.h \
+		src/core/Property.h \
+		src/core/Gare.h \
 		src/core/Board.h \
 		src/core/Player.h \
 		src/core/Inventory.h \
-		src/core/Property.h \
 		moc_predefs.h \
 		/usr/local/share/qt/libexec/moc
 	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/enzo/Desktop/projetp4/univopoly/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/enzo/Desktop/projetp4/univopoly -I/Users/enzo/Desktop/projetp4/univopoly/src/core -I/Users/enzo/Desktop/projetp4/univopoly/src/qt -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/usr/local/lib src/qt/extensions/mainView.h -o moc_mainView.cpp
@@ -1117,10 +1118,11 @@ moc_Board_qt.cpp: src/qt/extensions/components/mainView/Board_qt.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QLabel \
 		/usr/local/lib/QtWidgets.framework/Headers/qlabel.h \
 		src/core/Tile.h \
+		src/core/Property.h \
+		src/core/Gare.h \
 		src/core/Board.h \
 		src/core/Player.h \
 		src/core/Inventory.h \
-		src/core/Property.h \
 		moc_predefs.h \
 		/usr/local/share/qt/libexec/moc
 	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/enzo/Desktop/projetp4/univopoly/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/enzo/Desktop/projetp4/univopoly -I/Users/enzo/Desktop/projetp4/univopoly/src/core -I/Users/enzo/Desktop/projetp4/univopoly/src/qt -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/usr/local/lib src/qt/extensions/components/mainView/Board_qt.h -o moc_Board_qt.cpp
@@ -1301,10 +1303,11 @@ obj/mainView.o: src/qt/extensions/mainView.cpp /usr/local/lib/QtWidgets.framewor
 		/usr/local/lib/QtWidgets.framework/Headers/QLabel \
 		/usr/local/lib/QtWidgets.framework/Headers/qlabel.h \
 		src/core/Tile.h \
+		src/core/Property.h \
+		src/core/Gare.h \
 		src/core/Board.h \
 		src/core/Player.h \
-		src/core/Inventory.h \
-		src/core/Property.h
+		src/core/Inventory.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/mainView.o src/qt/extensions/mainView.cpp
 
 obj/sideBar.o: src/qt/extensions/sideBar.cpp /usr/local/lib/QtWidgets.framework/Headers/QApplication \
@@ -1377,10 +1380,11 @@ obj/Board_qt.o: src/qt/extensions/components/mainView/Board_qt.cpp /usr/local/li
 		/usr/local/lib/QtWidgets.framework/Headers/QLabel \
 		/usr/local/lib/QtWidgets.framework/Headers/qlabel.h \
 		src/core/Tile.h \
+		src/core/Property.h \
+		src/core/Gare.h \
 		src/core/Board.h \
 		src/core/Player.h \
-		src/core/Inventory.h \
-		src/core/Property.h
+		src/core/Inventory.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/Board_qt.o src/qt/extensions/components/mainView/Board_qt.cpp
 
 obj/Tile_qt.o: src/qt/extensions/components/mainView/Tile_qt.cpp /usr/local/lib/QtWidgets.framework/Headers/QApplication \
@@ -1415,7 +1419,9 @@ obj/Tile_qt.o: src/qt/extensions/components/mainView/Tile_qt.cpp /usr/local/lib/
 		/usr/local/lib/QtGui.framework/Headers/qpainter.h \
 		/usr/local/lib/QtCore.framework/Headers/QVector \
 		/usr/local/lib/QtCore.framework/Headers/qvector.h \
-		src/core/Tile.h
+		src/core/Tile.h \
+		src/core/Property.h \
+		src/core/Gare.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/Tile_qt.o src/qt/extensions/components/mainView/Tile_qt.cpp
 
 obj/Lobby.o: src/qt/extensions/components/mainView/Lobby.cpp 

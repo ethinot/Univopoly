@@ -13,7 +13,7 @@
 #include "Tile_qt.h"
 
 
-Tile_qt::Tile_qt(Tile *input_tile, char new_orientation) : QWidget(){
+Tile_qt::Tile_qt(Tile *input_tile) : QWidget(){
 	tile = input_tile;
 	layout = new QGridLayout(this);
 	playersLayout = new QHBoxLayout();
@@ -37,6 +37,22 @@ Tile_qt::Tile_qt(Tile *input_tile, char new_orientation) : QWidget(){
 		QString price = QString::fromStdString(std::string("Price: ") + (std::to_string(tile->getPrice())) );
 		footer = new QPushButton(price);
 		footer->setStyleSheet("background-color:white; color:black;");
+		layout->addWidget(footer, 2, 0);
+	}
+
+	if (tile->getOwner() > -1){
+		QString rent;
+		qDebug() << typeid(*tile).name();
+		if ((typeid(*tile).name() == typeid(Property).name())){
+			int current_rent = static_cast<Property*>(tile)->getRent();
+			rent = QString::fromStdString(std::string("Rent: ") + (std::to_string(current_rent)) );
+		}/*else if ((typeid(*tile).name() == typeid(Gare).name())){
+			int current_rent = static_cast<Gare*>(tile)->getRent();
+			QString rent = QString::fromStdString(std::string("Rent: ") + (std::to_string(current_rent)) );
+		}*/
+
+		footer = new QPushButton(rent);
+		footer->setStyleSheet("background-color:grey; color:black;");
 		layout->addWidget(footer, 2, 0);
 	}
 
