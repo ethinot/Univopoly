@@ -17,3 +17,5 @@ __MACOSX/Demo/inc/cget/cget/._.DS_Store
 moc_Controllers.cpp
 moc_mainWindow.cpp
 moc_predefs.h
+moc_mainView.cpp
+moc*
