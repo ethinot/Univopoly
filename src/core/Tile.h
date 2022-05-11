@@ -53,8 +53,8 @@ public:
 	std::string getName() const;
 
 	/**
-	 * @brief 
-	 * 
+	 * @brief getColor() récupère la color associer à la case
+	 * La fonction getColor -> ne prend pas de paramètre et renvoie la couleur d'une case.
 	 */
 	std::string getColor() const;
 
@@ -88,7 +88,7 @@ public:
 	* La procédure bought -> prend en paramètre l'id de l'acheteur et, 
 	* met à jour le propriétaire de la case.
 	*/
-	void bought(unsigned int); 
+	void bought(unsigned int id_buyer); 
 
 	/**
 	 * @brief opérateur de surcharge pour afficher les cases (gare/propriété) 

@@ -41,7 +41,7 @@ int Game::getId(int indice) const{
 	return players[indice].getId();
 }
 
-int Game::getPlayerIndex(int player_id){
+int Game::getPlayerIndex(int player_id) const{
 	assert(player_id > 0 && player_id <= getGameSize());
 	for (long unsigned int i = 0; i < players.size(); i++){
 		if (players[i].getId() == player_id) {
