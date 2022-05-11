@@ -14,12 +14,10 @@ univopoly_qt.app
 univopoly_qt
 __MACOSX/Demo/inc/cget/cget/._.DS_Store
 */.DS_Store
-moc_Controllers.cpp
-moc_mainWindow.cpp
-moc_predefs.h
-moc_mainView.cpp
-moc_Players.cpp
 moc_sideBar.cpp
+moc_predefs.h
+moc_Players.cpp
+moc_mainWindow.cpp
 moc_mainView.cpp
-moc_Dice_qt.cpp
+moc_Controllers.cpp
 moc_Board_qt.cpp

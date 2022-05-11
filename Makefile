@@ -1067,12 +1067,12 @@ moc_sideBar.cpp: src/qt/extensions/sideBar.h \
 		src/qt/extensions/components/sideBar/Controllers.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QWidget \
 		/usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QGridLayout \
+		/usr/local/lib/QtWidgets.framework/Headers/qgridlayout.h \
 		src/qt/extensions/components/sideBar/Players.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QHBoxLayout \
 		/usr/local/lib/QtWidgets.framework/Headers/qboxlayout.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QVBoxLayout \
-		/usr/local/lib/QtWidgets.framework/Headers/QGridLayout \
-		/usr/local/lib/QtWidgets.framework/Headers/qgridlayout.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QLayout \
 		/usr/local/lib/QtWidgets.framework/Headers/qlayout.h \
 		/usr/local/lib/QtCore.framework/Headers/QVector \
@@ -1128,6 +1128,8 @@ moc_Board_qt.cpp: src/qt/extensions/components/mainView/Board_qt.h \
 moc_Controllers.cpp: src/qt/extensions/components/sideBar/Controllers.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QWidget \
 		/usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QGridLayout \
+		/usr/local/lib/QtWidgets.framework/Headers/qgridlayout.h \
 		moc_predefs.h \
 		/usr/local/share/qt/libexec/moc
 	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/enzo/Desktop/projetp4/univopoly/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/enzo/Desktop/projetp4/univopoly -I/Users/enzo/Desktop/projetp4/univopoly/src/core -I/Users/enzo/Desktop/projetp4/univopoly/src/qt -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/usr/local/lib src/qt/extensions/components/sideBar/Controllers.h -o moc_Controllers.cpp
@@ -1319,12 +1321,12 @@ obj/sideBar.o: src/qt/extensions/sideBar.cpp /usr/local/lib/QtWidgets.framework/
 		src/qt/extensions/components/sideBar/Controllers.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QWidget \
 		/usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QGridLayout \
+		/usr/local/lib/QtWidgets.framework/Headers/qgridlayout.h \
 		src/qt/extensions/components/sideBar/Players.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QHBoxLayout \
 		/usr/local/lib/QtWidgets.framework/Headers/qboxlayout.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QVBoxLayout \
-		/usr/local/lib/QtWidgets.framework/Headers/QGridLayout \
-		/usr/local/lib/QtWidgets.framework/Headers/qgridlayout.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QLayout \
 		/usr/local/lib/QtWidgets.framework/Headers/qlayout.h \
 		/usr/local/lib/QtCore.framework/Headers/QVector \
@@ -1435,7 +1437,9 @@ obj/Controllers.o: src/qt/extensions/components/sideBar/Controllers.cpp /usr/loc
 		/usr/local/lib/QtCore.framework/Headers/qdir.h \
 		src/qt/extensions/components/sideBar/Controllers.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QWidget \
-		/usr/local/lib/QtWidgets.framework/Headers/qwidget.h
+		/usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QGridLayout \
+		/usr/local/lib/QtWidgets.framework/Headers/qgridlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/Controllers.o src/qt/extensions/components/sideBar/Controllers.cpp
 
 obj/Dice_qt.o: src/qt/extensions/components/sideBar/Dice_qt.cpp src/qt/extensions/components/sideBar/Dice_qt.h \
@@ -1504,7 +1508,20 @@ obj/Player_qt.o: src/qt/extensions/components/sideBar/Player_qt.cpp /usr/local/l
 		/usr/local/lib/QtCore.framework/Headers/QString \
 		/usr/local/lib/QtCore.framework/Headers/qstring.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QLabel \
-		/usr/local/lib/QtWidgets.framework/Headers/qlabel.h
+		/usr/local/lib/QtWidgets.framework/Headers/qlabel.h \
+		src/qt/extensions/components/sideBar/Player_qt.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QWidget \
+		/usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QGridLayout \
+		/usr/local/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		/usr/local/lib/QtGui.framework/Headers/QPainter \
+		/usr/local/lib/QtGui.framework/Headers/qpainter.h \
+		/usr/local/lib/QtCore.framework/Headers/QVector \
+		/usr/local/lib/QtCore.framework/Headers/qvector.h \
+		src/core/Player.h \
+		src/core/Inventory.h \
+		src/core/Property.h \
+		src/core/Tile.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/Player_qt.o src/qt/extensions/components/sideBar/Player_qt.cpp
 
 obj/Board.o: src/core/Board.cpp src/core/Board.h \
