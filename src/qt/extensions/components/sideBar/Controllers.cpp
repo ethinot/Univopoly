@@ -8,7 +8,10 @@
 #include "Controllers.h"
 
 Controllers::Controllers(QWidget *parent) : QWidget(parent){
-	
+
+	layout = new QGridLayout(this);
+
+	this->setStyleSheet("background-color: white;");
 	//Create and position the button
 	roll = new QPushButton(this);
 	roll->setIcon(QIcon("img/roll_dice.png"));
@@ -17,25 +20,48 @@ Controllers::Controllers(QWidget *parent) : QWidget(parent){
 	if(!file.exists()){ qDebug() << "File is not found!" << file.fileName(); }
 	//Button settings 
 	roll->setIconSize(QSize(60, 60));
-	roll->setGeometry(140, 630, 60, 60);
 	roll->setShortcut(tr("r"));
 	//If the button is clicked the signal diceRolled is emit
-	connect(roll, SIGNAL(clicked(bool)), this, SIGNAL(diceButton(bool)));
+	connect(roll, SIGNAL(clicked()), this, SIGNAL(diceButton()));
+	connect(roll, SIGNAL(clicked()), this, SLOT(disableRoll()));
+	connect(roll, SIGNAL(clicked()), this, SLOT(enablePass()));
 	
 	// Create and position the button
-	buy = new QPushButton(this);
-	buy->setIcon(QIcon("img/buy.png"));
+	pass = new QPushButton(this);
+	pass->setIcon(QIcon("img/buy.png"));
 	//Check if file exist
 	//QFile file("img/buy.png");
 	//if(!file.exists()){ qDebug() << "File is not found!" << file.fileName(); }
 	//Button settings 
-	buy->setIconSize(QSize(60, 60));
-	buy->setGeometry(200, 630, 60, 60);
-	buy->setShortcut(tr("b"));
+	pass->setIconSize(QSize(60, 60));
+	pass->setShortcut(tr("p"));
+	connect(pass, SIGNAL(clicked()), this, SIGNAL(passButton()));
+	connect(pass, SIGNAL(clicked()), this, SLOT(disablePass()));
+	connect(pass, SIGNAL(clicked()), this, SLOT(enableRoll()));
+
+	layout->addWidget(roll, 0, 0);
+	layout->addWidget(pass, 0, 1);
 }
 
-/*
-void Controllers::rolled(bool rolled) {
-	qDebug() << "Ok 1"; 
-	if(rolled) emit diceButton(rolled);
-}*/
+
+void Controllers::disableButton(QPushButton* button){
+	button->setEnabled(false);
+}
+
+void Controllers::enableButton(QPushButton* button){
+	button->setEnabled(true);
+}
+
+void Controllers::disablePass(){
+	disableButton(pass);
+}
+void Controllers::enablePass(){
+	enableButton(pass);
+}
+
+void Controllers::disableRoll(){
+	disableButton(roll);
+}
+void Controllers::enableRoll(){
+	enableButton(roll);
+}

@@ -60,4 +60,8 @@ Board::~Board() {
 Tile* Board::getTile(unsigned int property_id){ 
     return &game_board[property_id];
 }
+
+int Board::getSize(){
+    return game_board.size();
+}
 	

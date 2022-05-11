@@ -152,3 +152,11 @@ int Game::checkWinner(){
 	if (players.size() == 1) return players[0].getId();
 	else return -1;
 }
+
+Board* Game::getBoard(){
+	return &board_game;
+}
+
+std::vector<Player> Game::getPlayers(){
+	return players;
+}

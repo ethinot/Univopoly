@@ -209,6 +209,9 @@ public:
 	 * @return int -> id du joueur gagnant
 	 */
 	int checkWinner();
+
+	Board* getBoard();
+	std::vector<Player> getPlayers();
 };
 
 #endif

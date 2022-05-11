@@ -6,9 +6,15 @@
 #include <QPixmap>
 #include "mainView.h"
 
-mainView::mainView(QWidget *parent) : QWidget(parent){
-	qDebug() << this->size();
+mainView::mainView(QWidget *parent, Board* new_board) : QWidget(parent){
+	
+	board = new Board_qt(this, new_board);
+
 	this->setStyleSheet("background-color: white");
-	//this->setStyleSheet("background-image: url(/Users/enzo/Desktop/projetp4/vscode_univopoly_qt/img/Univopoly_Board.png)");
-	//QPixmap univopoly_img("/Users/enzo/Desktop/projetp4/vscode_univopoly_qt/img/Univopoly_Board.png");
+
+	connect(this, SIGNAL(renderBoard(std::vector<Player>)), board, SIGNAL(render(std::vector<Player>)));
+	connect(this, SIGNAL(buyMenu(int)), board, SIGNAL(buy(int)));
+	connect(this, SIGNAL(buyMenuOff()), board, SIGNAL(buyOff()));
+	connect(board, SIGNAL(buyTrue()), this, SIGNAL(buyTrueM()));
+
 }
