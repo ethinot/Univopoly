@@ -89,7 +89,7 @@ public:
 	 * @param id -> id d'un joueur
 	 * @return int -> index dans le tableau players correspondant à l'id du joueurs passer en paramètre
 	 */
-	int getPlayerIndex(int id); 
+	int getPlayerIndex(int id) const; 
 
 	/**
 	 * @brief Récupère la position du joueur correspondant à l'id
@@ -152,7 +152,7 @@ public:
 	 * @return true -> vrai si la transaction est un succès
 	 * @return false -> faux si la transaction n'a pas eu lieu
 	 */
-	bool pay(int id, int amount, int reciever_id);
+	bool pay(int id, int amount, int receiver_id);
 	
 	/**
 	 * @brief Permet d'acheter une case
