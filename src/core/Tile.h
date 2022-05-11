@@ -38,7 +38,7 @@ public:
 	
 	~Tile();
 	
-	virtual void getType();
+	virtual int getType();
 	
 	/**
 	* @brief getId() récupère l'id de la case
@@ -99,6 +99,7 @@ public:
 	 * @return ostream& 
 	 */
 	friend std::ostream & operator << (std::ostream &out, const Tile &t);
+
 };
 
 #endif
