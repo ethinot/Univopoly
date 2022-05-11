@@ -86,6 +86,7 @@ void Window::passingTurn(){
 }
 
 void Window::buying(){
+	qDebug() << current_player_index;
 	game->buyTile( game->getId(current_player_index), game->getPlayerPosition(game->getId(current_player_index)));
 	qDebug() << game->getTileById(game->getPlayerPosition(game->getId(current_player_index)))->getPrice();
 	emit bought(game->getPlayers());

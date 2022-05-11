@@ -27,7 +27,7 @@ Player_qt::Player_qt(Player *input_player) : QWidget(){
 	layout->addWidget(head, 0, 0);
 	//layout->addLayout(playersLayout, 1, 0);
 
-	QString money = QString::fromStdString(std::string("Money: ") + (std::to_string(player->getNetWorth())));
+	QString money = QString::fromStdString(std::string("Money: ") + (std::to_string(player->getBalance())));
 	footer = new QPushButton(money);
 	footer->setStyleSheet("background-color:white; color:black;");
 	layout->addWidget(footer, 0, 1);
