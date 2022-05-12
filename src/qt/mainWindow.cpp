@@ -27,7 +27,7 @@ Window::Window() : QWidget(){
 	layout->addWidget(sidebar);
 
 
-	this->setStyleSheet("background-color:black");
+	this->setStyleSheet("background-color:DarkSeaGreen");
 
 	current_player_index = 0;
 
