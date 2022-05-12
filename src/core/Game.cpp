@@ -50,9 +50,10 @@ bool Game::checkDouble() const{
 int Game::getId(int index) const{return players[index]->getId();}
 
 Player * Game::getPlayerById(int id){
-	for (int i = 0; i < players.size(); i++){
+	for (long unsigned int i = 0; i < players.size(); i++){
 		if (players[i]->getId() == id) return players[i];
 	}
+	return 0;
 }
 
 int Game::getPlayerPosition(int id){
@@ -66,7 +67,7 @@ bool Game::movePlayer(int id, int how_much){
 
 bool Game::buyTile(int id, unsigned int property_id){ 
 	Player * current_player = getPlayerById(id);
-	if (current_player->buyProperty(property_id, board_game.getTile(property_id))){
+	if (current_player->buyProperty(board_game.getTile(property_id))){
 		board_game.getTile(property_id)->bought(id);
 		if (typeid(*board_game.getTile(property_id)).name() == typeid(Gare).name()) current_player->plusGare();
 		return true;
@@ -106,7 +107,7 @@ void Game::printPlayerProperties(int id){
 }
 
 int Game::getPlayerIndex(int id) const{
-	for (int i = 0; i < players.size(); i++){
+	for (long unsigned int i = 0; i < players.size(); i++){
 		if (players[i]->getId() == id){
 			return i;
 		}

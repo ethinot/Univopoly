@@ -13,14 +13,13 @@
 
 #include <iostream>
 #include <vector>
-#include <map>
 #include "Property.h"
 
 class Inventory{
 
 private:
 	int wallet; /**< Porte monnaie*/
-	std::map<unsigned int, Tile*> collection; /**< vector -> association d'un indice et un pointeur sur tile */
+	std::vector<Tile*> collection; /**< vector de pointeur sur Tile */
 
 public:
 	/**
@@ -64,14 +63,14 @@ public:
 	 * @param property_id -> l'id de la propriété à récuperer
 	 * @return Tile*
 	 */
-	Tile* getProperty(int property_id);
+	Tile* getProperty(int property_id) const;
 
 	/**
 	 * @brief ajoute une propriété à la collection d'un joueur
 	 * 
 	 * @param new_property -> pointeur sur Tile de la propriété à ajouter
 	 */
-	void addProperty(int property_id, Tile* new_property);
+	void addProperty(Tile* new_property);
 
 	/**
 	 * @brief supprime un propriété de la collection d'un joueur
@@ -87,7 +86,7 @@ public:
 	 * 
 	 * @return std::vector<Tile*> 
 	 */
-	std::map<unsigned int, Tile*> getProperties() const;
+	std::vector<Tile*> getProperties() const;
 
 	/**
 	 * @brief Fonction booléen qui renvoie vrais si le joueur n'a pas de propriété 

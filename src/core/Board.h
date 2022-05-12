@@ -44,8 +44,17 @@ public:
      */
     Tile* getTile(unsigned int property_id);
     
+    /**
+     * @brief Test de regression du module Board
+     * 
+     */
     void testRegBoard();
 
+    /**
+     * @brief Retourne la taille du plateau (board)
+     * 
+     * @return int -> taille du plateau
+     */
     int getSize();
 };
 

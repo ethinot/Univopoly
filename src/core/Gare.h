@@ -33,6 +33,17 @@ class Gare : public Tile{
 		 * @param price -> prix d'achat
 		 * @param sell_price -> prix de vente
 		 */
+		
+		/**
+		 * @brief Constructeur d'un objet Gare 
+		 * 
+		 * @param name 
+		 * @param color 
+		 * @param background 
+		 * @param id 
+		 * @param price 
+		 * @param sell_price 
+		 */
 		Gare(std::string name, std::string color, std::string background, unsigned int id, unsigned int price, unsigned int sell_price);
 		
 		/**

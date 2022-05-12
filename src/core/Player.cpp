@@ -37,9 +37,9 @@ Tile* Player::getProperty(unsigned int property_id) {
 	return goods.getProperty(property_id);
 }
 
-bool Player::buyProperty(unsigned int property_id, Tile*property){
+bool Player::buyProperty(Tile* property){
 	if (transaction(-(property->getPrice()))){
-		goods.addProperty(property_id, property);
+		goods.addProperty(property);
 		return true;
 	}else return false;
 }
@@ -125,7 +125,7 @@ void Player::testRegPlayer(){
 
 	//test buyProperty
 	Tile p1 = Property("Braconnier", "green", "LightGreen",1, 60, 30, 50, 2, 10, 30, 90, 160, 250);
-	//assert(player2.buyProperty(&p1) == true);
+	assert(player2.buyProperty(&p1) == true);
 	assert(player2.getBalance() == 1000-60);
 	assert(player2.getNetWorth() == 940+30);
 

@@ -49,6 +49,20 @@ public:
 	Tile* getTileById(int tile_id);
 	
 	/**
+	 * @brief Retourne un pointeur sur le Board
+	 * 
+	 * @return Board* -> pointeur sur le board
+	 */
+	Board* getBoard();
+	
+	/**
+	 * @brief Récupère le tableau contenant les joueurs
+	 * 
+	 * @return std::vector<Player*> -> vector de pointeur de Player
+	 */
+	std::vector<Player*> getPlayers();
+	
+	/**
 	 * @brief Constructeur d'un objet Game
 	 * 
 	 * @param total_player -> nombre de joueur
@@ -209,9 +223,6 @@ public:
 	 * @return int -> id du joueur gagnant
 	 */
 	int checkWinner();
-
-	Board* getBoard();
-	std::vector<Player*> getPlayers();
 };
 
 #endif
