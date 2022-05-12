@@ -59,9 +59,9 @@ int Game::getPlayerPosition(int id){
 	return getPlayerById(id)->getPosition();
 }
 
-void Game::movePlayer(int id, int how_much){
+bool Game::movePlayer(int id, int how_much){
 	Player * current_player = getPlayerById(id);	
-	current_player->changePostion(how_much);
+	return current_player->changePostion(how_much);
 }
 
 bool Game::buyTile(int id, unsigned int property_id){ 

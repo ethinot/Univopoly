@@ -55,6 +55,7 @@ Window::Window() : QWidget(){
 	// change player display
 	connect(this, SIGNAL(bought(std::vector<Player*>)), sidebar, SIGNAL(renderPlayers(std::vector<Player*>)));
 	connect(this, SIGNAL(bought(std::vector<Player*>)), mainview, SIGNAL(renderBoard(std::vector<Player*>)));
+	connect(this, SIGNAL(tileStart(std::vector<Player*>)), sidebar, SIGNAL(renderPlayers(std::vector<Player*>)));
 
 	//connect(this, SIGNAL())
 
@@ -69,11 +70,12 @@ void Window::rollingDice(){
 }
 
 void Window::movingPlayer(int amount){
-	game->movePlayer(game->getId(current_player_index), amount);
+	bool start = game->movePlayer(game->getId(current_player_index), amount);
 	int current_position = game->getPlayerPosition(game->getId(current_player_index));
 	qDebug() << "Moving player: " << current_position;
 	emit playerMoved(game->getPlayers());
 	qDebug() << game->getTileById(current_position)->getOwner();
+	if (start) emit tileStart(game->getPlayers());
 	if (game->getTileById(current_position)->getOwner() == -1){
 		emit askBuy(current_position);
 	}

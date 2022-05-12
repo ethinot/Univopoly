@@ -57,16 +57,18 @@ void Player::printProperties(){
 
 unsigned int Player::getPosition() const {return position;}
 
-void Player::changePostion(unsigned int how_much) {
+bool Player::changePostion(unsigned int how_much) {
 	unsigned int avancement = 0;
 	if ((position + how_much) > 39){
 		avancement = (position + how_much) - 39;
 		position = avancement - 1; // décallage de -1 car la case départ est la case 0
 		std::cout<< "Vous avez atterie sur la case Start !! Recuperer 200€ !!!" << std::endl;
 		goods.changeBalance(200);
+		return true;
 	}
 	else {
 		position += how_much;
+		return false;
 	}
 }
 
@@ -122,7 +124,7 @@ void Player::testRegPlayer(){
 	//getProperty déja tester dans property/gare
 
 	//test buyProperty
-	Tile p1 = Property("Braconnier", "green",1, 60, 30, 50, 2, 10, 30, 90, 160, 250);
+	Tile p1 = Property("Braconnier", "green", "LightGreen",1, 60, 30, 50, 2, 10, 30, 90, 160, 250);
 	//assert(player2.buyProperty(&p1) == true);
 	assert(player2.getBalance() == 1000-60);
 	assert(player2.getNetWorth() == 940+30);

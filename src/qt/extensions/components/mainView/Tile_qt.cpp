@@ -45,7 +45,7 @@ Tile_qt::Tile_qt(Tile *input_tile) : QWidget(){
 		qDebug() << typeid(*tile).name();
 		if ((typeid(*tile).name() == typeid(Property).name())){
 			int current_rent = static_cast<Property*>(tile)->getRent();
-			rent = QString::fromStdString(std::string("Rent: ") + (std::to_string(current_rent)) );
+			rent = QString::fromStdString(std::to_string(tile->getOwner()) + " Rent: " + (std::to_string(current_rent)) );
 		}/*else if ((typeid(*tile).name() == typeid(Gare).name())){
 			int current_rent = static_cast<Gare*>(tile)->getRent();
 			QString rent = QString::fromStdString(std::string("Rent: ") + (std::to_string(current_rent)) );
@@ -57,10 +57,9 @@ Tile_qt::Tile_qt(Tile *input_tile) : QWidget(){
 	}
 
 
-	head->setStyleSheet(QString::fromLocal8Bit("background-color: " + tile->getColor() + ";color: black;"));
-	
-	setStyleSheet("background-color: white; border: 1px solid black;"); //  border: 1px solid black;
-}
+	head->setStyleSheet(QString::fromLocal8Bit("background-color: " + tile->getColor()) + ";color: black;");
+	setStyleSheet(QString::fromStdString("background-color:" + tile->getBackColor() + ";") + "; border: 1px solid black;"); //  border: 1px solid black;
+}	
 
 
 void Tile_qt::addWidget(QWidget *widget){

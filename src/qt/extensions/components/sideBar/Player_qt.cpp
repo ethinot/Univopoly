@@ -16,6 +16,7 @@
 Player_qt::Player_qt(Player *input_player) : QWidget(){
 	player = input_player;
 	layout = new QGridLayout(this);
+	properties = new QGridLayout();
 	//playersLayout = new QHBoxLayout();
 
 
@@ -31,6 +32,7 @@ Player_qt::Player_qt(Player *input_player) : QWidget(){
 	footer = new QPushButton(money);
 	footer->setStyleSheet("background-color:white; color:black;");
 	layout->addWidget(footer, 0, 1);
+
 
 
 	//head->setStyleSheet(QString::fromLocal8Bit("background-color: " + tile->getColor() + ";color: black;"));

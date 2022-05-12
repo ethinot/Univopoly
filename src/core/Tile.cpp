@@ -2,9 +2,10 @@
 
 Tile::Tile(){};
 
-Tile::Tile(std::string new_name, std::string new_color, unsigned int new_id, unsigned int new_price, unsigned int new_sell_price){
+Tile::Tile(std::string new_name, std::string new_color, std::string new_background, unsigned int new_id, unsigned int new_price, unsigned int new_sell_price){
     name = new_name;
     color = new_color;
+    background = new_background;
     id = new_id;
     price = new_price;
     sell_price = -1;
@@ -20,6 +21,8 @@ int Tile::getId() const{ return id;}
 std::string Tile::getName() const{return name;};
 
 std::string Tile::getColor() const{return color;};
+
+std::string Tile::getBackColor() const{return background;};
 
 unsigned int Tile::getPrice() const { return price;}
 

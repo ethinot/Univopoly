@@ -134,7 +134,7 @@ public:
 	 * @param id -> id du joueur à déplacer
 	 * @param how_much -> paramètre correspondant à combien doit on déplacer le joueur
 	 */
-	void movePlayer(int id, int how_much);
+	bool movePlayer(int id, int how_much);
 	
 	/**
 	 * @brief Procédure qui affiche le ou les propriétés posséder par un joueur

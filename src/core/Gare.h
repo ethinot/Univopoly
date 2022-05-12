@@ -28,11 +28,12 @@ class Gare : public Tile{
 		 * 
 		 * @param name -> nom 
 		 * @param color -> couleur
+		 * @param background -> couleur du back
 		 * @param id -> numéro de la case
 		 * @param price -> prix d'achat
 		 * @param sell_price -> prix de vente
 		 */
-		Gare(std::string name, std::string color, unsigned int id, unsigned int price, unsigned int sell_price);
+		Gare(std::string name, std::string color, std::string background, unsigned int id, unsigned int price, unsigned int sell_price);
 		
 		/**
 		 * @brief Destructeur d'un object Gare 

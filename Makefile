@@ -1001,11 +1001,11 @@ moc_mainWindow.cpp: src/qt/mainWindow.h \
 		src/core/Game.h \
 		src/core/Board.h \
 		src/core/Tile.h \
+		src/core/Property.h \
+		src/core/Gare.h \
 		src/core/Player.h \
 		src/core/Inventory.h \
-		src/core/Property.h \
 		src/core/Dice.h \
-		src/core/Gare.h \
 		src/qt/extensions/mainView.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QWidget \
 		/usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1080,9 +1080,10 @@ moc_sideBar.cpp: src/qt/extensions/sideBar.h \
 		/usr/local/lib/QtCore.framework/Headers/qvector.h \
 		src/core/Board.h \
 		src/core/Tile.h \
+		src/core/Property.h \
+		src/core/Gare.h \
 		src/core/Player.h \
 		src/core/Inventory.h \
-		src/core/Property.h \
 		src/qt/extensions/components/sideBar/Player_qt.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QPushButton \
 		/usr/local/lib/QtWidgets.framework/Headers/qpushbutton.h \
@@ -1150,9 +1151,10 @@ moc_Players.cpp: src/qt/extensions/components/sideBar/Players.h \
 		/usr/local/lib/QtCore.framework/Headers/qvector.h \
 		src/core/Board.h \
 		src/core/Tile.h \
+		src/core/Property.h \
+		src/core/Gare.h \
 		src/core/Player.h \
 		src/core/Inventory.h \
-		src/core/Property.h \
 		src/qt/extensions/components/sideBar/Player_qt.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QPushButton \
 		/usr/local/lib/QtWidgets.framework/Headers/qpushbutton.h \
@@ -1194,11 +1196,11 @@ obj/main_qt.o: src/qt/main_qt.cpp src/qt/mainWindow.h \
 		src/core/Game.h \
 		src/core/Board.h \
 		src/core/Tile.h \
+		src/core/Property.h \
+		src/core/Gare.h \
 		src/core/Player.h \
 		src/core/Inventory.h \
-		src/core/Property.h \
 		src/core/Dice.h \
-		src/core/Gare.h \
 		src/qt/extensions/mainView.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QWidget \
 		/usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1235,11 +1237,11 @@ obj/mainWindow.o: src/qt/mainWindow.cpp src/qt/mainWindow.h \
 		src/core/Game.h \
 		src/core/Board.h \
 		src/core/Tile.h \
+		src/core/Property.h \
+		src/core/Gare.h \
 		src/core/Player.h \
 		src/core/Inventory.h \
-		src/core/Property.h \
 		src/core/Dice.h \
-		src/core/Gare.h \
 		src/qt/extensions/mainView.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QWidget \
 		/usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1336,9 +1338,10 @@ obj/sideBar.o: src/qt/extensions/sideBar.cpp /usr/local/lib/QtWidgets.framework/
 		/usr/local/lib/QtCore.framework/Headers/qvector.h \
 		src/core/Board.h \
 		src/core/Tile.h \
+		src/core/Property.h \
+		src/core/Gare.h \
 		src/core/Player.h \
 		src/core/Inventory.h \
-		src/core/Property.h \
 		src/qt/extensions/components/sideBar/Player_qt.h \
 		/usr/local/lib/QtCore.framework/Headers/QObject \
 		/usr/local/lib/QtCore.framework/Headers/qobject.h \
@@ -1480,9 +1483,10 @@ obj/Players.o: src/qt/extensions/components/sideBar/Players.cpp /usr/local/lib/Q
 		/usr/local/lib/QtCore.framework/Headers/qvector.h \
 		src/core/Board.h \
 		src/core/Tile.h \
+		src/core/Property.h \
+		src/core/Gare.h \
 		src/core/Player.h \
 		src/core/Inventory.h \
-		src/core/Property.h \
 		src/qt/extensions/components/sideBar/Player_qt.h \
 		/usr/local/lib/QtCore.framework/Headers/QObject \
 		/usr/local/lib/QtCore.framework/Headers/qobject.h \
@@ -1542,11 +1546,11 @@ obj/Dice.o: src/core/Dice.cpp src/core/Dice.h
 obj/Game.o: src/core/Game.cpp src/core/Game.h \
 		src/core/Board.h \
 		src/core/Tile.h \
+		src/core/Property.h \
+		src/core/Gare.h \
 		src/core/Player.h \
 		src/core/Inventory.h \
-		src/core/Property.h \
-		src/core/Dice.h \
-		src/core/Gare.h
+		src/core/Dice.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/Game.o src/core/Game.cpp
 
 obj/Gare.o: src/core/Gare.cpp src/core/Gare.h \

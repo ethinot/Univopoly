@@ -114,7 +114,7 @@ public:
 	 * 
 	 * @param how_much -> nombre de case correspondant à lavancement
 	 */
-	void changePostion(unsigned int how_much);
+	bool changePostion(unsigned int how_much);
 	
 	/**
 	 * @brief Envoie le joueur en prison et lance le compteur jail_count

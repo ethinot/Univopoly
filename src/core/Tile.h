@@ -26,6 +26,7 @@ protected:
 	unsigned int id; /**< id char non signé, les case son numéroter de 0 à 39 */
 	std::string name; /**< nom de la case */
 	std::string color; /**< nom de la case */
+	std::string background; /**< nom de la case */
 	unsigned int price; /**< prix de la case */
 	unsigned int sell_price; /**< prix de revent */
 	int owner; /**< propriétaire -> -1 si elle appartient a personne / -1 < owner =< 8 si la case est acheter*/
@@ -34,7 +35,7 @@ public:
 	
 	Tile();
 	
-	Tile(std::string name, std::string color,unsigned int id, unsigned int price, unsigned int sell_price);
+	Tile(std::string name, std::string color, std::string background, unsigned int id, unsigned int price, unsigned int sell_price);
 	
 	~Tile();
 	
@@ -57,6 +58,12 @@ public:
 	 * La fonction getColor -> ne prend pas de paramètre et renvoie la couleur d'une case.
 	 */
 	std::string getColor() const;
+
+	/**
+	 * @brief getBackColor() récupère la color du background associer à la case
+	 * La fonction getBackColor -> ne prend pas de paramètre et renvoie la couleur du back d'une case.
+	 */
+	std::string getBackColor() const;
 
 	/**
 	* @brief getPrice() récupère le prix associer à la case

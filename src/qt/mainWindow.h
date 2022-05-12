@@ -26,6 +26,7 @@ class Window : public QWidget{
 		void playerMoved(std::vector<Player*>);
 		void askBuy(int);
 		void bought(std::vector<Player*>);
+		void tileStart(std::vector<Player*>);
 	private slots:
 		void rollingDice();
 		void movingPlayer(int amount);
