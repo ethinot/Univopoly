@@ -170,6 +170,8 @@ public:
 	 * 
 	 */
 	void testRegPlayer();
+
+	std::vector<Tile *> getProperties() const;
 };
 
 #endif

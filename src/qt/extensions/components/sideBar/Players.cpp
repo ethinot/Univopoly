@@ -23,7 +23,7 @@ Players::Players(QWidget *parent, std::vector<Player*> new_players) : QWidget(pa
 void Players::loadPlayers(std::vector<Player*> players){
 	players_qt.clear();
 	for(int i = 0; i < players.size(); i ++){
-		players_qt.push_back(new Player_qt(players[i]));
+		players_qt.push_back(new Player_qt(this, players[i]));
 	}
 }
 

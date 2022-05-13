@@ -3,6 +3,8 @@
 #include "Gare.h"
 #include "Tile.h"
 #include <assert.h>
+#include<algorithm>
+#include<vector>
 
 Inventory::Inventory() : collection() {
 	wallet = 1000;
@@ -14,19 +16,19 @@ int Inventory::getBalance() const{ return wallet;}
 
 
 void Inventory::printInventory(int gare_count){
-	std::cout << "Tu as: " << wallet << '€' << std::endl;
+	std::cout << "Tu as: " << wallet << "€" << std::endl;
 	std::cout << std::endl;
 	for (auto const &element : collection) {
 		std::cout << "--------------- Nom: " << element->getName() << " ----------------" << std::endl;
 		std::cout << "Id de la propriete: " << element->getId() << std::endl;
-		std::cout << "Prix de vente: " << element->getSellPrice() << '€' << std::endl;
+		std::cout << "Prix de vente: " << element->getSellPrice() << "€" << std::endl;
 
 		if (typeid(element).name() == typeid(Property).name()){
-			std::cout << "Prix d'une salle de classe: " << static_cast<Property*>(element)->getBuildPrice() << '€' << std::endl;
-			std::cout << "Loyer actuelle: " << static_cast<Property*>(element)->getRent() << '€' << std::endl;
+			std::cout << "Prix d'une salle de classe: " << static_cast<Property*>(element)->getBuildPrice() << "€" << std::endl;
+			std::cout << "Loyer actuelle: " << static_cast<Property*>(element)->getRent() << "€" << std::endl;
 
 		}else if (typeid(element).name() == typeid(Gare).name()){
-			std::cout << "Loyer actuelle: " << static_cast<Gare*>(element)->getRent(gare_count) << '€' << std::endl;
+			std::cout << "Loyer actuelle: " << static_cast<Gare*>(element)->getRent(gare_count) << "€" << std::endl;
 		}
 
 	}
@@ -36,13 +38,13 @@ void Inventory::printInventory(int gare_count){
 
 std::ostream& operator<< (std::ostream& out, const Inventory& inventory){
 	
-	out << "Tu as: " << inventory.getBalance() << '€' << std::endl;
+	out << "Tu as: " << inventory.getBalance() << "€" << std::endl;
 	out << std::endl;
 	
 	for (auto const &element : inventory.collection) {
 		out << "-------------- Nom: " << element->getName() << " --------------" << std::endl;
 		out << " Id de la propriete: " << element->getId() << std::endl;
-		out << " Prix de vente: " << element->getSellPrice() << '€' << std::endl;
+		out << " Prix de vente: " << element->getSellPrice() << "€" << std::endl;
 	}
 	return out;
 	std::cout << "---------------------------------------------" << std::endl;
@@ -83,7 +85,12 @@ Tile* Inventory::getProperty(int property_id) const{
 	return res;
 }
 
-void Inventory::addProperty(Tile* new_property) {collection.push_back(new_property);}
+bool sortingTiles (Tile* tile1 ,Tile* tile2) { return tile1->getId() < tile2->getId(); }
+
+void Inventory::addProperty(Tile* new_property) {
+	collection.push_back(new_property);
+	std::sort(collection.begin(), collection.end(), sortingTiles);
+   }
 
 bool Inventory::removeProperty(unsigned int property_id){
 	

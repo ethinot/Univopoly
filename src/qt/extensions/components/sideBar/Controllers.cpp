@@ -28,7 +28,7 @@ Controllers::Controllers(QWidget *parent) : QWidget(parent){
 	
 	// Create and position the button
 	pass = new QPushButton(this);
-	pass->setIcon(QIcon("img/buy.png"));
+	pass->setIcon(QIcon("img/turnPass.png"));
 	//Check if file exist
 	//QFile file("img/buy.png");
 	//if(!file.exists()){ qDebug() << "File is not found!" << file.fileName(); }

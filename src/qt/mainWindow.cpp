@@ -12,6 +12,8 @@ Window::Window() : QWidget(){
 	sidebar = new sideBar(this, game->getPlayers());
 	mainview = new mainView(this, game->getBoard());
 
+	this->setStyleSheet("background-color:DarkSeaGreen");
+
 	layout = new QHBoxLayout(this);
 	setLayout(layout);
 
@@ -26,8 +28,6 @@ Window::Window() : QWidget(){
 	layout->addWidget(mainview);
 	layout->addWidget(sidebar);
 
-
-	this->setStyleSheet("background-color:DarkSeaGreen");
 
 	current_player_index = 0;
 

@@ -161,3 +161,8 @@ void Player::testRegPlayer(){
 	player2.minusGare();
 	assert(player2.getGareCount() == 1);
 }
+
+
+std::vector<Tile*> Player::getProperties() const{
+	return goods.getProperties();
+}

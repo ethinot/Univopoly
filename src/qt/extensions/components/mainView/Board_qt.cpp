@@ -16,11 +16,20 @@ Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
 	layoutAddWidgets();
 
 	centralControls = new QWidget();
-	centralControls->setStyleSheet("background-color:grey");
-	buy_button = new QPushButton("buy", centralControls);
-	buy_button->setGeometry(10, 10, 80, 20);
-	dbuy_button = new QPushButton("Don't Buy", centralControls);
-	dbuy_button->setGeometry(100, 100, 80, 20);
+	QGridLayout *controlslayout = new QGridLayout(centralControls);
+	centralControls->setStyleSheet("background-color:DarkSeaGreen");
+	buy_button = new QPushButton(centralControls);
+	buy_button->setIcon(QIcon("img/buy.png"));
+	buy_button->setIconSize(QSize(60, 60));
+	buy_button->setStyleSheet("background-color:white");
+	dbuy_button = new QPushButton(centralControls);
+	dbuy_button->setIcon(QIcon("img/dontBuy.png"));
+	dbuy_button->setIconSize(QSize(60, 60));
+	dbuy_button->setStyleSheet("background-color:white");
+
+	controlslayout->addWidget(buy_button, 0, 0);
+	controlslayout->addWidget(dbuy_button, 0, 1);
+	
 	centralControls->setVisible(false);
 
 	this->addWidget(centralControls, 4, 4, 3, 3);
