@@ -17,4 +17,6 @@ mainView::mainView(QWidget *parent, Board* new_board) : QWidget(parent){
 	connect(this, SIGNAL(buyMenuOff()), board, SIGNAL(buyOff()));
 	connect(board, SIGNAL(buyTrue()), this, SIGNAL(buyTrueM()));
 
+	connect(this, SIGNAL(sellMenu(Player*)), board, SIGNAL(sell(Player*)));
+
 }

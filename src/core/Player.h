@@ -174,6 +174,7 @@ public:
 	std::vector<Tile *> getProperties() const;
 
 	void killMe();
+	
 	void findToSell(int rent);
 };
 

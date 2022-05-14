@@ -29,12 +29,13 @@ class Window : public QWidget{
 		void tileStart(std::vector<Player*>, int);
 		void playersDisplayChange(std::vector<Player*>, int);
 		void boardDisplayChange(std::vector<Player*>, int);
-		void sellMenu();
+		void signalSellMenu(Player*);
 	private slots:
 		void rollingDice();
 		void movingPlayer(int amount);
 		void passingTurn();
 		void buying();
+		void slotSellMenu();
 };
 
 #endif // MAINWINDOW_H

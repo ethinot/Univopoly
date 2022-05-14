@@ -16,6 +16,7 @@ class sideBar : public QWidget{
 	signals: 
 		void rollDices();
 		void passTurn();
+		void askSell();
 		void renderPlayers(std::vector<Player*> players, int);
 	private:
 		Controllers *controllers;

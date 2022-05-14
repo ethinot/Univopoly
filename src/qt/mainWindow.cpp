@@ -52,7 +52,8 @@ Window::Window() : QWidget(){
 	connect(mainview, SIGNAL(buyTrueM()), this, SLOT(buying()));
 
 	// sell prop
-	//connect(sidebar, SIGANL(askSell(int)), mainview, SIGNAL(sellMenu()));
+	connect(sidebar, SIGNAL(askSell()), this, SLOT(slotSellMenu()));
+	connect(this, SIGNAL(signalSellMenu(Player*)), mainview, SIGNAL(sellMenu(Player*)));
 
 
 	// change player display
@@ -63,6 +64,10 @@ Window::Window() : QWidget(){
 	//connect(this, SIGNAL())
 
 
+}
+
+void Window::slotSellMenu(){
+	emit signalSellMenu(game->getPlayers()[current_player_index]);
 }
 
 
