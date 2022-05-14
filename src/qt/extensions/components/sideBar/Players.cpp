@@ -14,9 +14,9 @@
 Players::Players(QWidget *parent, std::vector<Player*> new_players) : QWidget(parent){
 	layout = new QGridLayout(this);
 	loadPlayers(new_players);
-	layoutAddWidgets();
+	layoutAddWidgets(0);
 	this->setStyleSheet("background-color: white;");
-	connect(this, SIGNAL(render(std::vector<Player*>)), this, SLOT(rendering(std::vector<Player*>)));
+	connect(this, SIGNAL(render(std::vector<Player*>, int)), this, SLOT(rendering(std::vector<Player*>, int)));
 
 }
 
@@ -27,16 +27,18 @@ void Players::loadPlayers(std::vector<Player*> players){
 	}
 }
 
-void Players::layoutAddWidgets(){
+void Players::layoutAddWidgets(int current_player){
 	for (int i=0; i<players_qt.size(); i++){
-		layout->addWidget(players_qt[i], 0, i);
+		if (i == current_player) players_qt[i]->setStyleSheet("background-color: red; color:black;");
+		else setStyleSheet("background-color: white; border: 1px solid black;");
+		layout->addWidget(players_qt[i], ceil(i/2), i%2);
 	}
 }
 
-void Players::rendering(std::vector<Player*> new_players){
+void Players::rendering(std::vector<Player*> new_players, int current_player){
 	qDebug() << "rendering";
 	loadPlayers(new_players);
-	layoutAddWidgets();
+	layoutAddWidgets(current_player);
 	qDebug() << new_players[0]->getNetWorth();
 	qDebug() << new_players[1]->getNetWorth();
 }

@@ -8,7 +8,7 @@
 Window::Window() : QWidget(){
 
 	this->setMinimumSize(QSize(1280, 720));
-	game = new Game(2);
+	game = new Game(4);
 	sidebar = new sideBar(this, game->getPlayers());
 	mainview = new mainView(this, game->getBoard());
 
@@ -42,7 +42,7 @@ Window::Window() : QWidget(){
 
 	// pass turn
 	connect(sidebar, SIGNAL(passTurn()), this, SLOT(passingTurn()));
-	connect(sidebar, SIGNAL(passTurn()), mainview, SIGNAL(buyMenuOff()));
+	connect(this, SIGNAL(passTurnDisplay(std::vector<Player*>, int)), sidebar, SIGNAL(renderPlayers(std::vector<Player*>, int)));
 
 
 	// buy property
@@ -53,9 +53,9 @@ Window::Window() : QWidget(){
 
 
 	// change player display
-	connect(this, SIGNAL(bought(std::vector<Player*>)), sidebar, SIGNAL(renderPlayers(std::vector<Player*>)));
-	connect(this, SIGNAL(bought(std::vector<Player*>)), mainview, SIGNAL(renderBoard(std::vector<Player*>)));
-	connect(this, SIGNAL(tileStart(std::vector<Player*>)), sidebar, SIGNAL(renderPlayers(std::vector<Player*>)));
+	connect(this, SIGNAL(bought(std::vector<Player*>, int)), sidebar, SIGNAL(renderPlayers(std::vector<Player*>, int)));
+	connect(this, SIGNAL(bought(std::vector<Player*>, int)), mainview, SIGNAL(renderBoard(std::vector<Player*>)));
+	connect(this, SIGNAL(tileStart(std::vector<Player*>, int)), sidebar, SIGNAL(renderPlayers(std::vector<Player*>, int)));
 
 	//connect(this, SIGNAL())
 
@@ -75,7 +75,7 @@ void Window::movingPlayer(int amount){
 	qDebug() << "Moving player: " << current_position;
 	emit playerMoved(game->getPlayers());
 	qDebug() << game->getTileById(current_position)->getOwner();
-	if (start) emit tileStart(game->getPlayers());
+	if (start) emit tileStart(game->getPlayers(), current_player_index);
 	if (game->getTileById(current_position)->getOwner() == -1){
 		emit askBuy(current_position);
 	}
@@ -85,12 +85,12 @@ void Window::passingTurn(){
 	qDebug() << "Passing turn";
 	current_player_index += 1;
 	if (current_player_index == game->getGameSize()) current_player_index = 0;
-
+	passTurnDisplay(game->getPlayers(), current_player_index);
 }
 
 void Window::buying(){
 	qDebug() << current_player_index;
 	game->buyTile( game->getId(current_player_index), game->getPlayerPosition(game->getId(current_player_index)));
 	qDebug() << game->getTileById(game->getPlayerPosition(game->getId(current_player_index)))->getPrice();
-	emit bought(game->getPlayers());
+	emit bought(game->getPlayers(), current_player_index);
 }

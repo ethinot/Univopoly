@@ -23,7 +23,8 @@ class Player_qt : public QWidget{
 	private:
 		Player *player;
 		QLabel *name;
-		QPushButton *head;
+		QGridLayout *head;
+		QPushButton *head_name;
 		QPushButton *money;
 		QGridLayout *properties;
 		QGridLayout *layout;

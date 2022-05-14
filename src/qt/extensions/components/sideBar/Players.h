@@ -20,14 +20,14 @@ class Players : public QWidget{
 	public:
 		explicit Players(QWidget *parent = 0, std::vector<Player*> player = std::vector<Player*>());
 	signals:
-		void render(std::vector<Player*>);
+		void render(std::vector<Player*>, int);
 	private slots:
-		void rendering(std::vector<Player*>);
+		void rendering(std::vector<Player*>, int);
 	private:
 		QVector<Player_qt*> players_qt;
 		QGridLayout *layout;
 		void loadPlayers(std::vector<Player*> new_players);
-		void layoutAddWidgets();
+		void layoutAddWidgets(int current_player);
 };
 
 #endif // WINDOW_H

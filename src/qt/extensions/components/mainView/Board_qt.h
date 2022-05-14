@@ -32,6 +32,7 @@ class Board_qt : public QGridLayout{
 		void buyingOff();
 	private:
 		QWidget *centralControls;
+		QPushButton *property_buying;
 		QVector<Tile_qt*> tiles;
 		void loadProperties(Board *board);
 		void layoutAddWidgets();

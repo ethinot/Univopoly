@@ -18,17 +18,21 @@ Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
 	centralControls = new QWidget();
 	QGridLayout *controlslayout = new QGridLayout(centralControls);
 	centralControls->setStyleSheet("background-color:DarkSeaGreen");
+	property_buying = new QPushButton();
 	buy_button = new QPushButton(centralControls);
 	buy_button->setIcon(QIcon("img/buy.png"));
 	buy_button->setIconSize(QSize(60, 60));
 	buy_button->setStyleSheet("background-color:white");
+	buy_button->setShortcut(tr("b"));
 	dbuy_button = new QPushButton(centralControls);
 	dbuy_button->setIcon(QIcon("img/dontBuy.png"));
 	dbuy_button->setIconSize(QSize(60, 60));
 	dbuy_button->setStyleSheet("background-color:white");
+	dbuy_button->setShortcut(tr("d"));
 
-	controlslayout->addWidget(buy_button, 0, 0);
-	controlslayout->addWidget(dbuy_button, 0, 1);
+	controlslayout->addWidget(buy_button, 1, 0);
+	controlslayout->addWidget(property_buying, 0, 1);
+	controlslayout->addWidget(dbuy_button, 1, 2);
 	
 	centralControls->setVisible(false);
 
@@ -82,9 +86,8 @@ void Board_qt::rendering(std::vector<Player*> players){
 	qDebug() << players[0]->getPosition();
 	//tiles[players[0]->getPosition()]->setStyleSheet("background-color: yellow");
 	for(int i = 0; i < (int)players.size(); i++){
-		QWidget *tmp_widget = new QWidget();
-		if (i == 0) tmp_widget->setStyleSheet("background-color: Lime");
-		else tmp_widget->setStyleSheet("background-color:Fuchsia ");
+		QPushButton *tmp_widget = new QPushButton();
+		tmp_widget->setIcon(QIcon(QString::fromStdString("img/player" + std::to_string(players[i]->getId()) + ".png")));
 		tiles[players[i]->getPosition()]->addWidget(tmp_widget);
 	}
 }
@@ -92,6 +95,8 @@ void Board_qt::rendering(std::vector<Player*> players){
 
 void Board_qt::buying(int Tile_id){
 	qDebug() << "Showing buy menu";
+	property_buying->setText(QString::fromStdString(board->getTile(Tile_id)->getName()));
+	property_buying->setStyleSheet(QString::fromLocal8Bit("background-color: " + board->getTile(Tile_id)->getColor()) + ";color: black;");
 	centralControls->setVisible(true);
 }
 
