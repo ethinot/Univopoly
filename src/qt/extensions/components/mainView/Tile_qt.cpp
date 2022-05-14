@@ -42,7 +42,6 @@ Tile_qt::Tile_qt(Tile *input_tile) : QWidget(){
 
 	if (tile->getOwner() > -1){
 		QString rent;
-		qDebug() << typeid(*tile).name();
 		if ((typeid(*tile).name() == typeid(Property).name())){
 			int current_rent = static_cast<Property*>(tile)->getRent();
 			rent = QString::fromStdString(std::to_string(tile->getOwner()) + " Rent: " + (std::to_string(current_rent)) );

@@ -29,7 +29,7 @@ void Players::loadPlayers(std::vector<Player*> players){
 
 void Players::layoutAddWidgets(int current_player){
 	for (int i=0; i<players_qt.size(); i++){
-		if (i == current_player) players_qt[i]->setStyleSheet("background-color: Gainsboro; color:black; border: 2px solid CornflowerBlue;");
+		if (i == current_player) players_qt[i]->setStyleSheet("background-color: LightGreen; color:black; border: 3px solid DodgerBlue;");
 		else setStyleSheet("background-color: white; border: 1px solid black;");
 		layout->addWidget(players_qt[i], ceil(i/2), i%2);
 	}

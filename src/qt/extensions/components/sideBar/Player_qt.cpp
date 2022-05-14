@@ -25,21 +25,28 @@ Player_qt::Player_qt(QWidget *parent, Player *input_player) : QWidget(parent){
 	head->setSpacing(10);
 	head->setContentsMargins(0, 0, 0, 0);
 
+	QString name = QString::fromStdString(std::string("Player: ") + (std::to_string(player->getId())));
+	player_name = new QPushButton(name);
+	player_name->setMaximumHeight(20);
+	player_name->setStyleSheet("background-color:white; color:black;");
+	head->addWidget(player_name, 0, 0);
+
+
 	head_name = new QPushButton();
 	head_name->setIcon(QIcon(QString::fromStdString("img/player" + std::to_string(player->getId()) + ".png")));
 	head_name->setMaximumHeight(20);
 	head_name->setStyleSheet("background-color:white; color:black;");
-	head->addWidget(head_name, 0, 0);
+	head->addWidget(head_name, 1, 0);
 
 	QString balance = QString::fromStdString(std::string("Money: ") + (std::to_string(player->getBalance())));
 	money = new QPushButton(balance);
 	money->setMaximumHeight(20);
 	money->setStyleSheet("background-color:white; color:black;");
-	head->addWidget(money, 1, 0);
+	head->addWidget(money, 2, 0);
 
 	properties = new QGridLayout();
 	properties->setSpacing(0);
-	layout->addLayout(properties, 2, 0);
+	layout->addLayout(properties, 3, 0);
 
 	loadProperties();
 

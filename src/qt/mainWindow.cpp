@@ -43,6 +43,7 @@ Window::Window() : QWidget(){
 	// pass turn
 	connect(sidebar, SIGNAL(passTurn()), this, SLOT(passingTurn()));
 	connect(sidebar, SIGNAL(passTurn()), mainview, SIGNAL(buyMenuOff()));
+	connect(sidebar, SIGNAL(passTurn()), mainview, SIGNAL(sellMenuOff()));
 	connect(this, SIGNAL(playersDisplayChange(std::vector<Player*>, int)), sidebar, SIGNAL(renderPlayers(std::vector<Player*>, int)));
 	connect(this, SIGNAL(boardDisplayChange(std::vector<Player*>, int)), mainview, SIGNAL(renderBoard(std::vector<Player*>, int)));
 
@@ -80,9 +81,7 @@ void Window::rollingDice(){
 void Window::movingPlayer(int amount){
 	bool start = game->movePlayer(game->getId(current_player_index), amount);
 	int current_position = game->getPlayerPosition(game->getId(current_player_index));
-	qDebug() << "Moving player: " << current_position;
 	emit playerMoved(game->getPlayers(), current_player_index);
-	qDebug() << game->getTileById(current_position)->getOwner();
 	if (start) emit tileStart(game->getPlayers(), current_player_index);
 	if (game->getTileById(current_position)->getOwner() == -1){
 		emit askBuy(current_position);
@@ -118,8 +117,6 @@ void Window::passingTurn(){
 }
 
 void Window::buying(){
-	qDebug() << current_player_index;
 	game->buyTile( game->getId(current_player_index), game->getPlayerPosition(game->getId(current_player_index)));
-	qDebug() << game->getTileById(game->getPlayerPosition(game->getId(current_player_index)))->getPrice();
 	emit bought(game->getPlayers(), current_player_index);
 }

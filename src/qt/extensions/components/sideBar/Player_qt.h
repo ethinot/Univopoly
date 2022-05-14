@@ -25,6 +25,7 @@ class Player_qt : public QWidget{
 		QLabel *name;
 		QGridLayout *head;
 		QPushButton *head_name;
+		QPushButton *player_name;
 		QPushButton *money;
 		QGridLayout *properties;
 		QGridLayout *layout;

@@ -17,14 +17,14 @@ Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
 	layoutAddWidgets();
 
 
-	centralControls = new QWidget();
-	centralControls->setStyleSheet("background-color:DarkSeaGreen");
+	centralControls = new QHBoxLayout();
 
-	buyWidget = new QWidget(centralControls);
-	QGridLayout *buylayout = new QGridLayout(buyWidget);
-	buylayout->setSpacing(25);
+	buyWidget = new QWidget();
+	QVBoxLayout *buylayout = new QVBoxLayout(buyWidget);
+	buylayout->setSpacing(50);
 	buyWidget->setStyleSheet("background-color:DarkSeaGreen");
 	property_tobuy = new QPushButton();
+	QHBoxLayout *buybuttons = new QHBoxLayout();
 	buy_button = new QPushButton(buyWidget);
 	buy_button->setIcon(QIcon("img/buy.png"));
 	buy_button->setIconSize(QSize(60, 60));
@@ -36,18 +36,21 @@ Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
 	dbuy_button->setStyleSheet("background-color:white");
 	dbuy_button->setShortcut(tr("d"));
 
-
-	buylayout->setRowMinimumHeight(0,centralControls->height()/3);
-	buylayout->addWidget(buy_button, 3, 0);
-	buylayout->addWidget(property_tobuy, 0, 4, 1, 2);
-	buylayout->addWidget(dbuy_button, 3, 4);
+	buybuttons->addWidget(buy_button);
+	buybuttons->addWidget(dbuy_button);
+	buylayout->addWidget(property_tobuy);
+	buylayout->addLayout(buybuttons);
 	
 	buyWidget->setVisible(false);
 
+	centralControls->addWidget(buyWidget, Qt::AlignCenter );
 
-	sellWidget = new QWidget(centralControls);
-	QGridLayout *selllayout = new QGridLayout(sellWidget);
+
+	sellWidget = new QWidget();
+	sellWidget->setStyleSheet("background-color:DarkSeaGreen");
+	QVBoxLayout *selllayout = new QVBoxLayout(sellWidget);
 	properties = new QGridLayout();
+	QHBoxLayout *sellbuttons = new QHBoxLayout();
 	sell_button = new QPushButton(buyWidget);
 	sell_button->setIcon(QIcon("img/buy.png"));
 	sell_button->setIconSize(QSize(60, 60));
@@ -59,19 +62,20 @@ Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
 	dsell_button->setStyleSheet("background-color:white");
 	dsell_button->setShortcut(tr("d"));
 
-	selllayout->setRowMinimumHeight(0,centralControls->height()/3);
-	//selllayout->setColumnMinimumWidth(0,centralControls->width()/5);
-	//selllayout->setColumnMinimumWidth(8,centralControls->width()/5);
-	selllayout->addWidget(sell_button, 3, 0);
-	selllayout->addLayout(properties, 0, 0, 2, 8);
-	selllayout->addWidget(dsell_button, 3, 4);
+
+	sellbuttons->addWidget(sell_button);
+	sellbuttons->addWidget(dsell_button);
+	selllayout->addLayout(properties);
+	selllayout->addLayout(sellbuttons);
+
+	centralControls->addWidget(sellWidget, Qt::AlignCenter);
 
 	sellWidget->setVisible(false);
 
 
-	this->addWidget(centralControls, 3, 3, 5, 5);
+	this->addLayout(centralControls, 4, 4, 3, 3);
 	this->setContentsMargins(0, 0, 0, 0);
-	this->setSpacing(0);	
+	this->setSpacing(0);
 
 	connect(this, SIGNAL(render(std::vector<Player*>, int)), this, SLOT(rendering(std::vector<Player*>, int)));
 	connect(this, SIGNAL(buy(int)), this, SLOT(buying(int)));
@@ -89,6 +93,7 @@ Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
 
 	connect(sell_button, SIGNAL(clicked()), this, SLOT(sellingOff()));
 	connect(sell_button, SIGNAL(clicked()), this, SIGNAL(sellTrue()));
+	connect(this, SIGNAL(sellOff()), this, SLOT(sellingOff()));
 
 
 	connect(this, SIGNAL(sell(Player*)), this, SLOT(selling(Player*)));
@@ -129,7 +134,7 @@ void Board_qt::rendering(std::vector<Player*> players, int current_player){
 	for(int i = 0; i < (int)players.size(); i++){
 		QPushButton *tmp_widget = new QPushButton();
 		tmp_widget->setIcon(QIcon(QString::fromStdString("img/player" + std::to_string(players[i]->getId()) + ".png")));
-		if (i == current_player) tmp_widget->setStyleSheet("background-color: Lime; color:black; border: 2px solid CornflowerBlue;");
+		if (i == current_player) tmp_widget->setStyleSheet("background-color: Lime; color:black; border: 2px solid DodgerBlue;");
 		tiles[players[i]->getPosition()]->addWidget(tmp_widget);
 	}
 }

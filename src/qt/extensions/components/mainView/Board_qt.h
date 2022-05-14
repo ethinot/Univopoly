@@ -38,7 +38,7 @@ class Board_qt : public QGridLayout{
 		void sellingOff();
 	private:
 		void clearLayout(QLayout* layout, bool deleteWidgets = true);
-		QWidget *centralControls;
+		QHBoxLayout *centralControls;
 		QWidget *buyWidget;
 		QWidget *sellWidget;
 		QGridLayout *controlslayout;
