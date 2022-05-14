@@ -83,8 +83,6 @@ void Board_qt::rendering(std::vector<Player*> players){
 	qDebug() << "rendering";
 	loadProperties(board);
 	layoutAddWidgets();
-	qDebug() << players[0]->getPosition();
-	//tiles[players[0]->getPosition()]->setStyleSheet("background-color: yellow");
 	for(int i = 0; i < (int)players.size(); i++){
 		QPushButton *tmp_widget = new QPushButton();
 		tmp_widget->setIcon(QIcon(QString::fromStdString("img/player" + std::to_string(players[i]->getId()) + ".png")));

@@ -42,7 +42,8 @@ Window::Window() : QWidget(){
 
 	// pass turn
 	connect(sidebar, SIGNAL(passTurn()), this, SLOT(passingTurn()));
-	connect(this, SIGNAL(passTurnDisplay(std::vector<Player*>, int)), sidebar, SIGNAL(renderPlayers(std::vector<Player*>, int)));
+	connect(sidebar, SIGNAL(passTurn()), mainview, SIGNAL(buyMenuOff()));
+	connect(this, SIGNAL(playersDisplayChange(std::vector<Player*>, int)), sidebar, SIGNAL(renderPlayers(std::vector<Player*>, int)));
 
 
 	// buy property
@@ -78,6 +79,16 @@ void Window::movingPlayer(int amount){
 	if (start) emit tileStart(game->getPlayers(), current_player_index);
 	if (game->getTileById(current_position)->getOwner() == -1){
 		emit askBuy(current_position);
+	}else if (game->getTileById(current_position)->getOwner() > 0){
+		int rent = 0;
+		if (typeid(*game->getTileById(current_position)).name() == typeid(Property).name()){
+						rent = static_cast<Property*>(game->getTileById(current_position))->getRent();
+		}
+		else if (typeid(*game->getTileById(current_position)).name() == typeid(Gare).name()){
+						rent = static_cast<Gare*>(game->getTileById(current_position))->getRent( (game->getPlayerById(game->getTileById(current_position)->getOwner()))->getGareCount());
+		}
+		bool succesful = game->pay(game->getId(current_player_index), rent, game->getTileById(current_position)->getOwner());
+		emit playersDisplayChange(game->getPlayers(), current_player_index);
 	}
 }
 
@@ -85,7 +96,7 @@ void Window::passingTurn(){
 	qDebug() << "Passing turn";
 	current_player_index += 1;
 	if (current_player_index == game->getGameSize()) current_player_index = 0;
-	passTurnDisplay(game->getPlayers(), current_player_index);
+	playersDisplayChange(game->getPlayers(), current_player_index);
 }
 
 void Window::buying(){

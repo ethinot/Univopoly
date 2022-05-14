@@ -35,6 +35,7 @@ Controllers::Controllers(QWidget *parent) : QWidget(parent){
 	//Button settings 
 	pass->setIconSize(QSize(60, 60));
 	pass->setShortcut(tr("p"));
+	//disableButton(pass);
 	connect(pass, SIGNAL(clicked()), this, SIGNAL(passButton()));
 	connect(pass, SIGNAL(clicked()), this, SLOT(disablePass()));
 	connect(pass, SIGNAL(clicked()), this, SLOT(enableRoll()));

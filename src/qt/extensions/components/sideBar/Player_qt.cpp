@@ -38,7 +38,7 @@ Player_qt::Player_qt(QWidget *parent, Player *input_player) : QWidget(parent){
 	head->addWidget(money, 1, 0);
 
 	properties = new QGridLayout();
-	layout->setSpacing(10);
+	properties->setSpacing(0);
 	layout->addLayout(properties, 2, 0);
 
 	loadProperties();
