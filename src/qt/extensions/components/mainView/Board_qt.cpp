@@ -38,11 +38,9 @@ Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
 
 
 	buylayout->setRowMinimumHeight(0,centralControls->height()/3);
-	buylayout->setColumnMinimumWidth(0,centralControls->width()/5);
-	buylayout->setColumnMinimumWidth(8,centralControls->width()/5);
 	buylayout->addWidget(buy_button, 3, 0);
 	buylayout->addWidget(property_tobuy, 0, 4, 1, 2);
-	buylayout->addWidget(dbuy_button, 3, 8);
+	buylayout->addWidget(dbuy_button, 3, 4);
 	
 	buyWidget->setVisible(false);
 
@@ -62,11 +60,11 @@ Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
 	dsell_button->setShortcut(tr("d"));
 
 	selllayout->setRowMinimumHeight(0,centralControls->height()/3);
-	selllayout->setColumnMinimumWidth(0,centralControls->width()/5);
-	selllayout->setColumnMinimumWidth(8,centralControls->width()/5);
+	//selllayout->setColumnMinimumWidth(0,centralControls->width()/5);
+	//selllayout->setColumnMinimumWidth(8,centralControls->width()/5);
 	selllayout->addWidget(sell_button, 3, 0);
-	selllayout->addLayout(properties, 0, 4);
-	selllayout->addWidget(dsell_button, 3, 8);
+	selllayout->addLayout(properties, 0, 0, 2, 8);
+	selllayout->addWidget(dsell_button, 3, 4);
 
 	sellWidget->setVisible(false);
 
@@ -160,7 +158,7 @@ void Board_qt::selling(Player *player){
 	for (int i = 0; i < owned.size(); i++){
 		QRadioButton *tmp_prop = new QRadioButton(QString::fromStdString(owned[i]->getName()));
 		tmp_prop->setStyleSheet(QString::fromLocal8Bit("background-color: " + owned[i]->getColor()) + ";color: black;");
-		properties->addWidget(tmp_prop, ceil(i/3), i%3);
+		properties->addWidget(tmp_prop, ceil(i/4), i%4);
 	}
 	sellWidget->setVisible(true);
 }

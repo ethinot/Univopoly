@@ -19,7 +19,7 @@ Player_qt::Player_qt(QWidget *parent, Player *input_player) : QWidget(parent){
 	head = new QGridLayout();
 	layout->setContentsMargins(0, 0, 0, 0);
 	layout->setSpacing(0);
-	this->setMaximumWidth(this->width());
+	this->setMaximumWidth(this->width()+ 10);
 
 	layout->addLayout(head, 0, 0);
 	head->setSpacing(10);

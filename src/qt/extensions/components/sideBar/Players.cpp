@@ -39,6 +39,4 @@ void Players::rendering(std::vector<Player*> new_players, int current_player){
 	qDebug() << "rendering";
 	loadPlayers(new_players);
 	layoutAddWidgets(current_player);
-	qDebug() << new_players[0]->getNetWorth();
-	qDebug() << new_players[1]->getNetWorth();
 }
