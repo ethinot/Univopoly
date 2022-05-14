@@ -172,6 +172,9 @@ public:
 	void testRegPlayer();
 
 	std::vector<Tile *> getProperties() const;
+
+	void killMe();
+	void findToSell(int rent);
 };
 
 #endif

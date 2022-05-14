@@ -42,8 +42,6 @@ Player_qt::Player_qt(QWidget *parent, Player *input_player) : QWidget(parent){
 	layout->addLayout(properties, 2, 0);
 
 	loadProperties();
-	
-	//setStyleSheet("background-color: white; border: 1px solid black;"); //  border: 1px solid black;
 
 }
 

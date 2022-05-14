@@ -99,6 +99,16 @@ unsigned int Player::getGareCount() const{return number_gare;}
 
 bool Player::checkBot() const{return bot;}
 
+void Player::killMe(){
+	goods.killMe();
+}
+
+void Player::findToSell(int rent){
+
+	int left = rent - getBalance();
+	sellProperty(goods.findPropertyWroth(left));
+}
+
 void Player::testRegPlayer(){
 	
 	//test constucteur par défault

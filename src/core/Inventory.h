@@ -112,6 +112,10 @@ public:
 	 */
 	void printInventory(int gare_count);
 
+	void killMe();
+
+	int findPropertyWroth(int price);
+
 	void testRegInventory();
 
 };

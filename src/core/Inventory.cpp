@@ -7,7 +7,7 @@
 #include<vector>
 
 Inventory::Inventory() : collection() {
-	wallet = 1000;
+	wallet = 1500;
 }
 
 Inventory::~Inventory(){}
@@ -107,6 +107,27 @@ bool Inventory::removeProperty(unsigned int property_id){
 		it++;
 	}	
 	return false;
+}
+
+
+void Inventory::killMe(){
+	for (int i = 0; i < collection.size(); i++){
+		collection[i]->sold();
+		if (typeid(*collection[i]).name() == typeid(Property).name()){
+			static_cast<Property*>(collection[i])->emptyProperty();
+		}
+	}
+}
+
+
+int Inventory::findPropertyWroth(int price){
+	int sellPrice = 0;
+	int i = -1;
+	while (sellPrice < price){
+		i++;
+		sellPrice = collection[i]->getSellPrice();
+	}
+	return i;
 }
 
 void Inventory::testRegInventory(){

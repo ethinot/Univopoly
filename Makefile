@@ -70,7 +70,8 @@ SOURCES       = src/qt/main_qt.cpp \
 		src/core/Inventory.cpp \
 		src/core/Player.cpp \
 		src/core/Property.cpp \
-		src/core/Tile.cpp moc_mainWindow.cpp \
+		src/core/Tile.cpp qrc_univopoly_qt.cpp \
+		moc_mainWindow.cpp \
 		moc_mainView.cpp \
 		moc_sideBar.cpp \
 		moc_Board_qt.cpp \
@@ -95,6 +96,7 @@ OBJECTS       = obj/main_qt.o \
 		obj/Player.o \
 		obj/Property.o \
 		obj/Tile.o \
+		obj/qrc_univopoly_qt.o \
 		obj/moc_mainWindow.o \
 		obj/moc_mainView.o \
 		obj/moc_sideBar.o \
@@ -675,6 +677,7 @@ Makefile: univopoly_qt.pro /usr/local/share/qt/mkspecs/macx-clang/qmake.conf /us
 		/usr/local/share/qt/mkspecs/features/yacc.prf \
 		/usr/local/share/qt/mkspecs/features/lex.prf \
 		univopoly_qt.pro \
+		univopoly_qt.qrc \
 		/usr/local/lib/QtWidgets.framework/Resources/QtWidgets.prl \
 		/usr/local/lib/QtGui.framework/Resources/QtGui.prl \
 		/usr/local/lib/QtCore.framework/Resources/QtCore.prl
@@ -934,6 +937,7 @@ Makefile: univopoly_qt.pro /usr/local/share/qt/mkspecs/macx-clang/qmake.conf /us
 /usr/local/share/qt/mkspecs/features/yacc.prf:
 /usr/local/share/qt/mkspecs/features/lex.prf:
 univopoly_qt.pro:
+univopoly_qt.qrc:
 /usr/local/lib/QtWidgets.framework/Resources/QtWidgets.prl:
 /usr/local/lib/QtGui.framework/Resources/QtGui.prl:
 /usr/local/lib/QtCore.framework/Resources/QtCore.prl:
@@ -951,6 +955,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
+	$(COPY_FILE) --parents univopoly_qt.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/local/share/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents src/qt/mainWindow.h src/qt/extensions/mainView.h src/qt/extensions/sideBar.h src/qt/extensions/components/mainView/Board_qt.h src/qt/extensions/components/mainView/Tile_qt.h src/qt/extensions/components/mainView/Lobby.h src/qt/extensions/components/sideBar/Controllers.h src/qt/extensions/components/sideBar/Dice_qt.h src/qt/extensions/components/sideBar/Players.h src/qt/extensions/components/sideBar/Player_qt.h src/core/Board.h src/core/Dice.h src/core/Game.h src/core/Gare.h src/core/Inventory.h src/core/Player.h src/core/Property.h src/core/Tile.h $(DISTDIR)/
 	$(COPY_FILE) --parents src/qt/main_qt.cpp src/qt/mainWindow.cpp src/qt/extensions/mainView.cpp src/qt/extensions/sideBar.cpp src/qt/extensions/components/mainView/Board_qt.cpp src/qt/extensions/components/mainView/Tile_qt.cpp src/qt/extensions/components/mainView/Lobby.cpp src/qt/extensions/components/sideBar/Controllers.cpp src/qt/extensions/components/sideBar/Dice_qt.cpp src/qt/extensions/components/sideBar/Players.cpp src/qt/extensions/components/sideBar/Player_qt.cpp src/core/Board.cpp src/core/Dice.cpp src/core/Game.cpp src/core/Gare.cpp src/core/Inventory.cpp src/core/Player.cpp src/core/Property.cpp src/core/Tile.cpp $(DISTDIR)/
@@ -980,8 +985,22 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all:
+compiler_rcc_make_all: qrc_univopoly_qt.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) qrc_univopoly_qt.cpp
+qrc_univopoly_qt.cpp: univopoly_qt.qrc \
+		/usr/local/share/qt/libexec/rcc \
+		img/buy.png \
+		img/player6.png \
+		img/player7.png \
+		img/player1.png \
+		img/player2.png \
+		img/player3.png \
+		img/player5.png \
+		img/player4.png \
+		img/player8.png
+	/usr/local/share/qt/libexec/rcc -name univopoly_qt univopoly_qt.qrc -o qrc_univopoly_qt.cpp
+
 compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
@@ -1182,7 +1201,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean 
 
 ####### Compile
 
@@ -1575,6 +1594,9 @@ obj/Property.o: src/core/Property.cpp src/core/Property.h \
 
 obj/Tile.o: src/core/Tile.cpp src/core/Tile.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/Tile.o src/core/Tile.cpp
+
+obj/qrc_univopoly_qt.o: qrc_univopoly_qt.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/qrc_univopoly_qt.o qrc_univopoly_qt.cpp
 
 obj/moc_mainWindow.o: moc_mainWindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/moc_mainWindow.o moc_mainWindow.cpp
