@@ -61,6 +61,7 @@ void Controllers::enableButton(QPushButton* button){
 }
 
 void Controllers::disablePass(){
+	qDebug() << "disabling pass";
 	disableButton(pass);
 }
 void Controllers::enablePass(){
