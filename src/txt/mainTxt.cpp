@@ -23,7 +23,5 @@ int main(int argc, char ** argv){
 
     txtLoop(game);
 
-    txtEnd();
-
     return 0;
 }

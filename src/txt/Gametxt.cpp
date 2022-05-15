@@ -6,7 +6,6 @@
 Game txtInit(int nb_player){
     Game game(nb_player);
 	return game;
-	// check operator = 
 }
 
 void lineBreak(){
@@ -21,8 +20,6 @@ void txtLoop(Game & game)
 	do {
 		for(unsigned char i = 0 ; i < game.getGameSize(); i++){ // boucle de jeu pour les différents joeurs
 			std::cout << "########################################################";
-
-			//std::cout << typeid(Gare).name() << "   " << typeid(Property).name() << "  " << typeid(*game.getTileById(15)).name() << "  " << typeid(*game.getTileById(39)).name() << std::endl;
 
 			lineBreak();
 
@@ -49,7 +46,7 @@ void txtLoop(Game & game)
 				}*/
 				lineBreak();
 				current_tile = game.getTileById(current_position); // a faire on veut récuperrer la tile sur lequel est le joueurs
-				std::cout << typeid(*current_tile).name() <<std::endl;
+				//std::cout << typeid(*current_tile).name() <<std::endl; Debug permet de vérifier qu'elle est le type de la Tile
 
 				std::cout << *current_tile << std::endl;
 				lineBreak();
@@ -216,12 +213,4 @@ void txtLoop(Game & game)
 
 		}
 	} while(game.checkWinner() == -1);
-}
-
-
-
-
-
-void txtEnd(){
-
 }

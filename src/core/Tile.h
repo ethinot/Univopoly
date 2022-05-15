@@ -14,7 +14,6 @@
 #ifndef _TILE
 #define _TILE
 
-//#include <iostream>
 #include <fstream>
 #include <string>
 

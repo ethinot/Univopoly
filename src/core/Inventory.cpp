@@ -119,7 +119,6 @@ void Inventory::killMe(){
 	}
 }
 
-
 int Inventory::findPropertyWroth(int price){
 	int sellPrice = 0;
 	int i = -1;
