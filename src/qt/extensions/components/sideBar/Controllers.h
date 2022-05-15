@@ -16,6 +16,7 @@ class Controllers : public QWidget{
 		void passButton();
 		void sellButton();
 		void tweakButton();
+		void deadPlayer();
 	private slots:
 		void disablePass();
 		void enablePass();
