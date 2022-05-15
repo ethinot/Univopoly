@@ -1032,6 +1032,8 @@ moc_mainWindow.cpp: src/qt/mainWindow.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QVBoxLayout \
 		/usr/local/lib/QtWidgets.framework/Headers/QGridLayout \
 		/usr/local/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QButtonGroup \
+		/usr/local/lib/QtWidgets.framework/Headers/qbuttongroup.h \
 		/usr/local/lib/QtCore.framework/Headers/QVector \
 		/usr/local/lib/QtCore.framework/Headers/qvector.h \
 		src/qt/extensions/components/mainView/Tile_qt.h \
@@ -1062,6 +1064,8 @@ moc_mainView.cpp: src/qt/extensions/mainView.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QVBoxLayout \
 		/usr/local/lib/QtWidgets.framework/Headers/QGridLayout \
 		/usr/local/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QButtonGroup \
+		/usr/local/lib/QtWidgets.framework/Headers/qbuttongroup.h \
 		/usr/local/lib/QtCore.framework/Headers/QVector \
 		/usr/local/lib/QtCore.framework/Headers/qvector.h \
 		src/qt/extensions/components/mainView/Tile_qt.h \
@@ -1124,6 +1128,8 @@ moc_Board_qt.cpp: src/qt/extensions/components/mainView/Board_qt.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QVBoxLayout \
 		/usr/local/lib/QtWidgets.framework/Headers/QGridLayout \
 		/usr/local/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QButtonGroup \
+		/usr/local/lib/QtWidgets.framework/Headers/qbuttongroup.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QLayout \
 		/usr/local/lib/QtWidgets.framework/Headers/qlayout.h \
 		/usr/local/lib/QtCore.framework/Headers/QVector \
@@ -1227,6 +1233,8 @@ obj/main_qt.o: src/qt/main_qt.cpp src/qt/mainWindow.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QVBoxLayout \
 		/usr/local/lib/QtWidgets.framework/Headers/QGridLayout \
 		/usr/local/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QButtonGroup \
+		/usr/local/lib/QtWidgets.framework/Headers/qbuttongroup.h \
 		/usr/local/lib/QtCore.framework/Headers/QVector \
 		/usr/local/lib/QtCore.framework/Headers/qvector.h \
 		src/qt/extensions/components/mainView/Tile_qt.h \
@@ -1268,6 +1276,8 @@ obj/mainWindow.o: src/qt/mainWindow.cpp src/qt/mainWindow.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QVBoxLayout \
 		/usr/local/lib/QtWidgets.framework/Headers/QGridLayout \
 		/usr/local/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QButtonGroup \
+		/usr/local/lib/QtWidgets.framework/Headers/qbuttongroup.h \
 		/usr/local/lib/QtCore.framework/Headers/QVector \
 		/usr/local/lib/QtCore.framework/Headers/qvector.h \
 		src/qt/extensions/components/mainView/Tile_qt.h \
@@ -1314,6 +1324,8 @@ obj/mainView.o: src/qt/extensions/mainView.cpp /usr/local/lib/QtWidgets.framewor
 		/usr/local/lib/QtWidgets.framework/Headers/QVBoxLayout \
 		/usr/local/lib/QtWidgets.framework/Headers/QGridLayout \
 		/usr/local/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QButtonGroup \
+		/usr/local/lib/QtWidgets.framework/Headers/qbuttongroup.h \
 		/usr/local/lib/QtCore.framework/Headers/QVector \
 		/usr/local/lib/QtCore.framework/Headers/qvector.h \
 		src/qt/extensions/components/mainView/Tile_qt.h \
@@ -1374,6 +1386,8 @@ obj/Board_qt.o: src/qt/extensions/components/mainView/Board_qt.cpp /usr/local/li
 		/usr/local/lib/QtWidgets.framework/Headers/qapplication.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QPushButton \
 		/usr/local/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QRadioButton \
+		/usr/local/lib/QtWidgets.framework/Headers/qradiobutton.h \
 		/usr/local/lib/QtGui.framework/Headers/QScreen \
 		/usr/local/lib/QtGui.framework/Headers/qscreen.h \
 		/usr/local/lib/QtCore.framework/Headers/QDebug \
@@ -1392,6 +1406,8 @@ obj/Board_qt.o: src/qt/extensions/components/mainView/Board_qt.cpp /usr/local/li
 		/usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QGridLayout \
 		/usr/local/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QButtonGroup \
+		/usr/local/lib/QtWidgets.framework/Headers/qbuttongroup.h \
 		/usr/local/lib/QtCore.framework/Headers/QVector \
 		/usr/local/lib/QtCore.framework/Headers/qvector.h \
 		src/qt/extensions/components/mainView/Tile_qt.h \
