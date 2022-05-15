@@ -4,8 +4,6 @@ obj/*
 !obj/README.md
 .DS_Store
 .vscode/*
-UML_Univopoly.drawio
-inc/*
 .qmake.stash
 univopoly_qt.app/*
 main_qt.o
