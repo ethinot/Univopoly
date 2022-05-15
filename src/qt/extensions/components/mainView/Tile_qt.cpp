@@ -42,17 +42,15 @@ Tile_qt::Tile_qt(Tile *input_tile) : QWidget(){
 
 	if (tile->getOwner() > -1){
 		QString rent;
-		qDebug() << typeid(*tile).name();
 		if ((typeid(*tile).name() == typeid(Property).name())){
 			int current_rent = static_cast<Property*>(tile)->getRent();
 			rent = QString::fromStdString(std::to_string(tile->getOwner()) + " Rent: " + (std::to_string(current_rent)) );
-		}/*else if ((typeid(*tile).name() == typeid(Gare).name())){
-			int current_rent = static_cast<Gare*>(tile)->getRent();
-			QString rent = QString::fromStdString(std::string("Rent: ") + (std::to_string(current_rent)) );
-		}*/
+		}else if ((typeid(*tile).name() == typeid(Gare).name())){
+			rent = QString::fromStdString("Player: " + std::to_string(tile->getOwner()));
+		}
 
 		footer = new QPushButton(rent);
-		footer->setStyleSheet("background-color:grey; color:black;");
+		footer->setStyleSheet("background-color:white; color:black;");
 		layout->addWidget(footer, 2, 0);
 	}
 

@@ -12,9 +12,13 @@ mainView::mainView(QWidget *parent, Board* new_board) : QWidget(parent){
 
 	this->setStyleSheet("background-color: white");
 
-	connect(this, SIGNAL(renderBoard(std::vector<Player*>)), board, SIGNAL(render(std::vector<Player*>)));
+	connect(this, SIGNAL(renderBoard(std::vector<Player*>, int)), board, SIGNAL(render(std::vector<Player*>, int)));
 	connect(this, SIGNAL(buyMenu(int)), board, SIGNAL(buy(int)));
 	connect(this, SIGNAL(buyMenuOff()), board, SIGNAL(buyOff()));
 	connect(board, SIGNAL(buyTrue()), this, SIGNAL(buyTrueM()));
+
+	connect(this, SIGNAL(sellMenu(Player*)), board, SIGNAL(sell(Player*)));
+	connect(this, SIGNAL(sellMenuOff()), board, SIGNAL(sellOff()));
+	connect(board, SIGNAL(sellTrue(int)), this, SIGNAL(sellTrueM(int)));
 
 }

@@ -78,13 +78,6 @@ public:
 	 * @return Tile*
 	 */
 	Tile* getProperty(unsigned int property_id);
-
-	/**
-	 * @brief Renvoie un vector de propriété
-	 * 
-	 * @return std::vector<Tile *> 
-	 */
-	std::vector<Tile *> getProperties() const;
 	
 	/**
 	 * @brief Vérifie si la propriété à bien été acheter 
@@ -178,6 +171,27 @@ public:
 	 * 
 	 */
 	void testRegPlayer();
+
+	/**
+	 * @brief Récupère les propriétés depuis un joueurs
+	 * 
+	 * @return std::vector<Tile *> -> tableau de case
+	 */
+	std::vector<Tile *> getProperties();
+
+	/**
+	 * @brief Supprime les propriétés du joueur 
+	 * 
+	 */
+	void killMe();
+	
+	/**
+	 * @brief Dans le cas ou un joueur n'a pas assez d'argent pour payer cette procédure
+	 * vas chercher dans sont inventaire pour en vendre une qui premeterais de payer le loyer (rent).
+	 * 
+	 * @param rent -> loyer dont le joueur doit s'aquiter
+	 */
+	void findToSell(int rent);
 };
 
 #endif

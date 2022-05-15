@@ -23,15 +23,21 @@ class Window : public QWidget{
 		int current_player_index;
 	signals:
 		void diceRolled(int amount);
-		void playerMoved(std::vector<Player*>);
+		void playerMoved(std::vector<Player*>, int);
 		void askBuy(int);
-		void bought(std::vector<Player*>);
-		void tileStart(std::vector<Player*>);
+		void bought(std::vector<Player*>, int);
+		void tileStart(std::vector<Player*>, int);
+		void playersDisplayChange(std::vector<Player*>, int);
+		void boardDisplayChange(std::vector<Player*>, int);
+		void signalSellMenu(Player*);
+		void sold(std::vector<Player*>, int);
 	private slots:
 		void rollingDice();
 		void movingPlayer(int amount);
 		void passingTurn();
 		void buying();
+		void slotSellMenu();
+		void selling(int);
 };
 
 #endif // MAINWINDOW_H

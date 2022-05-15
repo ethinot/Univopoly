@@ -13,10 +13,13 @@ class mainView : public QWidget{
 	public:
 		explicit mainView(QWidget *parent = 0, Board *new_board = 0);
 	signals:
-		void renderBoard(std::vector<Player*> players);
+		void renderBoard(std::vector<Player*> players, int);
 		void buyMenu(int);
 		void buyMenuOff();
 		void buyTrueM();
+		void sellMenu(Player*);
+		void sellMenuOff();
+		void sellTrueM(int);
 	private:
 		Board_qt *board;
 		QLayout *layout;

@@ -1,5 +1,6 @@
 #include <QApplication>
 #include <QPushButton>
+#include <QRadioButton>
 #include <QScreen>
 #include <QDebug>
 #include <QWindow>
@@ -15,28 +16,68 @@ Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
 	loadProperties(board);
 	layoutAddWidgets();
 
-	centralControls = new QWidget();
-	QGridLayout *controlslayout = new QGridLayout(centralControls);
-	centralControls->setStyleSheet("background-color:DarkSeaGreen");
-	buy_button = new QPushButton(centralControls);
+
+	centralControls = new QHBoxLayout();
+
+	buyWidget = new QWidget();
+	QVBoxLayout *buylayout = new QVBoxLayout(buyWidget);
+	buylayout->setSpacing(50);
+	buyWidget->setStyleSheet("background-color:DarkSeaGreen");
+	property_tobuy = new QPushButton();
+	QHBoxLayout *buybuttons = new QHBoxLayout();
+	buy_button = new QPushButton(buyWidget);
 	buy_button->setIcon(QIcon("img/buy.png"));
 	buy_button->setIconSize(QSize(60, 60));
 	buy_button->setStyleSheet("background-color:white");
-	dbuy_button = new QPushButton(centralControls);
+	buy_button->setShortcut(tr("b"));
+	dbuy_button = new QPushButton(buyWidget);
 	dbuy_button->setIcon(QIcon("img/dontBuy.png"));
 	dbuy_button->setIconSize(QSize(60, 60));
 	dbuy_button->setStyleSheet("background-color:white");
+	dbuy_button->setShortcut(tr("d"));
 
-	controlslayout->addWidget(buy_button, 0, 0);
-	controlslayout->addWidget(dbuy_button, 0, 1);
+	buybuttons->addWidget(buy_button);
+	buybuttons->addWidget(dbuy_button);
+	buylayout->addWidget(property_tobuy);
+	buylayout->addLayout(buybuttons);
 	
-	centralControls->setVisible(false);
+	buyWidget->setVisible(false);
 
-	this->addWidget(centralControls, 4, 4, 3, 3);
+	centralControls->addWidget(buyWidget, Qt::AlignCenter );
+
+	proptosell = new QButtonGroup;
+	sellWidget = new QWidget();
+	sellWidget->setStyleSheet("background-color:DarkSeaGreen");
+	QVBoxLayout *selllayout = new QVBoxLayout(sellWidget);
+	properties = new QGridLayout();
+	QHBoxLayout *sellbuttons = new QHBoxLayout();
+	sell_button = new QPushButton(buyWidget);
+	sell_button->setIcon(QIcon("img/buy.png"));
+	sell_button->setIconSize(QSize(60, 60));
+	sell_button->setStyleSheet("background-color:white");
+	sell_button->setShortcut(tr("b"));
+	dsell_button = new QPushButton(buyWidget);
+	dsell_button->setIcon(QIcon("img/dontBuy.png"));
+	dsell_button->setIconSize(QSize(60, 60));
+	dsell_button->setStyleSheet("background-color:white");
+	dsell_button->setShortcut(tr("d"));
+
+
+	sellbuttons->addWidget(sell_button);
+	sellbuttons->addWidget(dsell_button);
+	selllayout->addLayout(properties);
+	selllayout->addLayout(sellbuttons);
+
+	centralControls->addWidget(sellWidget, Qt::AlignCenter);
+
+	sellWidget->setVisible(false);
+
+
+	this->addLayout(centralControls, 4, 4, 3, 3);
 	this->setContentsMargins(0, 0, 0, 0);
-	this->setSpacing(0);	
+	this->setSpacing(0);
 
-	connect(this, SIGNAL(render(std::vector<Player*>)), this, SLOT(rendering(std::vector<Player*>)));
+	connect(this, SIGNAL(render(std::vector<Player*>, int)), this, SLOT(rendering(std::vector<Player*>, int)));
 	connect(this, SIGNAL(buy(int)), this, SLOT(buying(int)));
 	connect(this, SIGNAL(buyOff()), this, SLOT(buyingOff()));
 
@@ -45,6 +86,17 @@ Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
 
 	connect(buy_button, SIGNAL(clicked()), this, SLOT(buyingOff()));
 	connect(buy_button, SIGNAL(clicked()), this, SIGNAL(buyTrue()));
+
+
+	connect(dsell_button, SIGNAL(clicked()), this, SLOT(sellingOff()));
+	connect(dsell_button, SIGNAL(clicked()), this, SIGNAL(sellFalse()));
+
+	connect(sell_button, SIGNAL(clicked()), this, SLOT(processSell()));
+	//connect(sell_button, SIGNAL(clicked()), this, SLOT(sellingOff()));
+	connect(this, SIGNAL(sellOff()), this, SLOT(sellingOff()));
+
+
+	connect(this, SIGNAL(sell(Player*)), this, SLOT(selling(Player*)));
 
 }
 
@@ -75,16 +127,14 @@ void Board_qt::layoutAddWidgets(){
 	}
 }
 
-void Board_qt::rendering(std::vector<Player*> players){
+void Board_qt::rendering(std::vector<Player*> players, int current_player){
 	qDebug() << "rendering";
 	loadProperties(board);
 	layoutAddWidgets();
-	qDebug() << players[0]->getPosition();
-	//tiles[players[0]->getPosition()]->setStyleSheet("background-color: yellow");
 	for(int i = 0; i < (int)players.size(); i++){
-		QWidget *tmp_widget = new QWidget();
-		if (i == 0) tmp_widget->setStyleSheet("background-color: Lime");
-		else tmp_widget->setStyleSheet("background-color:Fuchsia ");
+		QPushButton *tmp_widget = new QPushButton();
+		tmp_widget->setIcon(QIcon(QString::fromStdString("img/player" + std::to_string(players[i]->getId()) + ".png")));
+		if (i == current_player) tmp_widget->setStyleSheet("background-color: Lime; color:black; border: 2px solid DodgerBlue;");
 		tiles[players[i]->getPosition()]->addWidget(tmp_widget);
 	}
 }
@@ -92,10 +142,51 @@ void Board_qt::rendering(std::vector<Player*> players){
 
 void Board_qt::buying(int Tile_id){
 	qDebug() << "Showing buy menu";
-	centralControls->setVisible(true);
+	property_tobuy->setText(QString::fromStdString(board->getTile(Tile_id)->getName()));
+	property_tobuy->setStyleSheet(QString::fromLocal8Bit("background-color: " + board->getTile(Tile_id)->getColor()) + ";color: black;");
+	buyWidget->setVisible(true);
 }
 
 void Board_qt::buyingOff(){
 	qDebug() << "Off buy menu";
-	centralControls->setVisible(false);
+	buyWidget->setVisible(false);
+}
+
+void Board_qt::sellingOff(){
+	qDebug() << "Off sell menu";
+	sellWidget->setVisible(false);
+}
+
+void Board_qt::selling(Player *player){
+	std::vector<Tile*> owned = player->getProperties();
+	clearLayout(properties);
+	for (int i = 0; i < owned.size(); i++){
+		QRadioButton *tmp_prop = new QRadioButton(QString::fromStdString(owned[i]->getName() + " Sell: " + std::to_string(owned[i]->getSellPrice())));
+		tmp_prop->setStyleSheet(QString::fromLocal8Bit("background-color: " + owned[i]->getColor()) + ";color: black;");
+		proptosell->addButton(tmp_prop, owned[i]->getId());
+		properties->addWidget(tmp_prop, ceil(i/2), i%2);
+	}
+	sellWidget->setVisible(true);
+}
+
+
+void Board_qt::clearLayout(QLayout* layout, bool deleteWidgets)
+{
+    while (QLayoutItem* item = layout->takeAt(0))
+    {
+        if (deleteWidgets)
+        {
+            if (QWidget* widget = item->widget())
+                widget->deleteLater();
+        }
+        if (QLayout* childLayout = item->layout())
+            clearLayout(childLayout, deleteWidgets);
+        delete item;
+    }
+}
+
+
+void Board_qt::processSell(){
+	emit sellingOff();
+	emit sellTrue(proptosell->checkedId());
 }

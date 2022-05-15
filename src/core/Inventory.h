@@ -112,6 +112,25 @@ public:
 	 */
 	void printInventory(int gare_count);
 
+	/**
+	 * @brief vend et enlève de l'inventaire les propriétés 
+	 * 
+	 */
+	void killMe();
+
+	/**
+	 * @brief Trouve un propriété dans l'inventaire 
+	 * dont la valeur de vente est supérieur au prix (price).
+	 * 
+	 * @param price -> prix 
+	 * @return int -> indice du tableau collection correspondant à la proprtiété dont la valeur est supérieur à celle passer en paramètre
+	 */
+	int findPropertyWroth(int price);
+
+	/**
+	 * @brief Test de regression du module inventaire
+	 * 
+	 */
 	void testRegInventory();
 
 };

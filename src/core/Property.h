@@ -36,7 +36,7 @@ public:
 	 * car quand la propriété est crée il n'en a pas encore.
 	 * @param name nom de la propriété
 	 * @param color nom de la couleur
-	 * @param backgroun nom de la couleur du background
+	 * @param background nom de la couleur du background
 	 * @param id id de la propriété
 	 * @param price prix de la propriété
 	 * @param sell_price prix de ventre
