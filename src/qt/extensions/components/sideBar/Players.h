@@ -24,6 +24,7 @@ class Players : public QWidget{
 	private slots:
 		void rendering(std::vector<Player*>, int);
 	private:
+		void clearLayout(QLayout* layout, bool deleteWidgets = true);
 		QVector<Player_qt*> players_qt;
 		QGridLayout *layout;
 		void loadPlayers(std::vector<Player*> new_players);

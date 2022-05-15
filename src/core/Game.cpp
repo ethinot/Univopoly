@@ -119,6 +119,7 @@ void Game::killPlayer(int id){
 	int index = getPlayerIndex(id);
 	players[index]->killMe();
 	players.erase(players.begin() + index);
+	total_player --;
 }
 
 bool Game::checkJail(int id){

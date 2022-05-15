@@ -41,6 +41,7 @@ Window::Window() : QWidget(){
 	connect(this, SIGNAL(playerMoved(std::vector<Player*>, int)), mainview, SIGNAL(renderBoard(std::vector<Player*>, int)));
 
 	// pass turn
+	connect(this, SIGNAL(playerDead()), sidebar, SIGNAL(passTurn()));
 	connect(sidebar, SIGNAL(passTurn()), this, SLOT(passingTurn()));
 	connect(sidebar, SIGNAL(passTurn()), mainview, SIGNAL(buyMenuOff()));
 	connect(sidebar, SIGNAL(passTurn()), mainview, SIGNAL(sellMenuOff()));
@@ -110,10 +111,7 @@ void Window::movingPlayer(int amount){
 		}else {
 			qDebug() << "Player dead";
 			game->killPlayer(game->getId(current_player_index));
-			current_player_index += 1;
-			if (current_player_index == game->getGameSize()) current_player_index = 0;
-			emit playersDisplayChange(game->getPlayers(), current_player_index);
-			emit boardDisplayChange(game->getPlayers(), current_player_index);
+			emit playerDead();
 		}
 	}
 }
@@ -121,7 +119,7 @@ void Window::movingPlayer(int amount){
 void Window::passingTurn(){
 	qDebug() << "Passing turn";
 	current_player_index += 1;
-	if (current_player_index == game->getGameSize()) current_player_index = 0;
+	if (current_player_index >= game->getGameSize()) current_player_index = 0;
 	playersDisplayChange(game->getPlayers(), current_player_index);
 	boardDisplayChange(game->getPlayers(), current_player_index);
 }
