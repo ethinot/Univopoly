@@ -9,6 +9,7 @@
  * 	- position -> l'id de la case sur laquel se trouve le joueur
  * 	- jail_count -> -1 si le joueur n'est pas en prison et de 1 à 3 si il l'est
  * 	- number_gare -> nombre de gare posséder par le joueur
+ *  - bot -> pas encore implémenter 
  */
 #ifndef _PLAYER
 #define _PLAYER
@@ -77,6 +78,13 @@ public:
 	 * @return Tile*
 	 */
 	Tile* getProperty(unsigned int property_id);
+
+	/**
+	 * @brief Renvoie un vector de propriété
+	 * 
+	 * @return std::vector<Tile *> 
+	 */
+	std::vector<Tile *> getProperties() const;
 	
 	/**
 	 * @brief Vérifie si la propriété à bien été acheter 
@@ -170,8 +178,6 @@ public:
 	 * 
 	 */
 	void testRegPlayer();
-
-	std::vector<Tile *> getProperties() const;
 };
 
 #endif

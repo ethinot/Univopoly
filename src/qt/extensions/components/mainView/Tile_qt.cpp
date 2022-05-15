@@ -57,7 +57,7 @@ Tile_qt::Tile_qt(Tile *input_tile) : QWidget(){
 	}
 
 
-	head->setStyleSheet(QString::fromLocal8Bit("background-color: " + tile->getColor()) + ";color: black;");
+	head->setStyleSheet(QString::fromStdString("background-color: " + tile->getColor()) + ";color: black;");
 	setStyleSheet(QString::fromStdString("background-color:" + tile->getBackColor() + ";") + "; border: 1px solid black;"); //  border: 1px solid black;
 }	
 
