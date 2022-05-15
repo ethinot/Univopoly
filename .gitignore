@@ -1,8 +1,7 @@
 bin/*
+!bin/README.md
 obj/*
-misc/*
-doc/html/*
-doc/html/search/*
+!obj/README.md
 .DS_Store
 .vscode/*
 UML_Univopoly.drawio
