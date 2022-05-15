@@ -65,8 +65,8 @@ Window::Window() : QWidget(){
 	connect(this, SIGNAL(bought(std::vector<Player*>, int)), mainview, SIGNAL(renderBoard(std::vector<Player*>, int)));
 	connect(this, SIGNAL(tileStart(std::vector<Player*>, int)), sidebar, SIGNAL(renderPlayers(std::vector<Player*>, int)));
 
-	//connect(this, SIGNAL())
-
+	//tweak
+	connect(sidebar, SIGNAL(tweak()), this, SLOT(tweaking()));
 
 }
 
@@ -88,7 +88,7 @@ void Window::movingPlayer(int amount){
 	if (start) emit tileStart(game->getPlayers(), current_player_index);
 	if (game->getTileById(current_position)->getOwner() == -1){
 		emit askBuy(current_position);
-	}else if (game->getTileById(current_position)->getOwner() > 0){
+	}else if (game->getTileById(current_position)->getOwner() > 0 && game->getTileById(current_position)->getOwner() != game->getId(current_player_index)){
 		int rent = 0;
 		if (typeid(*game->getTileById(current_position)).name() == typeid(Property).name()){
 						rent = static_cast<Property*>(game->getTileById(current_position))->getRent();
@@ -97,14 +97,21 @@ void Window::movingPlayer(int amount){
 						rent = static_cast<Gare*>(game->getTileById(current_position))->getRent( (game->getPlayerById(game->getTileById(current_position)->getOwner()))->getGareCount());
 		}
 		bool succesful = game->pay(game->getId(current_player_index), rent, game->getTileById(current_position)->getOwner());
+
 		if (succesful) emit playersDisplayChange(game->getPlayers(), current_player_index);
+
 		else if (game->getPlayerById(game->getId(current_player_index))->getNetWorth() > rent){
+			qDebug() << "Player net worth higher";
 			game->getPlayerById(game->getId(current_player_index))->findToSell(rent);
+			qDebug() << "Player net worth higher";
 			game->pay(game->getId(current_player_index), rent, game->getTileById(current_position)->getOwner());
 			emit playersDisplayChange(game->getPlayers(), current_player_index);
 			emit boardDisplayChange(game->getPlayers(), current_player_index);
 		}else {
-			game->getPlayerById(game->getId(current_player_index))->killMe();
+			qDebug() << "Player dead";
+			game->killPlayer(game->getId(current_player_index));
+			current_player_index += 1;
+			if (current_player_index == game->getGameSize()) current_player_index = 0;
 			emit playersDisplayChange(game->getPlayers(), current_player_index);
 			emit boardDisplayChange(game->getPlayers(), current_player_index);
 		}
@@ -127,4 +134,10 @@ void Window::buying(){
 void Window::selling(int property_id){
 	game->sellTile(game->getId(current_player_index), property_id);
 	emit sold(game->getPlayers(), current_player_index);
+}
+
+void Window::tweaking(){
+	Player *tmp_player = game->getPlayers()[current_player_index];
+	tmp_player->transaction(-(tmp_player->getBalance()-1));
+	emit playersDisplayChange(game->getPlayers(), current_player_index);
 }

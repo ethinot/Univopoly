@@ -5,6 +5,7 @@
 #include <assert.h>
 #include<algorithm>
 #include<vector>
+#include<QDebug>
 
 Inventory::Inventory() : collection() {
 	wallet = 1500;
@@ -98,7 +99,9 @@ bool Inventory::removeProperty(unsigned int property_id){
 	
 	std::vector<Tile *>::iterator it; //declaration of a iterator
 	it = collection.begin(); // initialisation 
-	
+
+	getProperty(property_id)->sold();
+
 	for(auto & element : collection) {
     	if((unsigned int)element->getId() == property_id){
 			collection.erase(it);
@@ -120,13 +123,12 @@ void Inventory::killMe(){
 }
 
 int Inventory::findPropertyWroth(int price){
-	int sellPrice = 0;
-	int i = -1;
-	while (sellPrice < price){
-		i++;
-		sellPrice = collection[i]->getSellPrice();
+	qDebug() << "Finding";
+	for (int i = 0; i < collection.size(); i++){
+		qDebug() << collection[i]->getSellPrice();
+		qDebug() << collection[i]->getId();
+		if (collection[i]->getSellPrice() >= price) return collection[i]->getId();
 	}
-	return i;
 }
 
 void Inventory::testRegInventory(){

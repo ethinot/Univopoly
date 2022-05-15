@@ -39,10 +39,16 @@ Controllers::Controllers(QWidget *parent) : QWidget(parent){
 	sell->setShortcut(tr("s"));
 	connect(sell, SIGNAL(clicked()), this, SIGNAL(sellButton()));
 	
+	tweak = new QPushButton(this);
+	tweak->setIcon(QIcon("img/x.png"));
+	tweak->setIconSize(QSize(60, 60));
+	connect(tweak, SIGNAL(clicked()), this, SIGNAL(tweakButton()));
+	//tweak->setVisible(false);
 
 	layout->addWidget(roll, 0, 0);
 	layout->addWidget(pass, 0, 1);
 	layout->addWidget(sell, 1, 0);
+	layout->addWidget(tweak, 2, 0);
 }
 
 

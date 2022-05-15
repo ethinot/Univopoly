@@ -57,7 +57,7 @@ Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
 	sell_button->setStyleSheet("background-color:white");
 	sell_button->setShortcut(tr("b"));
 	dsell_button = new QPushButton(buyWidget);
-	dsell_button->setIcon(QIcon("img/dontBuy.png"));
+	dsell_button->setIcon(QIcon("img/x.png"));
 	dsell_button->setIconSize(QSize(60, 60));
 	dsell_button->setStyleSheet("background-color:white");
 	dsell_button->setShortcut(tr("d"));

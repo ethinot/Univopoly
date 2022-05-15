@@ -38,6 +38,7 @@ class Window : public QWidget{
 		void buying();
 		void slotSellMenu();
 		void selling(int);
+		void tweaking();
 };
 
 #endif // MAINWINDOW_H
