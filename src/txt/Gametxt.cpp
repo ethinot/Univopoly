@@ -15,13 +15,19 @@ void lineBreak(){
 void txtLoop(Game & game)
 {
 	int current_player_id, dice_total, current_position, current_rent;
+	
 	Tile * current_tile;
+	
 	char anwser;
+	
+	bool exit = false;
+
 	do {
 		for(unsigned char i = 0 ; i < game.getGameSize(); i++){ // boucle de jeu pour les différents joeurs
 			std::cout << "########################################################";
 
 			lineBreak();
+
 
 			current_player_id = game.getId(i);
 			std::cout << std::endl;
@@ -128,7 +134,7 @@ void txtLoop(Game & game)
 				}else if (current_tile->getOwner() == -1){ // Tile is a property or Gare and unowned
 
 					do {
-						std::cout << "Voudrai-tu l'acheter ? (y/n): "; 
+						std::cout << "Voudrais-tu l'acheter ? (y/n): "; 
 						std::cin >> anwser;
 					} while(anwser != 'y' and anwser != 'n');
 
@@ -140,7 +146,7 @@ void txtLoop(Game & game)
 							break;
 
 						case 'n':
-							std::cout << "La prochaine fois peut etre" << std::endl;
+							std::cout << "La prochaine fois peue-être" << std::endl;
 							lineBreak();
 							break;
 					}
@@ -151,19 +157,19 @@ void txtLoop(Game & game)
 					// type Property
 					if (typeid(*current_tile).name() == typeid(Property).name()){
 						current_rent = static_cast<Property*>(current_tile)->getRent();
-						std::cout << "Le loyer est de: " << current_rent << "$" << std::endl;
+						std::cout << "Le loyer est de: " << current_rent << "€" << std::endl;
 						if (game.pay(current_player_id, current_rent, current_tile->getOwner())){
 							std::cout << "Vous payer " << current_rent << "€ au Joueur " << current_tile->getOwner() << std::endl;
 							std::cout << "A la prochaine !!" << std::endl;
 						}else{
-							std::cout << "Oopsii vous n'avez pas assez d'argent" << std::endl;
+							std::cout << "Oopsii vous n'avez pas assez d'argent (t'es pauvre)" << std::endl;
 							if( (game.getPlayerById(current_player_id))->getNetWorth() > current_rent){
 								do{
 									std::cout << "Vendre des propriétés" << std::endl;
 									game.checkPropertiesToSell(current_player_id);
 								}while(!game.pay(current_player_id, current_rent, current_tile->getOwner()));
 							}else{
-								std::cout << "Tu na plus assez de capitale tu as perdu ;(" << std::endl;
+								std::cout << "Tu n'a plus assez de capitale tu as perdu ;( (gros noob)" << std::endl;
 								game.killPlayer(current_player_id);
 							}
 						}
@@ -172,9 +178,9 @@ void txtLoop(Game & game)
 					// type Gare
 					else if (typeid(*current_tile).name() == typeid(Gare).name()){
 						current_rent = static_cast<Gare*>(current_tile)->getRent( (game.getPlayerById(current_tile->getOwner()))->getGareCount());
-						std::cout << "Le loyer est de: "<< current_rent << "$" << std::endl;
+						std::cout << "Le loyer est de: "<< current_rent << "€" << std::endl;
 						if (game.pay(current_player_id, current_rent, current_tile->getOwner())){
-							std::cout << "Vous payer " << current_rent << "$ au Joueur " << current_tile->getOwner() << std::endl;
+							std::cout << "Vous payer " << current_rent << "€ au Joueur " << current_tile->getOwner() << std::endl;
 							std::cout << "A la prochaine !!" << std::endl;
 							lineBreak();
 						}else{
@@ -185,7 +191,7 @@ void txtLoop(Game & game)
 									game.checkPropertiesToSell(current_player_id);
 								}while(!game.pay(current_player_id, current_rent, current_tile->getOwner()));
 							}else{
-								std::cout << "Tu na plus assez de capitale tu as perdu ;(" << std::endl;
+								std::cout << "Tu na plus assez de capitale tu as perdu ;( (gros noob)" << std::endl;
 								game.killPlayer(current_player_id);
 							}
 						}
@@ -198,7 +204,7 @@ void txtLoop(Game & game)
 			}
 
 			lineBreak();
-			std::cout << "Ce que tu possede: " << std::endl;
+			std::cout << "Ce que tu possède: " << std::endl;
 			lineBreak();
 			game.printPlayerProperties(current_player_id);
 
@@ -212,5 +218,22 @@ void txtLoop(Game & game)
 			system("clear");
 
 		}
-	} while(game.checkWinner() == -1);
+		lineBreak();
+		do {
+			std::cout << "Voulez-vous quittez la partie ? (y/n): "; 
+			std::cin >> anwser;
+		} while(anwser != 'y' and anwser != 'n');
+		
+		switch(anwser){
+			case 'y':
+				exit = true;
+				break;
+
+			case 'n':
+				exit = false;
+				break;
+		}
+		system("clear");
+
+	} while(exit == false && game.checkWinner() == -1);
 }

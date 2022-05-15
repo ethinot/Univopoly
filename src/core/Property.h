@@ -53,6 +53,8 @@ public:
 	unsigned int rent_1, unsigned int rent_2, unsigned int rent_3,
 	unsigned int rent_4, unsigned int rent_5);
 			
+	~Property();
+	
 	/**
 	 * @brief Récupère le loyer 
 	 * Récupère le loyer en fonction du nombre de construction sur la case.

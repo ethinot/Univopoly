@@ -3,6 +3,7 @@
  * @brief Module Game
  *
  * Module contenant la classe Game. 
+
  *  
  */
 #ifndef _GAMETXT
@@ -11,10 +12,10 @@
 #include "../core/Game.h"
 
 /**
- * @brief 
+ * @brief Initialise tous ce dont le Game a besoin (dés board players)
  * 
- * @param nb_player 
- * @return Game 
+ * @param nb_player -> nombre de joueur dans la partie
+ * @return un objet game
  */
 Game txtInit(int nb_player);
 

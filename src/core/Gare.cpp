@@ -12,6 +12,8 @@ Gare::Gare(std::string new_name, std::string new_color, std::string new_backgrou
     owner = -1;
 }
 
-Gare::~Gare(){}
+Gare::~Gare(){
+    
+}
 
 unsigned int Gare::getRent(unsigned int gare_number) const { return basic_rent * gare_number;}
