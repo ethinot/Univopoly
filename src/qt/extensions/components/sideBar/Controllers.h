@@ -15,6 +15,7 @@ class Controllers : public QWidget{
 		void diceButton();
 		void passButton();
 		void sellButton();
+		void tweakButton();
 	private slots:
 		void disablePass();
 		void enablePass();
@@ -24,6 +25,7 @@ class Controllers : public QWidget{
 		QPushButton *roll;
 		QPushButton *pass;
 		QPushButton *sell; 
+		QPushButton *tweak; 
 		QGridLayout *layout;
 		void disableButton(QPushButton* button);
 		void enableButton(QPushButton* button);

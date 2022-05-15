@@ -3,7 +3,6 @@ CONFIG += console c++11
 CONFIG -= app_bundle
 QT += widgets gui
 OBJECTS_DIR = obj
-RESOURCES = univopoly_qt.qrc
 
 SOURCES += \
         src/qt/main_qt.cpp \

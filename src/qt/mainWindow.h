@@ -31,6 +31,7 @@ class Window : public QWidget{
 		void boardDisplayChange(std::vector<Player*>, int);
 		void signalSellMenu(Player*);
 		void sold(std::vector<Player*>, int);
+		void playerDead();
 	private slots:
 		void rollingDice();
 		void movingPlayer(int amount);
@@ -38,6 +39,7 @@ class Window : public QWidget{
 		void buying();
 		void slotSellMenu();
 		void selling(int);
+		void tweaking();
 };
 
 #endif // MAINWINDOW_H

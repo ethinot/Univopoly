@@ -183,7 +183,7 @@ public:
 	 * 
 	 * @return std::vector<Tile *> -> tableau de case
 	 */
-	std::vector<Tile *> getProperties();
+	std::vector<Tile *> getProperties() const;
 
 	/**
 	 * @brief Supprime les propriétés du joueur 

@@ -28,6 +28,7 @@ void Players::loadPlayers(std::vector<Player*> players){
 }
 
 void Players::layoutAddWidgets(int current_player){
+	clearLayout(layout);
 	for (int i=0; i<players_qt.size(); i++){
 		if (i == current_player) players_qt[i]->setStyleSheet("background-color: LightGreen; color:black; border: 3px solid DodgerBlue;");
 		else setStyleSheet("background-color: white; border: 1px solid black;");
@@ -39,4 +40,19 @@ void Players::rendering(std::vector<Player*> new_players, int current_player){
 	qDebug() << "rendering";
 	loadPlayers(new_players);
 	layoutAddWidgets(current_player);
+}
+
+void Players::clearLayout(QLayout* layout, bool deleteWidgets)
+{
+    while (QLayoutItem* item = layout->takeAt(0))
+    {
+        if (deleteWidgets)
+        {
+            if (QWidget* widget = item->widget())
+                widget->deleteLater();
+        }
+        if (QLayout* childLayout = item->layout())
+            clearLayout(childLayout, deleteWidgets);
+        delete item;
+    }
 }
