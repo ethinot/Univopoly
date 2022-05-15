@@ -19,6 +19,8 @@ sideBar::sideBar(QWidget *parent, std::vector<Player*> new_players) : QWidget(pa
 	connect(controllers, SIGNAL(passButton()), this , SIGNAL(passTurn()));
 	connect(controllers, SIGNAL(sellButton()), this , SIGNAL(askSell()));
 	connect(controllers, SIGNAL(tweakButton()), this , SIGNAL(tweak()));
+	connect(this, SIGNAL(deadPlayerButtons()), controllers, SLOT(disablePass()));
+	connect(this, SIGNAL(deadPlayerButtons()), controllers, SLOT(enableRoll()));
 	connect(this, SIGNAL(renderPlayers(std::vector<Player*>, int)), players, SIGNAL(render(std::vector<Player*>, int)));
 	
 }
