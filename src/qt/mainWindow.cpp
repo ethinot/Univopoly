@@ -55,6 +55,9 @@ Window::Window() : QWidget(){
 	// sell prop
 	connect(sidebar, SIGNAL(askSell()), this, SLOT(slotSellMenu()));
 	connect(this, SIGNAL(signalSellMenu(Player*)), mainview, SIGNAL(sellMenu(Player*)));
+	connect(mainview, SIGNAL(sellTrueM(int)), this, SLOT(selling(int)));
+	connect(this, SIGNAL(sold(std::vector<Player*>, int)), sidebar, SIGNAL(renderPlayers(std::vector<Player*>, int)));
+	connect(this, SIGNAL(sold(std::vector<Player*>, int)), mainview, SIGNAL(renderBoard(std::vector<Player*>, int)));
 
 
 	// change player display
@@ -119,4 +122,9 @@ void Window::passingTurn(){
 void Window::buying(){
 	game->buyTile( game->getId(current_player_index), game->getPlayerPosition(game->getId(current_player_index)));
 	emit bought(game->getPlayers(), current_player_index);
+}
+
+void Window::selling(int property_id){
+	game->sellTile(game->getId(current_player_index), property_id);
+	emit sold(game->getPlayers(), current_player_index);
 }

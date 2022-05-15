@@ -19,6 +19,7 @@ class mainView : public QWidget{
 		void buyTrueM();
 		void sellMenu(Player*);
 		void sellMenuOff();
+		void sellTrueM(int);
 	private:
 		Board_qt *board;
 		QLayout *layout;

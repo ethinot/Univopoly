@@ -30,12 +30,14 @@ class Window : public QWidget{
 		void playersDisplayChange(std::vector<Player*>, int);
 		void boardDisplayChange(std::vector<Player*>, int);
 		void signalSellMenu(Player*);
+		void sold(std::vector<Player*>, int);
 	private slots:
 		void rollingDice();
 		void movingPlayer(int amount);
 		void passingTurn();
 		void buying();
 		void slotSellMenu();
+		void selling(int);
 };
 
 #endif // MAINWINDOW_H

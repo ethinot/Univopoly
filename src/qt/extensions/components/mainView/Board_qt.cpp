@@ -45,7 +45,7 @@ Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
 
 	centralControls->addWidget(buyWidget, Qt::AlignCenter );
 
-
+	proptosell = new QButtonGroup;
 	sellWidget = new QWidget();
 	sellWidget->setStyleSheet("background-color:DarkSeaGreen");
 	QVBoxLayout *selllayout = new QVBoxLayout(sellWidget);
@@ -91,8 +91,8 @@ Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
 	connect(dsell_button, SIGNAL(clicked()), this, SLOT(sellingOff()));
 	connect(dsell_button, SIGNAL(clicked()), this, SIGNAL(sellFalse()));
 
-	connect(sell_button, SIGNAL(clicked()), this, SLOT(sellingOff()));
-	connect(sell_button, SIGNAL(clicked()), this, SIGNAL(sellTrue()));
+	connect(sell_button, SIGNAL(clicked()), this, SLOT(processSell()));
+	//connect(sell_button, SIGNAL(clicked()), this, SLOT(sellingOff()));
 	connect(this, SIGNAL(sellOff()), this, SLOT(sellingOff()));
 
 
@@ -161,9 +161,10 @@ void Board_qt::selling(Player *player){
 	std::vector<Tile*> owned = player->getProperties();
 	clearLayout(properties);
 	for (int i = 0; i < owned.size(); i++){
-		QRadioButton *tmp_prop = new QRadioButton(QString::fromStdString(owned[i]->getName()));
+		QRadioButton *tmp_prop = new QRadioButton(QString::fromStdString(owned[i]->getName() + " Sell: " + std::to_string(owned[i]->getSellPrice())));
 		tmp_prop->setStyleSheet(QString::fromLocal8Bit("background-color: " + owned[i]->getColor()) + ";color: black;");
-		properties->addWidget(tmp_prop, ceil(i/4), i%4);
+		proptosell->addButton(tmp_prop, owned[i]->getId());
+		properties->addWidget(tmp_prop, ceil(i/2), i%2);
 	}
 	sellWidget->setVisible(true);
 }
@@ -182,4 +183,10 @@ void Board_qt::clearLayout(QLayout* layout, bool deleteWidgets)
             clearLayout(childLayout, deleteWidgets);
         delete item;
     }
+}
+
+
+void Board_qt::processSell(){
+	emit sellingOff();
+	emit sellTrue(proptosell->checkedId());
 }

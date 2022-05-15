@@ -6,6 +6,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QGridLayout>
+#include <QButtonGroup>
 #include <QLayout>
 #include <QVector>
 #include "Tile_qt.h"
@@ -28,7 +29,7 @@ class Board_qt : public QGridLayout{
 		void buyFalse();
 		void sell(Player*);
 		void sellOff();
-		void sellTrue();
+		void sellTrue(int);
 		void sellFalse();
 	private slots:
 		void rendering(std::vector<Player*>, int);
@@ -36,6 +37,7 @@ class Board_qt : public QGridLayout{
 		void buyingOff();
 		void selling(Player*);
 		void sellingOff();
+		void processSell();
 	private:
 		void clearLayout(QLayout* layout, bool deleteWidgets = true);
 		QHBoxLayout *centralControls;
@@ -44,6 +46,7 @@ class Board_qt : public QGridLayout{
 		QGridLayout *controlslayout;
 		QPushButton *property_tobuy;
 		QGridLayout *properties;
+		QButtonGroup *proptosell;
 		QVector<Tile_qt*> tiles;
 		void loadProperties(Board *board);
 		void layoutAddWidgets();
