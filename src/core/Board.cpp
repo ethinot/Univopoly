@@ -54,7 +54,10 @@ Board::Board(std::string filename){
 }
 
 Board::~Board() {
-    game_board.clear();
+    for (auto element: game_board){
+        delete element;
+    }
+    game_board.clear(); 
 }
 
 Tile* Board::getTile(unsigned int property_id){

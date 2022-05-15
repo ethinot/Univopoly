@@ -42,6 +42,12 @@ public:
 	Player(int new_id);
 	
 	/**
+	 * @brief Destructeur de l'objet Player
+	 * 
+	 */
+	virtual ~Player();
+	
+	/**
 	 * @brief Récupère l'id du joueur
 	 * 
 	 * @return unsigned int 

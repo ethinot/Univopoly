@@ -18,6 +18,10 @@ Player::Player(int new_id){
 	bot = false;
 }
 
+Player::~Player(){
+
+}
+
 int Player::getId() const {return id;}
 
 int Player::getBalance(){
@@ -35,6 +39,10 @@ bool Player::transaction(unsigned int amount){
 
 Tile* Player::getProperty(unsigned int property_id) { 
 	return goods.getProperty(property_id);
+}
+
+std::vector<Tile*> Player::getProperties() {
+	return goods.getProperties();
 }
 
 bool Player::buyProperty(Tile* property){
@@ -136,8 +144,8 @@ void Player::testRegPlayer(){
 	//test buyProperty
 	Tile p1 = Property("Braconnier", "green", "LightGreen",1, 60, 30, 50, 2, 10, 30, 90, 160, 250);
 	assert(player2.buyProperty(&p1) == true);
-	assert(player2.getBalance() == 1000-60);
-	assert(player2.getNetWorth() == 940+30);
+	assert(player2.getBalance() == 1500-60);
+	assert(player2.getNetWorth() == 1440+30);
 
 	//test printProperties
 	std::cout<<"Test affichage des propriétés:"<<std::endl;
@@ -145,14 +153,14 @@ void Player::testRegPlayer(){
 
 	//test sellProperty
 	assert(player2.sellProperty(1) == true);
-	assert(player2.getBalance() == 940+30);
+	assert(player2.getBalance() == 1440+30);
 
 	//test position
 	assert(player2.getPosition() == 0);
 	player2.changePostion(30);
 	assert(player2.getPosition() == 30);
 	player2.changePostion(10);
-	assert(player2.getBalance() == 970+200); //passe par le case départ
+	assert(player2.getBalance() == 1470+200); //passe par le case départ
 
 	//test prison
 	player2.goJail();
@@ -172,7 +180,3 @@ void Player::testRegPlayer(){
 	assert(player2.getGareCount() == 1);
 }
 
-
-std::vector<Tile*> Player::getProperties() const{
-	return goods.getProperties();
-}

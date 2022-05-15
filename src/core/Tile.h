@@ -32,11 +32,31 @@ protected:
 
 public:
 	
+	/**
+	 * @brief Constructeur sans paramètre
+	 * 
+	 */
 	Tile();
 	
+	/**
+	 * @brief Constructeur avec paramètre
+	 * 
+	 * @param name -> nom de la case
+	 * @param color -> couleur de la case (QT)
+	 * @param background -> couleur du fond d'une cas (QT)
+	 * @param id -> id de la case
+	 * @param price -> prix d'achat de la case 
+	 * @param sell_price -> prix de vente
+	 */
 	Tile(std::string name, std::string color, std::string background, unsigned int id, unsigned int price, unsigned int sell_price);
 	
-	~Tile();
+	/**
+	 * @brief Destructeur de l'objet Tile
+	 * Ici le destructeur est virtuel fait en sort de  détruire 
+	 * l'abstraction polymorphique allouée dynamiquement avec le bon destructeur
+	 * 
+	 */
+	virtual ~Tile();
 	
 	virtual void getType();
 	

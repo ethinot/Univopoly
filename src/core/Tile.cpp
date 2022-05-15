@@ -12,7 +12,7 @@ Tile::Tile(std::string new_name, std::string new_color, std::string new_backgrou
     owner = -2;
 }
 
-Tile::~Tile(){}
+Tile::~Tile(){};
 
 void Tile::getType(){}
 

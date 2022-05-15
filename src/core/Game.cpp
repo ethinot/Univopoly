@@ -20,7 +20,12 @@ Game::Game(int new_total_player, std::string filename) : board_game(){
 }
 
 Game::~Game() {
-	players.clear();
+	for (auto element : players)
+    {
+        delete element;
+		element = nullptr;
+    } 
+    players.clear(); 
 }
 
 int Game::getGameSize() const{return total_player;}

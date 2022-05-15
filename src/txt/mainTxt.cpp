@@ -14,11 +14,17 @@ int main(int argc, char ** argv){
     
 
     srand((unsigned int)time(NULL));
+    
     int nb_player;
     std::string filename = "../../data/tiles.json";
+   
     lineBreak();
-	std::cout << "Salut, on joue à combien ?: ";
-    std::cin >> nb_player;
+
+    do {
+	    std::cout << "Salut, on joue à combien ? (1-8):  "; 
+        std::cin >> nb_player;
+	} while(nb_player != 1 && nb_player != 2 && nb_player != 3 && nb_player != 4 && nb_player != 5 && nb_player != 6 && nb_player != 7 && nb_player != 8 );
+    
     Game game = txtInit(nb_player);
 
     txtLoop(game);

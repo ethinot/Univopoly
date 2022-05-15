@@ -11,7 +11,9 @@ Inventory::Inventory() : collection() {
 	wallet = 1500;
 }
 
-Inventory::~Inventory(){}
+Inventory::~Inventory(){
+    collection.clear(); 
+}
 
 int Inventory::getBalance() const{ return wallet;}
 
@@ -114,12 +116,13 @@ bool Inventory::removeProperty(unsigned int property_id){
 
 
 void Inventory::killMe(){
-	for (int i = 0; i < collection.size(); i++){
-		collection[i]->sold();
-		if (typeid(*collection[i]).name() == typeid(Property).name()){
-			static_cast<Property*>(collection[i])->emptyProperty();
+	for(auto & element : collection) {
+		element->sold();
+		if (typeid(*element).name() == typeid(Property).name()){
+			static_cast<Property*>(element)->emptyProperty();
 		}
-	}
+	}		
+		
 }
 
 int Inventory::findPropertyWroth(int price){
@@ -134,19 +137,19 @@ int Inventory::findPropertyWroth(int price){
 void Inventory::testRegInventory(){
 	Inventory invent;
 	assert(invent.collection.empty() == true);
-	assert(invent.wallet == 1000);
+	assert(invent.wallet == 1500);
 
 	//Test collectionEmpty
 	assert(invent.collectionEmpty() == true);
 
 	//Test getBalance
-	assert(invent.getBalance() == 1000);
+	assert(invent.getBalance() == 1500);
 
 	//Test changeBalance
 	assert(invent.changeBalance(100) == true);
-	assert(invent.getBalance() == 1100);
-	assert(invent.changeBalance(-1200) == false);
-	assert(invent.getBalance() == 1100);
+	assert(invent.getBalance() == 1600);
+	assert(invent.changeBalance(-1700) == false);
+	assert(invent.getBalance() == 1600);
 
 
 	//Test addProperty

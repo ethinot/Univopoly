@@ -19,6 +19,8 @@ Property::Property(std::string new_name, std::string new_color, std::string new_
 	owner = -1;
 }
 
+Property::~Property(){}
+
 unsigned int Property::getRent() const{return rent[rent_count];}
 
 unsigned int Property::getBuildPrice() const{return build_price;}
