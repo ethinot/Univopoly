@@ -19,7 +19,7 @@ class sideBar : public QWidget{
 		void askSell();
 		void tweak();
 		void renderPlayers(std::vector<Player*> players, int);
-		void deadPlayerButtons();
+		void killPlayer(int);
 	private:
 		Controllers *controllers;
 		Players *players;

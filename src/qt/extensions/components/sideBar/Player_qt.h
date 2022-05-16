@@ -20,6 +20,7 @@ class Player_qt : public QWidget{
 	public:
 		explicit Player_qt(QWidget *parent = 0, Player *player = 0);
 		void addWidget(QWidget *widget);
+		void kill();
 	private:
 		Player *player;
 		QLabel *name;

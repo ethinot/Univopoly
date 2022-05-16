@@ -14,7 +14,7 @@ class QPushButton;
 class Window : public QWidget{
 	Q_OBJECT
  	public:
-  		explicit Window();
+  		explicit Window(int new_total_player = 2, QWidget *parent = 0);
 		QLayout *layout;
 	private:
 		sideBar *sidebar;
@@ -31,7 +31,8 @@ class Window : public QWidget{
 		void boardDisplayChange(std::vector<Player*>, int);
 		void signalSellMenu(Player*);
 		void sold(std::vector<Player*>, int);
-		void playerDead();
+		void deadPlayer(int);
+		void endWindow();
 	private slots:
 		void rollingDice();
 		void movingPlayer(int amount);

@@ -21,8 +21,10 @@ class Players : public QWidget{
 		explicit Players(QWidget *parent = 0, std::vector<Player*> player = std::vector<Player*>());
 	signals:
 		void render(std::vector<Player*>, int);
+		void killPlayerP(int);
 	private slots:
 		void rendering(std::vector<Player*>, int);
+		void killingPlayer(int);
 	private:
 		void clearLayout(QLayout* layout, bool deleteWidgets = true);
 		QVector<Player_qt*> players_qt;

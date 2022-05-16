@@ -23,18 +23,18 @@ Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
 	buyWidget = new QWidget();
 	QVBoxLayout *buylayout = new QVBoxLayout(buyWidget);
 	buylayout->setSpacing(50);
-	buyWidget->setStyleSheet("background-color:DarkSeaGreen");
+	buyWidget->setStyleSheet("background-color:#B1D3AD");
 	property_tobuy = new QPushButton();
 	QHBoxLayout *buybuttons = new QHBoxLayout();
 	buy_button = new QPushButton(buyWidget);
 	buy_button->setIcon(QIcon("img/buy.png"));
 	buy_button->setIconSize(QSize(60, 60));
-	buy_button->setStyleSheet("background-color:white");
+	buy_button->setStyleSheet("background-color: rgba(0, 0, 0, 0.2);");
 	buy_button->setShortcut(tr("b"));
 	dbuy_button = new QPushButton(buyWidget);
 	dbuy_button->setIcon(QIcon("img/dontBuy.png"));
 	dbuy_button->setIconSize(QSize(60, 60));
-	dbuy_button->setStyleSheet("background-color:white");
+	dbuy_button->setStyleSheet("background-color: rgba(0, 0, 0, 0.2);");
 	dbuy_button->setShortcut(tr("d"));
 
 	buybuttons->addWidget(buy_button);
@@ -48,19 +48,19 @@ Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
 
 	proptosell = new QButtonGroup;
 	sellWidget = new QWidget();
-	sellWidget->setStyleSheet("background-color:DarkSeaGreen");
+	sellWidget->setStyleSheet("background-color:#B1D3AD");
 	QVBoxLayout *selllayout = new QVBoxLayout(sellWidget);
 	properties = new QGridLayout();
 	QHBoxLayout *sellbuttons = new QHBoxLayout();
 	sell_button = new QPushButton(buyWidget);
-	sell_button->setIcon(QIcon("img/buy.png"));
+	sell_button->setIcon(QIcon("img/deal.png"));
 	sell_button->setIconSize(QSize(60, 60));
-	sell_button->setStyleSheet("background-color:white");
+	sell_button->setStyleSheet("background-color: rgba(0, 0, 0, 0.2);");
 	sell_button->setShortcut(tr("b"));
 	dsell_button = new QPushButton(buyWidget);
 	dsell_button->setIcon(QIcon("img/x.png"));
 	dsell_button->setIconSize(QSize(60, 60));
-	dsell_button->setStyleSheet("background-color:white");
+	dsell_button->setStyleSheet("background-color: rgba(0, 0, 0, 0.2);");
 	dsell_button->setShortcut(tr("d"));
 
 

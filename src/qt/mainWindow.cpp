@@ -5,14 +5,15 @@
 #include <QScreen>
 #include <QDebug>
 
-Window::Window() : QWidget(){
+
+Window::Window(int new_total_player, QWidget *parent) : QWidget(parent){
 
 	this->setMinimumSize(QSize(1280, 720));
-	game = new Game(4);
+	game = new Game(new_total_player);
 	sidebar = new sideBar(this, game->getPlayers());
 	mainview = new mainView(this, game->getBoard());
 
-	this->setStyleSheet("background-color:DarkSeaGreen");
+	this->setStyleSheet("background-color:#B1D3AD");
 
 	layout = new QHBoxLayout(this);
 	setLayout(layout);
@@ -32,6 +33,7 @@ Window::Window() : QWidget(){
 	current_player_index = 0;
 
 
+
 	// roll dice
 	connect(sidebar, SIGNAL(rollDices()), this, SLOT(rollingDice()));
 
@@ -41,13 +43,12 @@ Window::Window() : QWidget(){
 	connect(this, SIGNAL(playerMoved(std::vector<Player*>, int)), mainview, SIGNAL(renderBoard(std::vector<Player*>, int)));
 
 	// pass turn
-	//connect(this, SIGNAL(playerDead()), sidebar, SIGNAL(passTurn()));
-	connect(this, SIGNAL(playerDead()), sidebar, SIGNAL(deadPlayerButtons()));
 	connect(sidebar, SIGNAL(passTurn()), this, SLOT(passingTurn()));
 	connect(sidebar, SIGNAL(passTurn()), mainview, SIGNAL(buyMenuOff()));
 	connect(sidebar, SIGNAL(passTurn()), mainview, SIGNAL(sellMenuOff()));
 	connect(this, SIGNAL(playersDisplayChange(std::vector<Player*>, int)), sidebar, SIGNAL(renderPlayers(std::vector<Player*>, int)));
 	connect(this, SIGNAL(boardDisplayChange(std::vector<Player*>, int)), mainview, SIGNAL(renderBoard(std::vector<Player*>, int)));
+	connect(this, SIGNAL(deadPlayer(int)), sidebar, SIGNAL(killPlayer(int)));
 
 
 	// buy property
@@ -69,7 +70,6 @@ Window::Window() : QWidget(){
 
 	//tweak
 	connect(sidebar, SIGNAL(tweak()), this, SLOT(tweaking()));
-
 }
 
 void Window::slotSellMenu(){
@@ -112,9 +112,8 @@ void Window::movingPlayer(int amount){
 		}else {
 			qDebug() << "Player dead";
 			game->killPlayer(game->getId(current_player_index));
-			playersDisplayChange(game->getPlayers(), current_player_index);
-			boardDisplayChange(game->getPlayers(), current_player_index);
-			emit playerDead();
+			current_player_index --;
+			emit deadPlayer(current_player_index+1);
 		}
 	}
 }

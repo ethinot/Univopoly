@@ -18,6 +18,7 @@ Players::Players(QWidget *parent, std::vector<Player*> new_players) : QWidget(pa
 	layoutAddWidgets(0);
 	this->setStyleSheet("background-color: white;");
 	connect(this, SIGNAL(render(std::vector<Player*>, int)), this, SLOT(rendering(std::vector<Player*>, int)));
+	connect(this, SIGNAL(killPlayerP(int)), this, SLOT(killingPlayer(int)));
 
 }
 
@@ -56,4 +57,8 @@ void Players::clearLayout(QLayout* layout, bool deleteWidgets)
             clearLayout(childLayout, deleteWidgets);
         delete item;
     }
+}
+
+void Players::killingPlayer(int index){
+	players_qt[index]->kill();
 }

@@ -13,7 +13,8 @@ Controllers::Controllers(QWidget *parent) : QWidget(parent){
 	layout->setSpacing(0);
 	layout->setContentsMargins(0, 0, 0, 0);
 
-	this->setStyleSheet("background-color: white;");
+
+	this->setStyleSheet("background-color: rgba(0, 0, 0, 0.2);");
 
 	roll = new QPushButton(this);
 	roll->setIcon(QIcon("img/roll_dice.png"));
@@ -50,8 +51,7 @@ Controllers::Controllers(QWidget *parent) : QWidget(parent){
 	layout->addWidget(sell, 1, 0);
 	layout->addWidget(tweak, 2, 0);
 
-	connect(this, SIGNAL(deadPlayer()), this, SLOT(disablePass()));
-	connect(this, SIGNAL(deadPlayer()), this, SLOT(enableRoll()));
+
 }
 
 

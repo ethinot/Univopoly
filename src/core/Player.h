@@ -186,7 +186,7 @@ public:
 	std::vector<Tile *> getProperties() const;
 
 	/**
-	 * @brief Supprime les propriétés du joueur 
+	 * @brief Supprime les propriétés du joueur
 	 * 
 	 */
 	void killMe();

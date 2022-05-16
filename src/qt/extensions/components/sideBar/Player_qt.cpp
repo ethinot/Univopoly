@@ -65,3 +65,13 @@ void Player_qt::loadProperties(){
 		properties->addWidget(prop_head, i, 0);
 	}
 }
+
+
+void Player_qt::kill(){
+	player_name->setVisible(false);
+	money->setVisible(false);
+	QPushButton *X_Button = new QPushButton();
+	X_Button->setIcon(QIcon("img/x.png"));
+	X_Button->setIconSize(QSize(60, 60));
+	properties->addWidget(X_Button);
+}
