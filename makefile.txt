@@ -47,3 +47,6 @@ obj/Dice.o: src/core/Dice.h src/core/Dice.cpp
 
 clean:
 	rm obj/* bin/*
+
+veryclean: clean
+	rm -r doc/html/
