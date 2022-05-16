@@ -1,17 +1,14 @@
+﻿
+# Univopoly 
 
-#
 
-  
-
-Ce depot est un module (fichiers .h et .cpp) de notre Monopoly personaliser.
-
-  
+Ce dépôt est un module (fichiers .h et .cpp) de notre Monopoly personnaliser.
 
 Il peut se compiler sous Linux, Windows, MacOS, en ligne de commande avec un IDE (codeblocks, visual code, QtCreator, etc..).
 
-Il fait appel à la bibliothèque _**QT**_ une API orientée objet
+Il fait appel à la bibliothèque _**QT**_ une API orientée objet.
 
-  
+ 
 
 # Pour compiler
 
@@ -48,44 +45,55 @@ sudo apt-get install qt5-default
 
 Pour installer Qt sous MacOS
 
-```brew install qt5```
+```
+brew install qt5
+```
 
+Pour Windows c'est via l'installation sur wsl 
 
+ou 
 
-### Compilation de l'application en mode text
+rendez-vous le site internet de Qt (https://www.qt.io/download) 
 
-  
+### Compilation de l'exécutable test
 
-Compilation + Creation de l'executable dans ./bin/txt
+*Cette exécutable sert à tester les différents modules du "core". *
+
+ ```make -f makefile.txt```   
+ ou
+  ```make -f "makefile.txt" bin/test```
+
+Pour le lancer l'exécutable ```./bin/txt``` depuis la racine de l'archive.
+
+### Compilation de l'application en mode texte
+
+*Le mode texte est un affichage simpliste du jeu dans le terminal.*
+ 
+Compilation & création de l'exécutable dans ./bin/txt
 
  ```make -f makefile.txt```
+ ou
+ ```make -f "makefile.txt" bin/txt "```
 
+Lancer l'exécutable exemple ```./bin/txt ```
 
-Lancer l'executable exemple ```./bin/txt ```
+ 
+### Compilation de l'application en mode graphique avec Qt
 
-*Univopoly en mode text narrative un peu de display au niveau des propriétés*
-  
+*Une fenêtre Qt est ouverte, laissez-vous guider par les boutons et amusez vous bien !*
 
-### Compilation de l'applicatiom en mode graphic Qt
+- Création du makefile et les fichiers Qt nécessaire : ```qmake```
 
+- Compilation & création de l'exécutable a la racine du fichier : ```make```
 
-Creation du makfile et les fichiers Qt necessaire 
-```qmake```
-Compilation + Creation de lexecutable a la racine du fichier 
-```make```
-Lancer l'executable exemple ```./univopoly_qt ```
-
-*Une fenêtre Qt est ouverte, laissez-vous guider par les boutons et amusez vous bien*
-
-  
+- Lancer l'exécutable exemple ```./univopoly_qt ```  
 
 ## Arborescence
 
-L'organistion des fichiers est la suivante.
+L'organisation des fichiers est la suivante.
 
 ```
-
-.
+. -> (on lance la commande pour les exécutable ici)
 ├── bin
 ├── data
 │   └── tiles.json
@@ -170,16 +178,15 @@ L'organistion des fichiers est la suivante.
 ├── univopoly_qt.pro
 ```
 
-  
-
 ## Contribution et License
 
-  
-
 Contributeur :
-
   
-
 - Enzo Ephrem p2019298
 
 - Edouard Thinot p1909945
+
+###  Remerciements
+
+Merci à nous même pour notre bonne humeur au quotidien mais merci aussi pour la bonne humeur et l'écoute de nos encadrants ! 
+**Vous êtes les meyer <3**

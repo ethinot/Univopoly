@@ -5,7 +5,6 @@
 #include <assert.h>
 #include<algorithm>
 #include<vector>
-#include<QDebug>
 
 Inventory::Inventory() : collection() {
 	wallet = 1500;
@@ -126,12 +125,10 @@ void Inventory::killMe(){
 }
 
 int Inventory::findPropertyWroth(unsigned int price){
-	qDebug() << "Finding";
-	for (int i = 0; i < collection.size(); i++){
-		qDebug() << collection[i]->getSellPrice();
-		qDebug() << collection[i]->getId();
+	for (long unsigned int i = 0; i < collection.size(); i++){
 		if (collection[i]->getSellPrice() >= price) return collection[i]->getId();
 	}
+	return -1;
 }
 
 void Inventory::testRegInventory(){
