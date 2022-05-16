@@ -60,8 +60,8 @@ void Player_qt::addWidget(QWidget *widget){
 
 void Player_qt::loadProperties(){
 	for(int i = 0; i < player->getProperties().size(); i++){
-		QPushButton *prop_head = new QPushButton(QString::fromLocal8Bit(player->getProperties()[i]->getName().c_str()));
-		prop_head->setStyleSheet(QString::fromLocal8Bit("background-color: " + player->getProperties()[i]->getColor()) + ";color: black;");
+		QPushButton *prop_head = new QPushButton(QString::fromStdString(player->getProperties()[i]->getName().c_str()));
+		prop_head->setStyleSheet(QString::fromStdString("background-color: " + player->getProperties()[i]->getColor()) + ";color: black;");
 		properties->addWidget(prop_head, i, 0);
 	}
 }

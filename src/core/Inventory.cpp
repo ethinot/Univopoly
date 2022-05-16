@@ -125,7 +125,7 @@ void Inventory::killMe(){
 		
 }
 
-int Inventory::findPropertyWroth(int price){
+int Inventory::findPropertyWroth(unsigned int price){
 	qDebug() << "Finding";
 	for (int i = 0; i < collection.size(); i++){
 		qDebug() << collection[i]->getSellPrice();

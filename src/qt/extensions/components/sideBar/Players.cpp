@@ -9,6 +9,7 @@
 #include <QPixmap>
 #include "Players.h"
 #include "Player_qt.h"
+#include <cmath>
 
 
 Players::Players(QWidget *parent, std::vector<Player*> new_players) : QWidget(parent){

@@ -29,7 +29,7 @@ Tile_qt::Tile_qt(Tile *input_tile) : QWidget(){
 	//this->setSizePolicy(QSizePolicy::MinimumExpanding,QSizePolicy::MinimumExpanding);
 
 	
-	head = new QPushButton(QString::fromLocal8Bit(tile->getName().c_str()));
+	head = new QPushButton(QString::fromStdString(tile->getName().c_str()));
 	layout->addWidget(head, 0, 0);
 	layout->addLayout(playersLayout, 1, 0);
 

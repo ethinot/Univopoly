@@ -9,6 +9,7 @@
 #include <QLayout>
 #include <QPixmap>
 #include "Board_qt.h"
+#include <cmath>
 
 
 Board_qt::Board_qt(QWidget *parent, Board *new_board) : QGridLayout(parent){
@@ -143,7 +144,7 @@ void Board_qt::rendering(std::vector<Player*> players, int current_player){
 void Board_qt::buying(int Tile_id){
 	qDebug() << "Showing buy menu";
 	property_tobuy->setText(QString::fromStdString(board->getTile(Tile_id)->getName()));
-	property_tobuy->setStyleSheet(QString::fromLocal8Bit("background-color: " + board->getTile(Tile_id)->getColor()) + ";color: black;");
+	property_tobuy->setStyleSheet(QString::fromStdString("background-color: " + board->getTile(Tile_id)->getColor()) + ";color: black;");
 	buyWidget->setVisible(true);
 }
 
@@ -163,7 +164,7 @@ void Board_qt::selling(Player *player){
 	clearLayout(properties);
 	for (int i = 0; i < owned.size(); i++){
 		QRadioButton *tmp_prop = new QRadioButton(QString::fromStdString(owned[i]->getName() + " Sell: " + std::to_string(owned[i]->getSellPrice())));
-		tmp_prop->setStyleSheet(QString::fromLocal8Bit("background-color: " + owned[i]->getColor()) + ";color: black;");
+		tmp_prop->setStyleSheet(QString::fromStdString("background-color: " + owned[i]->getColor()) + ";color: black;");
 		proptosell->addButton(tmp_prop, owned[i]->getId());
 		properties->addWidget(tmp_prop, ceil(i/2), i%2);
 	}
