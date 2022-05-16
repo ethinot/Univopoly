@@ -10,7 +10,7 @@
 #include <QButtonGroup>
 #include <QGridLayout>
 #include "Lobby.h"
-
+#include <cmath>
 
 Lobby::Lobby(QWidget *parent) : QWidget(parent){
 

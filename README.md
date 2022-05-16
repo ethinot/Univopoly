@@ -94,15 +94,27 @@ L'organisation des fichiers est la suivante.
 
 ```
 . -> (on lance la commande pour les exécutable ici)
+.
 ├── bin
 ├── data
+│   ├── sound
+│   │   ├── click.wav
+│   │   ├── encaisse.wav
+│   │   └── footsteps.wav
 │   └── tiles.json
 ├── doc
-│	├── UML_Univopoly.drawio
+│   ├── diagrammeDeGanttUnivopolyV2.pdf
+│   ├── Soutenance_Univopoly.pdf
+│   ├── UML_QT_UNIVO.png
+│   ├── UML_TEXTE_UNIVO.png
+│   ├── UML_TEXTE_UNIVO.png:Zone.Identifier
 │   └── univopoly.doxy
+│   └── html
+│   │   ├── * (toute la doc)
 ├── img
 │   ├── build.png
 │   ├── buy.png
+│   ├── deal.png
 │   ├── dontBuy.png
 │   ├── player1.png
 │   ├── player2.png
@@ -114,12 +126,14 @@ L'organisation des fichiers est la suivante.
 │   ├── player8.png
 │   ├── roll_dice.png
 │   ├── sell.png
+│   ├── start.png
 │   ├── turnPass.png
 │   ├── UCBL_logo.png
 │   ├── UML_v1.png
 │   ├── UML_v2.png
 │   ├── Univopoly_Board.png
-│   └── Univopoly_noshadow.png
+│   ├── Univopoly_noshadow.png
+│   └── x.png
 ├── obj
 ├── src
 │   ├── core
@@ -147,15 +161,11 @@ L'organisation des fichiers est la suivante.
 │   │   │   │   ├── mainView
 │   │   │   │   │   ├── Board_qt.cpp
 │   │   │   │   │   ├── Board_qt.h
-│   │   │   │   │   ├── Lobby.cpp
-│   │   │   │   │   ├── Lobby.h
 │   │   │   │   │   ├── Tile_qt.cpp
 │   │   │   │   │   └── Tile_qt.h
 │   │   │   │   └── sideBar
 │   │   │   │       ├── Controllers.cpp
 │   │   │   │       ├── Controllers.h
-│   │   │   │       ├── Dice_qt.cpp
-│   │   │   │       ├── Dice_qt.h
 │   │   │   │       ├── Player_qt.cpp
 │   │   │   │       ├── Player_qt.h
 │   │   │   │       ├── Players.cpp
@@ -164,6 +174,10 @@ L'organisation des fichiers est la suivante.
 │   │   │   ├── mainView.h
 │   │   │   ├── sideBar.cpp
 │   │   │   └── sideBar.h
+│   │   ├── Handler_qt.cpp
+│   │   ├── Handler_qt.h
+│   │   ├── Lobby.cpp
+│   │   ├── Lobby.h
 │   │   ├── main_qt.cpp
 │   │   ├── mainWindow.cpp
 │   │   └── mainWindow.h
@@ -172,10 +186,9 @@ L'organisation des fichiers est la suivante.
 │   │   ├── Gametxt.h
 │   │   └── mainTxt.cpp
 │   └── mainTest.cpp
-├── .qmake.stash
 ├── makefile.txt
 ├── README.md
-├── univopoly_qt.pro
+└── univopoly_qt.pro
 ```
 
 ## Contribution et License
