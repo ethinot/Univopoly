@@ -111,8 +111,7 @@ public:
 	
 	/**
 	* @brief bought(unsigned int) met à jour les propriétaire (owner)
-	* La procédure bought -> prend en paramètre l'id de l'acheteur et, 
-	* met à jour le propriétaire de la case.
+	* @param id_buyer -> id de l'acheteur
 	*/
 	void bought(unsigned int id_buyer); 
 

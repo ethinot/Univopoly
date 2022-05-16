@@ -113,7 +113,7 @@ public:
 	void printInventory(int gare_count);
 
 	/**
-	 * @brief vend et enlève de l'inventaire les propriétés 
+	 * @brief Vend et enlève de l'inventaire les propriétés 
 	 * 
 	 */
 	void killMe();
@@ -125,7 +125,7 @@ public:
 	 * @param price -> prix 
 	 * @return int -> indice du tableau collection correspondant à la proprtiété dont la valeur est supérieur à celle passer en paramètre
 	 */
-	int findPropertyWroth(int price);
+	int findPropertyWroth(unsigned int price);
 
 	/**
 	 * @brief Test de regression du module inventaire

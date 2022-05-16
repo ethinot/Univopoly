@@ -41,7 +41,7 @@ Tile* Player::getProperty(unsigned int property_id) {
 	return goods.getProperty(property_id);
 }
 
-std::vector<Tile*> Player::getProperties() {
+std::vector<Tile*> Player::getProperties() const{
 	return goods.getProperties();
 }
 
