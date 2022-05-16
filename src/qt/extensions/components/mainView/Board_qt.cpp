@@ -158,6 +158,7 @@ void Board_qt::sellingOff(){
 }
 
 void Board_qt::selling(Player *player){
+	qDebug() << "Selling Board";
 	std::vector<Tile*> owned = player->getProperties();
 	clearLayout(properties);
 	for (int i = 0; i < owned.size(); i++){
@@ -187,6 +188,7 @@ void Board_qt::clearLayout(QLayout* layout, bool deleteWidgets)
 
 
 void Board_qt::processSell(){
+	qDebug() << "Processing sell";
 	emit sellingOff();
 	emit sellTrue(proptosell->checkedId());
 }

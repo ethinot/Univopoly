@@ -49,6 +49,9 @@ Controllers::Controllers(QWidget *parent) : QWidget(parent){
 	layout->addWidget(pass, 0, 1);
 	layout->addWidget(sell, 1, 0);
 	layout->addWidget(tweak, 2, 0);
+
+	connect(this, SIGNAL(deadPlayer()), this, SLOT(disablePass()));
+	connect(this, SIGNAL(deadPlayer()), this, SLOT(enableRoll()));
 }
 
 
@@ -61,16 +64,19 @@ void Controllers::enableButton(QPushButton* button){
 }
 
 void Controllers::disablePass(){
-	qDebug() << "disabling pass";
+	qDebug() << "Disabling pass";
 	disableButton(pass);
 }
 void Controllers::enablePass(){
+	qDebug() << "Enabling pass";
 	enableButton(pass);
 }
 
 void Controllers::disableRoll(){
+	qDebug() << "Disabling roll";
 	disableButton(roll);
 }
 void Controllers::enableRoll(){
+	qDebug() << "Enabling roll";
 	enableButton(roll);
 }

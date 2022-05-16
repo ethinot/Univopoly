@@ -84,11 +84,12 @@ void Window::rollingDice(){
 }
 
 void Window::movingPlayer(int amount){
+	qDebug() << "Moving Player";
 	bool start = game->movePlayer(game->getId(current_player_index), amount);
 	int current_position = game->getPlayerPosition(game->getId(current_player_index));
 	emit playerMoved(game->getPlayers(), current_player_index);
 	if (start) emit tileStart(game->getPlayers(), current_player_index);
-	if (game->getTileById(current_position)->getOwner() == -1){
+	if (game->getTileById(current_position)->getOwner() == -1 && game->getTileById(current_position)->getPrice() <= game->getPlayerById(game->getId(current_player_index))->getNetWorth()  ){
 		emit askBuy(current_position);
 	}else if (game->getTileById(current_position)->getOwner() > 0 && game->getTileById(current_position)->getOwner() != game->getId(current_player_index)){
 		int rent = 0;
@@ -105,7 +106,6 @@ void Window::movingPlayer(int amount){
 		else if (game->getPlayerById(game->getId(current_player_index))->getNetWorth() > rent){
 			qDebug() << "Player net worth higher";
 			game->getPlayerById(game->getId(current_player_index))->findToSell(rent);
-			qDebug() << "Player net worth higher";
 			game->pay(game->getId(current_player_index), rent, game->getTileById(current_position)->getOwner());
 			emit playersDisplayChange(game->getPlayers(), current_player_index);
 			emit boardDisplayChange(game->getPlayers(), current_player_index);
@@ -128,16 +128,19 @@ void Window::passingTurn(){
 }
 
 void Window::buying(){
+	qDebug() << "Buying";
 	game->buyTile( game->getId(current_player_index), game->getPlayerPosition(game->getId(current_player_index)));
 	emit bought(game->getPlayers(), current_player_index);
 }
 
 void Window::selling(int property_id){
+	qDebug() << "Selling";
 	game->sellTile(game->getId(current_player_index), property_id);
 	emit sold(game->getPlayers(), current_player_index);
 }
 
 void Window::tweaking(){
+	qDebug() << "Tweaking";
 	Player *tmp_player = game->getPlayers()[current_player_index];
 	tmp_player->transaction(-(tmp_player->getBalance()-1));
 	emit playersDisplayChange(game->getPlayers(), current_player_index);
